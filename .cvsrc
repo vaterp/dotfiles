@@ -1,0 +1,6 @@
+#diff -w --side-by-side --suppress-common-lines
+#diff -wu 
+diff -w
+log -N
+checkout -P
+#update -dP
