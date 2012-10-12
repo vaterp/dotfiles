@@ -2,6 +2,7 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+
 set bs=2		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
 set backup		" keep a backup file
@@ -411,3 +412,13 @@ let @a='/h2xh'
 "	endif
 "endfun
 "End DCL Stuff
+"
+"
+"
+"
+"GVim for windows stuff
+
+if has ("gui_win32")
+	set sessionoptions+=resize  " Allow sessions to capture full window size on gvim
+	autocmd BufRead,BufNewFile *.vis source %
+endif
