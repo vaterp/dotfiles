@@ -1,0 +1,19 @@
+
+[Desktop Entry]
+Name=pp1
+Comment=ssh to researchPP1
+TryExec=gnome-terminal
+Exec=gnome-terminal --command "ssh pp1"
+Icon=utilities-terminal
+Type=Application
+X-GNOME-DocPath=gnome-terminal/index.html
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-terminal
+X-GNOME-Bugzilla-Component=BugBuddyBugs
+X-GNOME-Bugzilla-Version=3.4.1.1
+Categories=GNOME;GTK;Utility;TerminalEmulator;System;
+StartupNotify=false
+X-Desktop-File-Install-Version=0.19
+X-XFCE-Source=file:///usr/share/applications/gnome-terminal.desktop
+Path=
+Terminal=false

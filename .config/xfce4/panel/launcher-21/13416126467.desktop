@@ -1,0 +1,11 @@
+
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=gvim
+Comment=gvim
+Icon=gvim
+Exec=/usr/bin/gvim
+Path=~
+Terminal=false
+StartupNotify=false

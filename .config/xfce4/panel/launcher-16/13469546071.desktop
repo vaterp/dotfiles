@@ -1,0 +1,28 @@
+
+[Desktop Entry]
+Name=Screenshot
+Comment=Save images of your desktop or individual windows
+Exec=gnome-screenshot -a
+Terminal=false
+Type=Application
+Icon=applets-screenshooter
+StartupNotify=true
+Categories=GTK;GNOME;Utility;
+NotShowIn=KDE;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gnome-utils
+X-GNOME-Bugzilla-Component=screenshot
+X-Ayatana-Desktop-Shortcuts=Screen;Window
+X-XFCE-Source=file:///usr/share/applications/gnome-screenshot.desktop
+
+Path=/home/bsnyder/Desktop
+
+[Screen Shortcut Group]
+Name=Take a screenshot of the whole screen
+Exec=gnome-screenshot
+TargetEnvironment=Unity
+
+[Window Shortcut Group]
+Name=Take a screenshot of the current window
+Exec=gnome-screenshot -w
+TargetEnvironment=Unity

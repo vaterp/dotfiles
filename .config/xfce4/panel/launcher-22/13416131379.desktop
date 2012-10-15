@@ -1,0 +1,16 @@
+
+[Desktop Entry]
+Name=Configuration Editor
+Comment=Directly edit your entire configuration database
+Exec=gconf-editor
+Terminal=false
+Type=Application
+Icon=gconf-editor
+StartupNotify=true
+Categories=GNOME;GTK;System;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=gconf-editor
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=3.0.1
+X-Desktop-File-Install-Version=0.19
+X-XFCE-Source=file:///usr/share/applications/gnome-gconf-editor.desktop
