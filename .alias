@@ -22,9 +22,9 @@ alias exe='find . -type f -perm -u+x'
 alias fn='find . -name'
 alias f='find . -type f -print0 | xargs -0 grep'
 alias fw='find . -type f -print0 | xargs -0 grep -w '
-alias fh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep"
-alias fc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep"
-alias fhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep"
+#alias fh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep"
+#alias fc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep"
+#alias fhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep"
 #alias fhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
 alias more='less'
 alias l='less'
@@ -49,19 +49,9 @@ alias cdt='cd `cdt_perl`'
 alias plx='pgrep -l -x'
 alias pk='pkill -x na'
 alias d='dirs -v'
-alias -g L='| less'
-alias -g G='|grep --color'
-alias -g GI='|grep -i --color'
-alias -g T='|tail'
-alias -g H='|head'
-alias -g N='&>/dev/null&'
 alias lsd='ls -ld *(/)'
 alias lse='find . -type f -perm +100'
 alias lsh='find . -type f -perm +100  | grep -v test | grep -v tools | grep -v dvbs2 | grep -v script | grep -v drivers | grep -v cougar | grep -v falcon | grep -v puma | grep -v ".sh$" '
-alias -s cpp=vim
-alias -s h=vim
-alias -s txt=vim
-alias -s log=vim
 alias alt="clear;alias | grep -v grep | grep lt | sort -nk3 | grep lt"
 alias m516='lt m516 01' #m1='lt m516 01'
 alias m689='lt m689 02' #m2='telnet lant 10002'
@@ -86,6 +76,22 @@ alias 2911='lt 2911 30'
 #Git helpers
 alias gst='git status -uno'
 
+#zsh aliases only:
+if [ "$SHELL" = "/bin/zsh" ]; then
+	
+alias -g L='| less'
+alias -g G='|grep --color'
+alias -g GI='|grep -i --color'
+alias -g T='|tail'
+alias -g H='|head'
+alias -g N='&>/dev/null&'
+
+alias -s cpp=vim
+alias -s h=vim
+alias -s txt=vim
+alias -s log=vim
+
+fi
 
 #Root Sudo aliases:
 alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
