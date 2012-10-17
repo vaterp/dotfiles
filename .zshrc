@@ -39,7 +39,9 @@ function revset
 	#export dg=$dcl/jobs/gnu
 	#CDPATH=.:~:$h:$p:$id:$id/shared/stack:$dcl
 	CDPATH=.:~:$h:$p:$id:$id/shared/stack
-	cd $id
+	if [[ -d $id ]]; then
+		cd $id
+	fi
 }
 
 
