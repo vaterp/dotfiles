@@ -38,9 +38,8 @@ alias j=jobs
 alias c=clear
 alias pd=perldoc
 alias clm="cvs log -w bsnyder"
-#Root Sudo aliases:
-alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
-alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
+
+
 alias s=screen
 alias stc='screen -t console telnet 127.0.0.1 13255'
 alias stm='screen -t messages sudo tail -f /var/log/messages'
@@ -82,3 +81,12 @@ alias asr1k='lt uprtr 28'   ur1='lt r1 28'
 alias mrmag1='lt mrmag1 29' mm1='lt mm1 29'
 alias mrmag2='lt mrmag2 31' mm2='lt mm2 31'
 alias 2911='lt 2911 30'
+
+
+#Git helpers
+alias gst='git status -uno'
+
+
+#Root Sudo aliases:
+alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
+alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
