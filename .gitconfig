@@ -29,6 +29,7 @@
 	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
 	sra = svn rebase --all
 	sh = !git-sh
+	ssu = status -s -uno
 	st = status
 	stm = status --untracked=no
 	stfu = status --untracked=no
