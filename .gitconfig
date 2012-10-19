@@ -13,7 +13,9 @@
 	ci = commit
 	co = checkout
 	d = diff
+	ds = diff --stat
 	dc = diff --cached
+	dcs = diff --cached --stat
 	fp = format-patch
 	g = !git gui &
 	gr = log --graph
