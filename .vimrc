@@ -3,7 +3,7 @@
 set nocompatible
 
 
-set bs=2		" allow backspacing over everything in insert mode
+set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
 set backup		" keep a backup file
 set background=dark
@@ -32,7 +32,6 @@ set tabstop=2
 set shiftwidth=2
 set cino+=(0             "Align paramater lists after newline under '('
 set cino+=e-1s           "No indent if '{' is not on its own line
-
 
 set formatoptions-=r "Stop auto commenting on new lines
 set formatoptions-=o "Stop auto commenting on Oo
