@@ -18,8 +18,8 @@
 	dcs = diff --cached --stat
 	fp = format-patch
 	g = !git gui &
-	gr = log --graph
-	go = log --graph --pretty=oneline --abbrev-commit
+	lg = log --graph
+	lgo = log --graph --pretty=oneline --abbrev-commit
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
