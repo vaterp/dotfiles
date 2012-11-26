@@ -20,6 +20,8 @@
 	g = !git gui &
 	lg = log --graph
 	lgo = log --graph --pretty=oneline --abbrev-commit
+	lf  =  log --graph --pretty=format:'%h %an -%d %s (%cr)' --abbrev-commit --date=relative
+	#lf  =  log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
