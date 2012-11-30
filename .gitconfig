@@ -9,7 +9,7 @@
 [alias]
 	pom = push origin master
 	b = branch
-	ba = branch -a
+	ba = branch -avv
 	ci = commit
 	co = checkout
 	d = diff

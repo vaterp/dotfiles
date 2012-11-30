@@ -369,6 +369,8 @@ fun! DoSearchRouter()
 endfun
 let @a='/h2xh'
 
+"Some git help
+map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 
 "DCL STUFF
 "autocmd BufReadPost ipstrc.* call DoIpsCleanup()
