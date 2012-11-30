@@ -7,7 +7,8 @@
 	tool = vimdiff
 
 [alias]
-	pom = push origin master
+	#pom = push origin master
+	pgm = push github master
 	b = branch
 	ba = branch -avv
 	ci = commit
