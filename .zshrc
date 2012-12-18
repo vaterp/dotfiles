@@ -146,6 +146,11 @@ lt()
 }
 
 #st () {print -Pn "\e]0; $1 \a"}
+plt()
+{
+	print -Pn "\e]0; $1 \a"
+	telnet plant 100"$2"
+}
 
 
 

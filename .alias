@@ -53,6 +53,7 @@ alias lsd='ls -ld *(/)'
 alias lse='find . -type f -perm +100'
 alias lsh='find . -type f -perm +100  | grep -v test | grep -v tools | grep -v dvbs2 | grep -v script | grep -v drivers | grep -v cougar | grep -v falcon | grep -v puma | grep -v ".sh$" '
 alias alt="clear;alias | grep -v grep | grep lt | sort -nk3 | grep lt"
+alias palt="alt | grep plt"
 alias m516='lt m516 01' #m1='lt m516 01'
 alias m689='lt m689 02' #m2='telnet lant 10002'
 alias m658='lt m658 03' #m3='telnet lant 10003'
@@ -72,6 +73,9 @@ alias mrmag1='lt mrmag1 29' mm1='lt mm1 29'
 alias mrmag2='lt mrmag2 31' mm2='lt mm2 31'
 alias 2911='lt 2911 30'
 
+alias tlc='plt transmit_line_card 12'
+alias rlc='plt receive_line_card 14'
+alias mdm='plt m267 10'
 
 #Git helpers
 alias gst='git status -uno'
