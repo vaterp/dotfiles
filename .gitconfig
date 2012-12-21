@@ -18,7 +18,6 @@
 	dc = diff --cached
 	dcs = diff --cached --stat
 	fp = format-patch
-	g = !git gui &
 	lg = log --graph
 	lgo = log --graph --pretty=oneline --abbrev-commit
 	lf  =  log --graph --pretty=format:'%h %an -%d %s (%cr)' --abbrev-commit --date=relative

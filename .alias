@@ -99,6 +99,8 @@ fi
 
 alias tls='tmux list-session'
 
+alias ss='screen -c .screenpioneer'
+
 #Root Sudo aliases:
 alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
