@@ -101,6 +101,16 @@ alias tls='tmux list-session'
 
 alias ss='screen -c .screenpioneer'
 
+#See IpAddress on interfaces
+sip() {
+ ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
+}
+#The alias doesnt have proper quoting...
+#alias sip2='print -lr ip -o -4 addr  | awk \'{print $2 "  "  $4}\' | grep -v 127.0.0.1'
+
+
 #Root Sudo aliases:
 alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
+
+
