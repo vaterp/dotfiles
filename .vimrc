@@ -3,7 +3,7 @@
 set nocompatible
 
 
-set bs=2		" allow backspacing over everything in insert mode
+set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
 set backup		" keep a backup file
 set background=dark
@@ -32,7 +32,6 @@ set tabstop=2
 set shiftwidth=2
 set cino+=(0             "Align paramater lists after newline under '('
 set cino+=e-1s           "No indent if '{' is not on its own line
-
 
 set formatoptions-=r "Stop auto commenting on new lines
 set formatoptions-=o "Stop auto commenting on Oo
@@ -370,6 +369,8 @@ fun! DoSearchRouter()
 endfun
 let @a='/h2xh'
 
+"Some git help
+map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 
 "DCL STUFF
 "autocmd BufReadPost ipstrc.* call DoIpsCleanup()
@@ -412,9 +413,21 @@ let @a='/h2xh'
 "	endif
 "endfun
 "End DCL Stuff
+
+
+"Json support
+
+"au! BufRead,BufNewFile *.json set filetype=json
 "
-"
-"
+"augroup json_autocmd
+"	autocmd!
+"	autocmd FileType json set autoindent
+"	autocmd FileType json set formatoptions=tcq2l
+"	autocmd FileType json set textwidth=78 shiftwidth=2
+"	autocmd FileType json set softtabstop=2 tabstop=8
+"	autocmd FileType json set expandtab
+"	autocmd FileType json set foldmethod=syntax
+"augroup END 
 "
 "GVim for windows stuff
 

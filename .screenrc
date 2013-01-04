@@ -123,6 +123,8 @@ bind 'I' login on
 bind 'O' login off
 bind '}' history
 
+bind 'C' at "#" stuff "clear\r"
+
 # This makes screen change backspaces to '^H' (as
 # it should). There should be a fix in the code
 # for the way termcap inheritance works, but I
@@ -179,4 +181,7 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a"
 
-
+#Logging stuff
+deflog on
+logfile /tmp/screenlog.%n
+logtstamp on

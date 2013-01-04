@@ -47,6 +47,8 @@ function revset
 
 revset 3.1.0.99
 
+CDPATH=$CDPATH:~/pioneer
+
 export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
 
 #Unix Utils Setup
@@ -146,6 +148,11 @@ lt()
 }
 
 #st () {print -Pn "\e]0; $1 \a"}
+plt()
+{
+	print -Pn "\e]0; $1 \a"
+	telnet plant 100"$2"
+}
 
 
 

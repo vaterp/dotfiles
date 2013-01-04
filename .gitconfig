@@ -7,17 +7,21 @@
 	tool = vimdiff
 
 [alias]
-	pom = push origin master
+	#pom = push origin master
+	pgm = push github master
 	b = branch
-	ba = branch -a
+	ba = branch -avv
 	ci = commit
 	co = checkout
 	d = diff
+	ds = diff --stat
 	dc = diff --cached
+	dcs = diff --cached --stat
 	fp = format-patch
-	g = !git gui &
-	gr = log --graph
-	go = log --graph --pretty=oneline --abbrev-commit
+	lg = log --graph
+	lgo = log --graph --pretty=oneline --abbrev-commit
+	lf  =  log --graph --pretty=format:'%h %an -%d %s (%cr)' --abbrev-commit --date=relative
+	#lf  =  log --graph --pretty=format:'%Cred%h%Creset %C(cyan)%an%Creset -%C(blue)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
@@ -29,6 +33,7 @@
 	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
 	sra = svn rebase --all
 	sh = !git-sh
+	ssu = status -s -uno
 	st = status
 	stm = status --untracked=no
 	stfu = status --untracked=no
