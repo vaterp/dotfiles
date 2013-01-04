@@ -3,7 +3,7 @@ HST=`/bin/hostname`
 
 #Set Terminal Title
 precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-#
+
 #Bash Shell Setup
 FIGNORE='~:.o:.d:.a:CVS'
 function revset
@@ -47,7 +47,8 @@ function revset
 
 revset 3.1.0.99
 
-CDPATH=$CDPATH:~/pioneer
+#Pioneer Dev Setup
+CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
 
 export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
 
