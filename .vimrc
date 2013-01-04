@@ -2,6 +2,11 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+"Diff setup
+set diffopt=filler,iwhite,vertical
+set diffexpr=""
+
+
 
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
@@ -415,6 +420,7 @@ map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 "End DCL Stuff
 
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 "Json support
 
 "au! BufRead,BufNewFile *.json set filetype=json

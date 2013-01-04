@@ -1,42 +1,19 @@
-#
-# Example of a user's .screenrc file
-#
+#Logging stuff
+deflog on
+logfile /tmp/screen.%m-%d_%0c.%S-%n.log
+logtstamp on
 
-# This is how one can set a reattach password:
-# password ODSJQf.4IJN7E    # "1234"
 
-# no annoying audible bell, please
-vbell on
+vbell on  #no annoying audible bell
+autodetach on   #detach on hangup
+startup_message off #Turn off copyright page
+hardcopy_append on  #If flashes are stored, dont overwrite anything by default
 
-# detach on hangup
-autodetach on
-
-# don't display the copyright page
-startup_message off
-
-# emulate .logout message
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
 
-# advertise hardstatus support to $TERMCAP
-# termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+defscrollback 30000
 
-# make the shell in every window a login shell
-#shell -$SHELL
 
-# autoaka testing
-# shellaka '> |tcsh'
-# shellaka '$ |sh'
-
-# set every new windows hardstatus line to somenthing descriptive
-# defhstatus "screen: ^En (^Et)"
-
-defscrollback 1000
-
-# don't kill window after the process died
-# zombie "^["
-
-# enable support for the "alternate screen" capability in all windows
-# altscreen on
 
 ################
 #
@@ -51,7 +28,8 @@ terminfo xterm hs@:cs=\E[%i%p1%d;%p2%dr:im=\E[4h:ei=\E[4l
 
 #80/132 column switching must be enabled for ^AW to work
 #change init sequence to not switch width
-termcapinfo  xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+termcapinfo xterm Z0=\E[?3h:Z1=\E[?3l:is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l
+termcapinfo xterm ti@:te@
 
 # Make the output buffer large for (fast) xterms.
 #termcapinfo xterm* OL=10000
@@ -124,6 +102,7 @@ bind 'O' login off
 bind '}' history
 
 bind 'C' at "#" stuff "clear\r"
+bind 'E' at "#" stuff "exit\r"
 
 # This makes screen change backspaces to '^H' (as
 # it should). There should be a fix in the code
@@ -143,45 +122,19 @@ register [ "\033:se noai\015a"
 register ] "\033:se ai\015a"
 bind ^] paste [.]
 
-################
-#
-# default windows
-#
-
-screen -t CONSOLE 0 telnet 0 13255
-screen -t ROOT 1 su - 
-screen -t HUB  2
-#screen -t HUB  2 rs 3.1.0.99 phoenix
-screen -t REM  3
-screen -t MAKE  4
-# hardstatus alwaysignore
-# hardstatus alwayslastline "%Lw"
-
-# bind = resize =
-# bind + resize +1
-# bind - resize -1
-# bind _ resize max
-#
-# defnonblock 1
-# blankerprg rain -d 100
-# idle 30 blanker
-#hardstatus string "[screen %n%?: %t%?] %h"
-hardstatus string "%h"
-
-# Display a list of windows on the last line:
-#  - Display the inactive windows in white-on-black
-#  - Display the active window in underlined green-on-black
-#caption always "%3n %t%? @%u%?%? [%h]%?%=%c"
-
-
-
-#caption always "%{= kw}%-Lw%{=u kg}%50>%n%f* %t%{= kw}%+Lw"
 
 hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a"
 
-#Logging stuff
-deflog on
-logfile /tmp/screenlog.%n
-logtstamp on
+
+#Help
+
+# This is how one can set a reattach password:
+# password ODSJQf.4IJN7E    # "1234"
+#
+# advertise hardstatus support to $TERMCAP
+# termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+#
+# enable support for the "alternate screen" capability in all windows
+# altscreen on

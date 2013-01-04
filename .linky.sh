@@ -1,0 +1,10 @@
+ln -s dotfiles/.profile
+ln -s dotfiles/.inputrc
+ln -s dotfiles/.gitconfig
+ln -s dotfiles/.vim/
+ln -s dotfiles/.zshrc
+ln -s dotfiles/.vimrc
+ln -s dotfiles/.screenrc
+ln -s dotfiles/.alias
+ln -s dotfiles/.bashrc
+ln -s dotfiles/.gitignore
