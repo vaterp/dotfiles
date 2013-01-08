@@ -415,6 +415,7 @@ map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 "End DCL Stuff
 
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 "Json support
 
 "au! BufRead,BufNewFile *.json set filetype=json
