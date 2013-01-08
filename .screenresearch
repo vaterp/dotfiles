@@ -1,0 +1,12 @@
+source ~/.screenrc
+
+#
+#default windows
+#
+
+screen -t CONSOLE 0 telnet 0 13255
+screen -t ROOT 1 su - 
+screen -t HUB  2
+screen -t HUB  2 rs 3.1.0.99 phoenix
+screen -t REM  3
+screen -t MAKE  4
