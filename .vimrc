@@ -2,6 +2,11 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+"Diff setup
+set diffopt=filler,iwhite,vertical
+set diffexpr=""
+
+
 
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on

@@ -3,37 +3,17 @@ deflog on
 logfile /tmp/screen.%m-%d_%0c.%S-%n.log
 logtstamp on
 
-# This is how one can set a reattach password:
-# password ODSJQf.4IJN7E    # "1234"
 
 vbell on  #no annoying audible bell
 autodetach on   #detach on hangup
 startup_message off #Turn off copyright page
 hardcopy_append on  #If flashes are stored, dont overwrite anything by default
 
-# emulate .logout message
 pow_detach_msg "Screen session of \$LOGNAME \$:cr:\$:nl:ended."
-
-# advertise hardstatus support to $TERMCAP
-# termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
-
-# make the shell in every window a login shell
-#shell -$SHELL
-
-# autoaka testing
-# shellaka '> |tcsh'
-# shellaka '$ |sh'
-
-# set every new windows hardstatus line to somenthing descriptive
-# defhstatus "screen: ^En (^Et)"
 
 defscrollback 30000
 
-# don't kill window after the process died
-# zombie "^["
 
-# enable support for the "alternate screen" capability in all windows
-# altscreen on
 
 ################
 #
@@ -147,3 +127,14 @@ hardstatus on
 hardstatus alwayslastline
 hardstatus string "%{.bW}%-w%{.rW}%n %t%{-}%+w %=%{..G} %H %{..Y} %m/%d %C%a"
 
+
+#Help
+
+# This is how one can set a reattach password:
+# password ODSJQf.4IJN7E    # "1234"
+#
+# advertise hardstatus support to $TERMCAP
+# termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+#
+# enable support for the "alternate screen" capability in all windows
+# altscreen on
