@@ -15,7 +15,7 @@
 	ba = branch -avv
 	ci = commit
 	co = checkout
-	d = diff
+	d = diff  --color
 	ds = diff --stat
 	dc = diff --cached
 	dcs = diff --cached --stat
