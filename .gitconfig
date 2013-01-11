@@ -11,7 +11,7 @@
 [alias]
 	#pom = push origin master
 	pgm = push github master
-	b = branch
+	b = branch -v
 	ba = branch -avv
 	ci = commit
 	co = checkout
