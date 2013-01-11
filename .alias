@@ -22,10 +22,12 @@ alias exe='find . -type f -perm -u+x'
 alias fn='find . -name'
 alias f='find . -type f -print0 | xargs -0 grep'
 alias fw='find . -type f -print0 | xargs -0 grep -w '
-#alias fh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep"
-#alias fc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep"
-#alias fhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep"
-#alias fhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
+
+alias fh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep"
+alias fc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep"
+alias fhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep"
+alias fhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
+
 alias more='less'
 alias l='less'
 alias pp="pstree -p"
@@ -114,4 +116,8 @@ sip() {
 alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
+#Some Pioneer aliases:
+alias na='cd ~/pioneer/PP_NA'
+alias da='cd ~/pioneer/PP_DA'
+alias lib='cd group_qos'
 
