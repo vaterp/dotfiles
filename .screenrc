@@ -1,6 +1,6 @@
 #Logging stuff
 deflog on
-logfile /tmp/screen.%m-%d_%0c.%S-%n.log
+logfile /tmp/screen.%n-%m-%d_%0c.log
 logtstamp on
 
 
