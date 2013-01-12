@@ -53,6 +53,7 @@ alias pk='pkill -x na'
 alias d='dirs -v'
 alias lsd='ls -ld *(/)'
 alias lse='find . -type f -perm +100'
+alias script='script -f'
 alias lsh='find . -type f -perm +100  | grep -v test | grep -v tools | grep -v dvbs2 | grep -v script | grep -v drivers | grep -v cougar | grep -v falcon | grep -v puma | grep -v ".sh$" '
 alias alt="clear;alias | grep -v grep | grep lt | sort -nk3 | grep lt"
 alias palt="alt | grep plt"
