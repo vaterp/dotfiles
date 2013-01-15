@@ -21,10 +21,8 @@
 	dcs = diff --cached --stat
 	dno = diff --name-only
 	fp = format-patch
-	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-	lgo = log --graph --pretty=oneline --abbrev-commit
-	lf  =  log --graph --pretty=format:'%h %an -%d %s (%cr)' --abbrev-commit --date=relative
-  hist = log --pretty=format:'%h %ad | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
+	histg = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	--graph 
+  hist  = log --pretty=format:'%h %ad | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
