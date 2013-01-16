@@ -1,6 +1,17 @@
 #rhub is my desktop so I might want to set that up differently
 HST=`/bin/hostname`
 
+#Bindkey setup
+
+bindkey -v
+
+bindkey "" history-incremental-search-backward
+
+bindkey "^Xf" insert-files ##C-x-f
+
+zle-history-line-set() {zle -K vicmd;}
+zle -N zle-history-line-set
+
 #Set Terminal Title
 precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 
@@ -83,7 +94,6 @@ compinit
 
 autoload -U insert-files
 zle -N insert-files
-bindkey "^Xf" insert-files ##C-x-f
 
 
 #setopt correct
@@ -134,7 +144,6 @@ function sv {screen -t $1 vi $1}
 
 
 
-bindkey -v
 
 
 
