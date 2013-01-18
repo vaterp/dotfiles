@@ -36,7 +36,7 @@
 	sh = !git-sh
 	ssu = status -s -uno
 	st = status
-	stm = status --untracked=no
+	sno = show --name-only
 	stfu = status --untracked=no
 	pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
 	who = shortlog -s
