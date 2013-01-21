@@ -117,8 +117,10 @@ sip() {
 alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
-#Some Pioneer aliases:
-alias na='cd ~/pioneer/PP_NA'
-alias da='cd ~/pioneer/PP_DA'
-alias lib='cd group_qos'
+#Some Pioneer environments
+export na=~/pioneer/PP_NA
+export tpa=~/pioneer/PP_TPA
+export da=~/pioneer/PP_DA
+export lib=~/pioneer/PCS_Lib/group_qos
+export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
 
