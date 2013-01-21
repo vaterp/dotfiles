@@ -7,6 +7,11 @@ set diffopt=filler,iwhite,vertical
 set diffexpr=""
 
 
+"Reload a file automatically when changed from outside
+set autoread
+
+"Make VIM behave like show-all-if-ambiguous is set like .inputrc
+set wildmode=longest:list,full
 
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
