@@ -12,6 +12,9 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+#Allow for verification with a substitued history expansion
+shopt -s histverify
+
 shopt -s autocd
 CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
 
