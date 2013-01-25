@@ -124,3 +124,6 @@ export da=~/pioneer/PP_DA
 export lib=~/pioneer/PCS_Lib/group_qos
 export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
 
+alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
+alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
+
