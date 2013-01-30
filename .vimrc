@@ -432,6 +432,9 @@ map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 
 "Json support
 
+autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
+
+
 "au! BufRead,BufNewFile *.json set filetype=json
 "
 "augroup json_autocmd

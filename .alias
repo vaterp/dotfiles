@@ -66,7 +66,7 @@ alias l27062='lt l27062 07' #l1='telnet lant 10007'
 alias l26979='lt l26979 08' #l2='telnet lant 10008'
 alias l17677='lt l17677 09' #l3='telnet lant 10009'
 alias l27114='lt l27114 10' #l4='telnet lant 10010'
-alias tunsw='lt tunsw 11'   ts='lt ts 11'
+alias tunsw='lt tunsw 11'   tus='lt ts 11'
 alias upssw='lt upssw 12'   us='lt us 12'
 alias remsw='lt remsw 13' rs='lt rs 13'
 alias psdn='lt psdn 14' 
@@ -123,4 +123,5 @@ export tpa=~/pioneer/PP_TPA
 export da=~/pioneer/PP_DA
 export lib=~/pioneer/PCS_Lib/group_qos
 export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
+export tu=~/pioneer/Test_Utils
 
