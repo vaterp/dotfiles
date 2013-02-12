@@ -111,7 +111,7 @@ if has("autocmd")
 endif " has("autocmd")
 
 " Puttin' in my own stuff and gettin' fancy....
-nnoremap <CR> :nohlsearch<CR>/<BS><CR>
+nnoremap <silent> <CR> :nohlsearch<CR>/<BS><CR>
 map <F1> :SearchReset<CR>
 "imap <F1> <ESC>:set hlsearch!<CR>a
 set showmatch
@@ -151,18 +151,22 @@ nmap <silent> <M-Up> :call ScrollOtherWindow("up")<CR>
 autocmd FileType make setlocal noexpandtab
 "For C code set iskeyword to -
 "
-"
+
+
+
+
 "Buffer Navigation:
 " ":e <filename>" to make a buffer with that file in it (duh)
 " ",s" and ",f" for back and forth on the buffer list
 " " ",b" for a list of what's in each buffer
 " " ",1", ",2", .. ",9", ",0" to go straight to that numbered buffer (0 = 10)
 " " ",g" to toggle between two buffers (my most used probably)
-map ,p :bN<CR>
-map ,n :bn<CR>
-map ,H :call HideMe("PREV")<CR>
-map ,h :call HideMe("NEXT")<CR>
-map ,b :buffers<CR>
+nnoremap <silent>,p :bN<CR>
+nnoremap <silent>,n :bn<CR>
+nnoremap <silent>,H :call HideMe("PREV")<CR>
+nnoremap <silent>,h :call HideMe("NEXT")<CR>
+"map ,b :buffers<CR>
+nnoremap <silent>,b :CtrlPBuffer<CR>
 map ,g :e#<CR>
 map ,1 :1b<CR>
 map ,2 :2b<CR>
@@ -239,87 +243,12 @@ fun! HideMe(window)
 	exec ecmd
 	exec "bwipeout". " #"
 endfun
-"cab     h    call HideMe()
-"cab     hide call HideMe()
-
-"Select from buffers matching a certain pattern
-function! BufSel(pattern)
-	let bufcount = bufnr("$")
-	let currbufnr = 1
-	let theonlybuf = 0
-
-	"flag to determine if matches are found
-	let foundmatch = 0
-	while currbufnr <= bufcount
-		if(bufexists(currbufnr))
-			let currbufname = bufname(currbufnr)
-			if(match(currbufname, a:pattern) > -1)
-				echo currbufnr . ":    ". bufname(currbufnr)
-				let foundmatch = foundmatch + 1
-				let theonlybuf = currbufnr
-			endif
-		endif
-		let currbufnr = currbufnr + 1
-	endwhile
-
-	if(foundmatch > 0)
-		if (foundmatch == 1)
-			exe ":bu ". theonlybuf
-			return
-	  endif
-		let desiredbufnr = input("Enter buffer number: ")
-		if(strlen(desiredbufnr) != 0)
-			exe ":bu ".  desiredbufnr
-		endif
-	else
-		echo "No matching buffers"
-	endif
-endfunction 
-command! -nargs=1 BS call BufSel("<args>")
-cab bs BS
-
 
 cab man Man
 cab vtag vertical stag
 
 vnoremap * y/\V<C-R>=substitute(escape(@@,"/\\"),"\n","\\\\n","ge")<CR><CR> 
 vnoremap # y?\V<C-R>=substitute(escape(@@,"?\\"),"\n","\\\\n","ge")<CR><CR>
-
-function! Find(name) 
-  let l:list=system("find . -name '".a:name."' | perl -ne 'print \"$.\\t$_\"'") 
-  let l:num=strlen(substitute(l:list, "[^\n]", "", "g")) 
-  if l:num < 1 
-    echo "'".a:name."' not found" 
-    return 
-  endif 
-
-  if l:num != 1 
-    echo l:list 
-    let l:input=input("Which ? (CR=nothing)\n") 
-
-    if strlen(l:input)==0 
-      return 
-    endif 
-
-    if strlen(substitute(l:input, "[0-9]", "", "g"))>0 
-      echo "Not a number" 
-      return 
-    endif 
-
-    if l:input<1 || l:input>l:num 
-      echo "Out of range" 
-      return 
-    endif 
-
-    let l:line=matchstr("\n".l:list, "\n".l:input."\t[^\n]*") 
-  else 
-    let l:line=l:list 
-  endif 
-
-  let l:line=substitute(l:line, "^[^\t]*\t./", "", "") 
-  execute ":e ".l:line 
-endfunction 
-command! -nargs=1 Find :call Find("<args>")
 
 fun! ShowFuncName() 
 	let lnum = line(".") 
