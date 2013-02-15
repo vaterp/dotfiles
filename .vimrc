@@ -87,7 +87,9 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal tw=78
-	autocmd FileType text silent %s///ge
+	"Figure out how to set this only for certain types of files, it screws up
+	"some auto buffers with unmodifiable error messages
+	"autocmd FileType text silent %s///ge
 	autocmd FileType c,cpp set formatoptions-=ro
 
 
@@ -219,6 +221,7 @@ noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
 runtime ftplugin/man.vim  "Gives :Man command
+cab man Man
 
 nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
 
@@ -244,7 +247,6 @@ fun! HideMe(window)
 	exec "bwipeout". " #"
 endfun
 
-cab man Man
 cab vtag vertical stag
 
 vnoremap * y/\V<C-R>=substitute(escape(@@,"/\\"),"\n","\\\\n","ge")<CR><CR> 
@@ -363,18 +365,19 @@ map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 
 autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
 
+augroup json_autocmd
+	autocmd!
+	autocmd FileType json set autoindent
+	autocmd FileType json set formatoptions=tcq2l
+"autocmd FileType json set textwidth=78 shiftwidth=2
+"autocmd FileType json set softtabstop=2 tabstop=8
+  autocmd FileType json set expandtab
+	autocmd FileType json set foldmethod=syntax
+	syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+	syntax region foldBraces start=/\[/ end=/\]/ transparent fold keepend extend
+	setlocal foldlevel=99
+augroup END 
 
-"au! BufRead,BufNewFile *.json set filetype=json
-"
-"augroup json_autocmd
-"	autocmd!
-"	autocmd FileType json set autoindent
-"	autocmd FileType json set formatoptions=tcq2l
-"	autocmd FileType json set textwidth=78 shiftwidth=2
-"	autocmd FileType json set softtabstop=2 tabstop=8
-"	autocmd FileType json set expandtab
-"	autocmd FileType json set foldmethod=syntax
-"augroup END 
 "
 "GVim for windows stuff
 
