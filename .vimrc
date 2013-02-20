@@ -311,7 +311,7 @@ endfun
 let @a='/h2xh'
 
 "Some git help
-map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
+"map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 
 "DCL STUFF
 "autocmd BufReadPost ipstrc.* call DoIpsCleanup()
@@ -360,25 +360,11 @@ map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
+autocmd BufNewFile,BufRead *.json set filetype=json
+"autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
 
-"Json support
 
-autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
 
-augroup json_autocmd
-	autocmd!
-	autocmd FileType json set autoindent
-	autocmd FileType json set formatoptions=tcq2l
-"autocmd FileType json set textwidth=78 shiftwidth=2
-"autocmd FileType json set softtabstop=2 tabstop=8
-  autocmd FileType json set expandtab
-	autocmd FileType json set foldmethod=syntax
-	syntax region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-	syntax region foldBraces start=/\[/ end=/\]/ transparent fold keepend extend
-	setlocal foldlevel=99
-augroup END 
-
-"
 "GVim for windows stuff
 
 if has ("gui_win32")
