@@ -21,7 +21,7 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set incsearch		" do incremental searching
 set autowrite   " Auto write files on buffer moves & makes
-set number
+set number "Turn on line numbering by default
 set hidden "Let me move around if buffers aren't saved
 
 set nowrap "I seem to be preferring this recently
@@ -41,7 +41,9 @@ set smartindent
 set tabstop=2
 set shiftwidth=2
 set cino+=(0             "Align paramater lists after newline under '('
-set cino+=e-1s           "No indent if '{' is not on its own line
+set cino+=l1 "Indent switch/case lines better 
+set cino+=N-s "Don't indent for namespaces
+"set cino+=e-1s  "No indent if '{' is not on its own line (Turns out i hate this)
 
 set formatoptions-=r "Stop auto commenting on new lines
 set formatoptions-=o "Stop auto commenting on Oo
