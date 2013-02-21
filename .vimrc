@@ -202,9 +202,16 @@ set tags=tags;/home/bsnyder/work
 " Nice way of auto centering the current line as i move around.
 "set scrolloff=99999      
 
+"Quick Access File Helpers
 nmap ,x :source ~/.vimrc<CR>
 nmap ,v :e ~/.vimrc<CR>
 nmap ,z :e ~/.zshrc<CR>
+nmap ,a :e ~/.alias<CR>
+nmap ,g :e ~/.gitconfig<CR>
+nmap ,d :e ~/dotfiles<CR>
+
+
+
 nnoremap p p=`]
 map <silent> <C-s> :if expand ("%") == ""<CR>: browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
 imap <C-s> <C-o><C-s>

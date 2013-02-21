@@ -30,7 +30,7 @@ alias fhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0
 
 alias more='less'
 alias l='less'
-alias pp="pstree -p"
+alias pp="pstree -ph"
 alias psa="ps -fu bsnyder | grep -v '\(xterm\|screen\|SCREEN\|multi-gnome\|zsh\|ps -fu\|vi\)'"
 alias ll='ls -hrtl --color=tty'
 alias ls='ls -hF --color=tty'
