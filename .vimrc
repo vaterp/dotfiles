@@ -2,9 +2,31 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
+runtime macros/matchit.vim "matchit ships with vim now
+runtime ftplugin/man.vim  "Gives :Man command
+
 "Diff setup
 set diffopt=filler,iwhite,vertical
 set diffexpr=""
+
+"NETRW Settings
+let g:netrw_preview = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 30
+
+"I moved this to a cpp.vim ftplugin, but not sure if i want it for other types
+"of files
+
+"C indention stuff... See help 'cinoptions-values'
+"set smartindent
+"set tabstop=2
+"set shiftwidth=2
+"set cino+=(0             "Align paramater lists after newline under '('
+"set cino+=l1 "Indent switch/case lines better 
+"set cino+=N-s "Don't indent for namespaces
+""set cino+=e-1s  "No indent if '{' is not on its own line (Turns out i hate this)
+"set formatoptions-=r "Stop auto commenting on new lines
+"set formatoptions-=o "Stop auto commenting on Oo
 
 
 "Reload a file automatically when changed from outside
@@ -36,17 +58,6 @@ set nowrap "I seem to be preferring this recently
 	augroup END
 "End Set cursorline options
 
-"C indention stuff... See help 'cinoptions-values'
-set smartindent
-set tabstop=2
-set shiftwidth=2
-set cino+=(0             "Align paramater lists after newline under '('
-set cino+=l1 "Indent switch/case lines better 
-set cino+=N-s "Don't indent for namespaces
-"set cino+=e-1s  "No indent if '{' is not on its own line (Turns out i hate this)
-
-set formatoptions-=r "Stop auto commenting on new lines
-set formatoptions-=o "Stop auto commenting on Oo
 if &t_Co > 2
   set hlsearch
   syntax on
@@ -229,7 +240,6 @@ autocmd FileType sh,make,perl,gdb           let b:comment_leader = '# '
 noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
-runtime ftplugin/man.vim  "Gives :Man command
 cab man Man
 
 nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
