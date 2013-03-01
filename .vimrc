@@ -1,77 +1,88 @@
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
-set nocompatible
+" vim: set foldenable foldmethod=marker foldlevel=0:
 
-runtime macros/matchit.vim "matchit ships with vim now
-runtime ftplugin/man.vim  "Gives :Man command
+"Todo {{{1
+"Fix all the folding stuff
+"Using: github.com/naruyan/nar/blobl/master/.vimrc as a template
+"}}}1
 
-"Diff setup
-set diffopt=filler,iwhite,vertical
-set diffexpr=""
-
-"NETRW Settings
-let g:netrw_preview = 1
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 30
-
-"I moved this to a cpp.vim ftplugin, but not sure if i want it for other types
-"of files
-
-"C indention stuff... See help 'cinoptions-values'
-"set smartindent
-"set tabstop=2
-"set shiftwidth=2
-"set cino+=(0             "Align paramater lists after newline under '('
-"set cino+=l1 "Indent switch/case lines better 
-"set cino+=N-s "Don't indent for namespaces
-""set cino+=e-1s  "No indent if '{' is not on its own line (Turns out i hate this)
-"set formatoptions-=r "Stop auto commenting on new lines
-"set formatoptions-=o "Stop auto commenting on Oo
-
-
-"Reload a file automatically when changed from outside
-set autoread
-
+"Initiliazation settings {{{1
+set nocompatible     "This must be first
+set autoread         "Reload a file automatically when changed from outside
+set mouse=a          "Let me use the mouse in xterms
 "Make VIM behave like show-all-if-ambiguous is set like .inputrc
-set wildmode=longest:list,full
-
+set wildmode=longest:list,full "Make VIM behave like a show-all-if-ambigous is set like in .inputrc
+set showcmd "Show in status bar, in progress commands
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
 set backup		" keep a backup file
 set background=dark
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
-set incsearch		" do incremental searching
 set autowrite   " Auto write files on buffer moves & makes
 set number "Turn on line numbering by default
 set hidden "Let me move around if buffers aren't saved
-
+set shortmess=a
+set cmdheight=1
+set title
 set nowrap "I seem to be preferring this recently
-	"Set Cursorline Options I like
-	"set cursorline  This would turn it on for ALL buffers
-	"Not sure if i like this or not, but it makes the highlight much more obvious
-	"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
-	augroup CursorLine
-		au!
-		au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-		au WinLeave * setlocal nocursorline
-	augroup END
-"End Set cursorline options
+set tabstop=2
+"hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+augroup CursorLine
+	au!
+	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+	au WinLeave * setlocal nocursorline
+augroup END
+
+filetype plugin indent on
 
 if &t_Co > 2
-  set hlsearch
   syntax on
 endif
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
+"}}}1
+
+runtime macros/matchit.vim "matchit ships with vim now
+runtime ftplugin/man.vim  "Gives :Man command
+
+"Diff setup {{{1
+set diffopt=filler,iwhite,vertical
+set diffexpr=""
+"}}}1
+
+"NETRW Settings {{{1
+let g:netrw_preview = 1
+let g:netrw_liststyle = 3
+let g:netrw_winsize = 30
+"}}}1
+
+"C Stuff (Commented out) {{{1
+"I moved this to a cpp.vim ftplugin, but not sure if i want it for other types
+"of files
+"C indention stuff... See help 'cinoptions-values'
+"set smartindent
+"set tabstop=2
+"set shiftwidth=2
+"set softtabstop=2
+"set cino+=(0             "Align paramater lists after newline under '('
+"set cino+=l1 "Indent switch/case lines better 
+"set cino+=N-s "Don't indent for namespaces
+""set cino+=e-1s  "No indent if '{' is not on its own line (Turns out i hate this)
+"set formatoptions-=r "Stop auto commenting on new lines
+"set formatoptions-=o "Stop auto commenting on Oo
+"}}}1
+
+" Search Settings {{{1
+set gdefault         "Behave like /g is always set on substitute commands
+set incsearch	     "do incremental searching
+set hlsearch         "Highlight search results
+set showmatch        "Show matching brackets
+set matchtime=3
+set ignorecase       "Case insestive searching by default
+set smartcase        "If capital letter in search then be case sensitive
 
 "I like this search highlighting more then default
 highlight IncSearch ctermfg=red
 highlight Search ctermfg=red ctermbg=white
-
-" Make p in Visual mode replace the selected text with the "" register.
-vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc
 
 " Switch syntax highlighting on, when the terminal has colors Also switch on
 " highlighting the last used search pattern.
@@ -79,22 +90,71 @@ if has("gui_running")
 "  highlight Type      ctermfg=green
 "  highlight Statement ctermfg=1
 "  highlight 
-  set hlsearch
-  syntax on
   hi Search guibg=LightBlue
 	set background=light
 	set guioptions-=T "get rid of toolbar
 	set guioptions-=m "get rid of menu
 endif
 
+
+" }}}1
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+
+" ShowMarks Setup {{{1
+"
+"+p
+"let showmarks_enable = 0
+""let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^<>[]{}()\""
+"let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^"
+"let g:showmarks_ignore_type = "q"
+"
+"let showmarks_textlower = "\t:"
+"let showmarks_textupper = "\t:"
+"let showmarks_textother = "\t:"
+" }}} 1
+
+"Visual Mode Configuration {{{1
+"
+" Make p in Visual mode replace the selected text with the "" register.
+vnoremap p <Esc>:let current_reg = @"<CR>gvs<C-R>=current_reg<CR><Esc
+xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
+xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
+
+function! s:VSetSearch()
+	let temp = @s
+	norm! gv"sy
+	let @/ = '\V' . substitute(escape(@s, '/\'), '\n','\\n','g')
+	let @s = temp
+endfunction
+
+vnoremap ;; :%s:::g<Left><Left><Left>
+vnoremap ;' :%s:::cg<Left><Left><Left><Left>
+
+"Visual block search
+vnoremap <silent> g/     y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+vnoremap <silent> g?     y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
+
+" Search for selected text, forwards or backwards
+vnoremap <silent> * :<C-U>
+			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+			\gvy/<C-R><C-R>=substitute(
+   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
+   \gV:call setreg('"', old_reg, old_regtype)<CR>
+vnoremap <silent> # :<C-U>
+   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
+vnoremap * y/\V<C-R>=substitute(escape(@@,"/\\"),"\n","\\\\n","ge")<CR><CR> 
+vnoremap # y?\V<C-R>=substitute(escape(@@,"?\\"),"\n","\\\\n","ge")<CR><CR>
+
+
+"}}}1
+
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
 
 	autocmd! bufwritepost .vimrc source ~/.vimrc
 
@@ -103,7 +163,6 @@ if has("autocmd")
 	"Figure out how to set this only for certain types of files, it screws up
 	"some auto buffers with unmodifiable error messages
 	"autocmd FileType text silent %s///ge
-	autocmd FileType c,cpp set formatoptions-=ro
 
 
 	autocmd BufRead,BufNewFile todo.txt set nobackup filetype=txt nowrap
@@ -125,12 +184,15 @@ if has("autocmd")
 
 endif " has("autocmd")
 
+"Can use Cf from prompt if needed
+nnoremap q: <NOP>
+nnoremap q/ <NOP>
+nnoremap q? <NOP>
+
 " Puttin' in my own stuff and gettin' fancy....
 nnoremap <silent> <CR> :nohlsearch<CR>/<BS><CR>
 map <F1> :SearchReset<CR>
 "imap <F1> <ESC>:set hlsearch!<CR>a
-set showmatch
-set matchtime=3
 "noremap % v%
 if has("unix")
 	map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -138,9 +200,6 @@ else
 	map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
 endif
 
-set shortmess=a
-set cmdheight=1
-set title
  
 "func! HideAll()
 	"syn region myFold start="{" end="}" transparent fold
@@ -203,12 +262,6 @@ nmap <F4> :cn <CR>
 nmap <F5> :ls<cr>:b! #<space>
 nmap <S-F5> :ls!<cr>:b!<space> 
 
-vnoremap ;; :%s:::g<Left><Left><Left>
-vnoremap ;' :%s:::cg<Left><Left><Left><Left>
-
-"Visual block search
-vnoremap <silent> g/     y/<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
-vnoremap <silent> g?     y?<C-R>=escape(@", '\\/.*$^~[]')<CR><CR>
 
 set tags=tags;/home/bsnyder/work
 "set tags=$id/tags
@@ -268,8 +321,6 @@ endfun
 
 cab vtag vertical stag
 
-vnoremap * y/\V<C-R>=substitute(escape(@@,"/\\"),"\n","\\\\n","ge")<CR><CR> 
-vnoremap # y?\V<C-R>=substitute(escape(@@,"?\\"),"\n","\\\\n","ge")<CR><CR>
 
 fun! ShowFuncName() 
 	let lnum = line(".") 
@@ -310,15 +361,6 @@ function! s:RunShellCommand(cmdline)
 endfunction
 
 
-" Search for selected text, forwards or backwards
-vnoremap <silent> * :<C-U>
-			\let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-			\gvy/<C-R><C-R>=substitute(
-   \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-   \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-   \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-
 
 "Multiple Search helpers
 "Help cleaning up routr files
@@ -332,7 +374,7 @@ let @a='/h2xh'
 "Some git help
 "map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
 
-"DCL STUFF
+"DCL STUFF {{{1
 "autocmd BufReadPost ipstrc.* call DoIpsCleanup()
 "autocmd BufRead,BufNewFile *.drw  set nowrap
 "autocmd BufRead,BufNewFile *.dmp  set nowrap
@@ -372,13 +414,14 @@ let @a='/h2xh'
 "		g/AMB_GET/d
 "	endif
 "endfun
-"End DCL Stuff
+"End DCL Stuff}}}1
 
 
 "Not sure I want this right now, just moved ctrlp.vim into regular structure
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
+autocmd BufNewFile,BufRead *.opt set filetype=json
 autocmd BufNewFile,BufRead *.json set filetype=json
 "autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
 
