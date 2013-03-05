@@ -108,7 +108,7 @@ map Q gq
 "+p
 "let showmarks_enable = 0
 ""let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^<>[]{}()\""
-"let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^"
+let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^"
 "let g:showmarks_ignore_type = "q"
 "
 "let showmarks_textlower = "\t:"
