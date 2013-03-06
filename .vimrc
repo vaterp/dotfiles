@@ -431,5 +431,7 @@ autocmd BufNewFile,BufRead *.json set filetype=json
 
 if has ("gui_win32")
 	set sessionoptions+=resize  " Allow sessions to capture full window size on gvim
+	autocmd BufRead,BufNewFile *.vim source %
 	autocmd BufRead,BufNewFile *.vis source %
+
 endif
