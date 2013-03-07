@@ -135,7 +135,7 @@ function hiword
  }
 
 #This is just an example of a function with a param...
-function v {vim -O $1.cpp $1.h* }
+function v {vim -O $1.cpp $1.h }
 #function chpwd { print -Pn "\033]2;%m:%~\007" }
 function  psn  {ps -fu root | grep -w na |  grep -v grep}
 
