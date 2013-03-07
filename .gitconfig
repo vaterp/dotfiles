@@ -22,7 +22,7 @@
 	dno = diff --name-only
 	fp = format-patch
 	histg = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	--graph 
-  hist  = log --pretty=format:'%h %ad | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
+  hist  = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
