@@ -83,6 +83,10 @@ alias mdm='plt m267 10'
 #Git helpers
 alias gst='git status -uno'
 
+ghu() {
+	git hist $1~..HEAD
+}
+
 #zsh aliases only:
 if [ "$SHELL" = "/bin/zsh" ]; then
 	
