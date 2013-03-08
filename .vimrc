@@ -151,6 +151,51 @@ vnoremap # y?\V<C-R>=substitute(escape(@@,"?\\"),"\n","\\\\n","ge")<CR><CR>
 
 "}}}1
 
+"Normal Mode Mapping {{{1
+
+nnoremap <A-a> <C-a>
+nnoremap <A-x> <C-x>
+
+nnoremap q: <NOP>  "Can use Cf from prompt if needed
+nnoremap q/ <NOP>  "Can use Cf from prompt if needed
+nnoremap q? <NOP>  "Can use Cf from prompt if needed
+
+nnoremap <silent> <CR> :nohlsearch<CR>/<BS><CR>
+nnoremap <F1> :SearchReset<CR>
+"imap <F1> <ESC>:set hlsearch!<CR>a
+"noremap % v%
+if has("unix")
+	map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+else
+	map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
+endif
+
+"Buffer Navigation: {{{2
+" ":e <filename>" to make a buffer with that file in it (duh)
+" ",s" and ",f" for back and forth on the buffer list
+" " ",b" for a list of what's in each buffer
+" " ",1", ",2", .. ",9", ",0" to go straight to that numbered buffer (0 = 10)
+" " ",g" to toggle between two buffers (my most used probably)
+nnoremap <silent>,p :bN<CR>
+nnoremap <silent>,n :bn<CR>
+nnoremap <silent>,H :call HideMe("PREV")<CR>
+nnoremap <silent>,h :call HideMe("NEXT")<CR>
+"map ,b :buffers<CR>
+nnoremap <silent>,b :CtrlPBuffer<CR>
+map ,g :e#<CR>
+map ,1 :1b<CR>
+map ,2 :2b<CR>
+map ,3 :3b<CR>
+map ,4 :4b<CR>
+map ,5 :5b<CR>
+map ,6 :6b<CR>
+map ,7 :7b<CR>
+map ,8 :8b<CR>
+map ,9 :9b<CR>
+map ,0 :10b<CR
+"}}}2
+
+"}}}1
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -184,21 +229,6 @@ if has("autocmd")
 
 endif " has("autocmd")
 
-"Can use Cf from prompt if needed
-nnoremap q: <NOP>
-nnoremap q/ <NOP>
-nnoremap q? <NOP>
-
-" Puttin' in my own stuff and gettin' fancy....
-nnoremap <silent> <CR> :nohlsearch<CR>/<BS><CR>
-map <F1> :SearchReset<CR>
-"imap <F1> <ESC>:set hlsearch!<CR>a
-"noremap % v%
-if has("unix")
-	map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-else
-	map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
-endif
 
  
 "func! HideAll()
@@ -229,29 +259,6 @@ autocmd FileType make setlocal noexpandtab
 
 
 
-"Buffer Navigation:
-" ":e <filename>" to make a buffer with that file in it (duh)
-" ",s" and ",f" for back and forth on the buffer list
-" " ",b" for a list of what's in each buffer
-" " ",1", ",2", .. ",9", ",0" to go straight to that numbered buffer (0 = 10)
-" " ",g" to toggle between two buffers (my most used probably)
-nnoremap <silent>,p :bN<CR>
-nnoremap <silent>,n :bn<CR>
-nnoremap <silent>,H :call HideMe("PREV")<CR>
-nnoremap <silent>,h :call HideMe("NEXT")<CR>
-"map ,b :buffers<CR>
-nnoremap <silent>,b :CtrlPBuffer<CR>
-map ,g :e#<CR>
-map ,1 :1b<CR>
-map ,2 :2b<CR>
-map ,3 :3b<CR>
-map ,4 :4b<CR>
-map ,5 :5b<CR>
-map ,6 :6b<CR>
-map ,7 :7b<CR>
-map ,8 :8b<CR>
-map ,9 :9b<CR>
-map ,0 :10b<CR
 set wildignore=*.o,*~,*.a,*.d
 
 "Compile shortcuts...
