@@ -168,6 +168,7 @@ ShowMarksClearMark	showmarks.txt	/*ShowMarksClearMark*
 ShowMarksOn	showmarks.txt	/*ShowMarksOn*
 ShowMarksPlaceMark	showmarks.txt	/*ShowMarksPlaceMark*
 ShowMarksToggle	showmarks.txt	/*ShowMarksToggle*
+ZoomWin.txt	ZoomWin.txt	/*ZoomWin.txt*
 [<C-L>	unimpaired.txt	/*[<C-L>*
 [<C-Q>	unimpaired.txt	/*[<C-Q>*
 [<Space>	unimpaired.txt	/*[<Space>*
@@ -263,6 +264,7 @@ ctrlp.txt	ctrlp.txt	/*ctrlp.txt*
 g:MultipleSearchColorSequence	MultipleSearch.txt	/*g:MultipleSearchColorSequence*
 g:MultipleSearchMaxColors	MultipleSearch.txt	/*g:MultipleSearchMaxColors*
 g:MultipleSearchTextColorSequence	MultipleSearch.txt	/*g:MultipleSearchTextColorSequence*
+g:ZoomWin_funcref	ZoomWin.txt	/*g:ZoomWin_funcref*
 g:ctrlp_dont_split	ctrlp.txt	/*g:ctrlp_dont_split*
 g:ctrlp_dotfiles	ctrlp.txt	/*g:ctrlp_dotfiles*
 g:ctrlp_highlight_match	ctrlp.txt	/*g:ctrlp_highlight_match*
@@ -272,6 +274,8 @@ g:ctrlp_mru_files	ctrlp.txt	/*g:ctrlp_mru_files*
 g:ctrlp_open_multi	ctrlp.txt	/*g:ctrlp_open_multi*
 g:ctrlp_persistent_input	ctrlp.txt	/*g:ctrlp_persistent_input*
 g:ctrlp_regexp_search	ctrlp.txt	/*g:ctrlp_regexp_search*
+g:zoomwin_preserve_taglist	ZoomWin.txt	/*g:zoomwin_preserve_taglist*
+g:zoomwin_preserve_winmanager	ZoomWin.txt	/*g:zoomwin_preserve_winmanager*
 gitlog	gitlog.txt	/*gitlog*
 gitlog-contents	gitlog.txt	/*gitlog-contents*
 gitlog-description	gitlog.txt	/*gitlog-description*
@@ -305,3 +309,9 @@ v_]e	unimpaired.txt	/*v_]e*
 v_]u	unimpaired.txt	/*v_]u*
 v_]x	unimpaired.txt	/*v_]x*
 v_]y	unimpaired.txt	/*v_]y*
+zoomwin	ZoomWin.txt	/*zoomwin*
+zoomwin-copyright	ZoomWin.txt	/*zoomwin-copyright*
+zoomwin-history	ZoomWin.txt	/*zoomwin-history*
+zoomwin-options	ZoomWin.txt	/*zoomwin-options*
+zoomwin-setup	ZoomWin.txt	/*zoomwin-setup*
+zoomwin-usage	ZoomWin.txt	/*zoomwin-usage*

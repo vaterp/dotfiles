@@ -166,9 +166,14 @@ nnoremap <F1> :SearchReset<CR>
 "noremap % v%
 if has("unix")
 	map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+	"nnoremap ,se :e scp://user@host//pathtofile<C-f>Fu<C-c>
+	nnoremap ,se :e scp://userAThost//pathtofile<C-f>Fu
 else
 	map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
 endif
+
+nnoremap ,v <C-w>\|<C-w>_
+
 
 "Buffer Navigation: {{{2
 " ":e <filename>" to make a buffer with that file in it (duh)
@@ -182,7 +187,7 @@ nnoremap <silent>,H :call HideMe("PREV")<CR>
 nnoremap <silent>,h :call HideMe("NEXT")<CR>
 "map ,b :buffers<CR>
 nnoremap <silent>,b :CtrlPBuffer<CR>
-map ,g :e#<CR>
+map ,# :e#<CR>
 map ,1 :1b<CR>
 map ,2 :2b<CR>
 map ,3 :3b<CR>
