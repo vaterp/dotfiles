@@ -65,7 +65,7 @@ export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
 
 #Unix Utils Setup
 export PAGER=less
-export LESS="-IMnX"
+export LESS="-IRMnX"
 
 #CVS Setup....
 #export CVSROOT=unxcvs:/devel/netmodem/cvs/repos
