@@ -26,6 +26,7 @@ set cmdheight=1
 set title
 set nowrap "I seem to be preferring this recently
 set tabstop=2
+set scrolloff=1 "I really like this with [m & ]m
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 augroup CursorLine
 	au!
@@ -164,13 +165,16 @@ nnoremap <silent> <CR> :nohlsearch<CR>/<BS><CR>
 nnoremap <F1> :SearchReset<CR>
 "imap <F1> <ESC>:set hlsearch!<CR>a
 "noremap % v%
-if has("unix")
-	map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+"I Just like this as an example {{{2
+"if has("unix")
+	"map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 	"nnoremap ,se :e scp://user@host//pathtofile<C-f>Fu<C-c>
-	nnoremap ,se :e scp://userAThost//pathtofile<C-f>Fu
-else
-	map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
-endif
+	"nnoremap ,se :e scp://userAThost//pathtofile<C-f>Fu
+"else
+	"map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
+"endif
+"}}}2
 
 nnoremap <C-w>+ <C-w><Bar><C-w>_
 
@@ -181,12 +185,19 @@ nnoremap <C-w>+ <C-w><Bar><C-w>_
 " " ",b" for a list of what's in each buffer
 " " ",1", ",2", .. ",9", ",0" to go straight to that numbered buffer (0 = 10)
 " " ",g" to toggle between two buffers (my most used probably)
+nnoremap ,se :e scp://userAThost//pathtofile<C-f>Fu
 nnoremap <silent>,p :bN<CR>
 nnoremap <silent>,n :bn<CR>
 nnoremap <silent>,H :call HideMe("PREV")<CR>
 nnoremap <silent>,h :call HideMe("NEXT")<CR>
 "map ,b :buffers<CR>
 nnoremap <silent>,b :CtrlPBuffer<CR>
+"nnoremap <silent>T :CtrlPBufTag<CR>
+"nnoremap <silent>t :CtrlPTag<CR>
+nnoremap <silent>,e :CtrlPCurWD<CR>
+nnoremap <silent>,m :CtrlPMRU<CR>
+"nnoremap <silent>m :CtrlPMixed<CR>
+"nnoremap <silent>l :CtrlPLine<CR>
 map ,# :e#<CR>
 map ,1 :1b<CR>
 map ,2 :2b<CR>
