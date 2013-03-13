@@ -172,7 +172,7 @@ else
 	map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
 endif
 
-nnoremap ,v <C-w>\|<C-w>_
+nnoremap <C-w>+ <C-w><Bar><C-w>_
 
 
 "Buffer Navigation: {{{2
