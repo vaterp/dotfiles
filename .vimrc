@@ -106,11 +106,11 @@ map Q gq
 
 " ShowMarks Setup {{{1
 "
-"+p
 "let showmarks_enable = 0
 ""let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^<>[]{}()\""
 let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^"
-"let g:showmarks_ignore_type = "q"
+let g:showmarks_ignore_type = "hqrmp"
+let g:showmarks_ignore_name = "ctrlp.txt"
 "
 "let showmarks_textlower = "\t:"
 "let showmarks_textupper = "\t:"
@@ -318,7 +318,8 @@ noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>/
 
 cab man Man
 
-nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
+"I actually want tag in same place, use Cwg} to preview it.
+"nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
 
 
 "StatusLine settings
@@ -440,9 +441,16 @@ let @a='/h2xh'
 "End DCL Stuff}}}1
 
 
+"CTRLP Configuration {{{1
 "Not sure I want this right now, just moved ctrlp.vim into regular structure
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
 
+"Can use wildignore to set files it will ignore and/or ctrlp_custom_ignore to
+"add to it for just ctrlp scope
+
+let g:ctrlp_by_filename = 1 "Use search by filename by default
+
+"}}}1
 
 autocmd BufNewFile,BufRead *.opt set filetype=json
 autocmd BufNewFile,BufRead *.json set filetype=json
