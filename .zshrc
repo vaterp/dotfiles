@@ -132,7 +132,16 @@ function hiline
 function hiword
 {
 	 egrep --color "$1|$"
- }
+}
+
+function stopat 
+{
+				sed -n "1,/$1/ p" | hiword $1
+}
+function startat
+{
+				sed -n "/$1/,$ p" | hiword $1
+}
 
 #This is just an example of a function with a param...
 function v {vim -O $1.cpp $1.h }
