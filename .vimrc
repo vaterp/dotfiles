@@ -80,7 +80,7 @@ set hlsearch         "Highlight search results
 set showmatch        "Show matching brackets
 set matchtime=3
 set ignorecase       "Case insestive searching by default
-set smartcase        "If capital letter in search then be case sensitive
+"set smartcase        "If capital letter in search then be case sensitive
 
 "I like this search highlighting more then default
 highlight IncSearch ctermfg=red

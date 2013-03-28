@@ -32,7 +32,6 @@
 	mt = mergetool
 	p = format-patch -1
 	serve = !git daemon --reuseaddr --verbose --base-path=. --export-all ./.git
-	sra = svn rebase --all
 	sh = !git-sh
 	ssu = status -s -uno
 	st = status
@@ -42,3 +41,7 @@
 	who = shortlog -s
 [color]
 	ui = auto
+
+
+
+#git merge-base develop feat/qos_reload : To find the newest common ancestor of two 'things'
