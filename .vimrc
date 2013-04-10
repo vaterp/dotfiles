@@ -259,6 +259,13 @@ map <F9> call HideAll()
 
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
+fun! HideJsonShit()
+				g/GEO_SCOPE/normal! zf%
+				g/NMS/normal! zf%
+				g/SERVICE/normal! zf%
+endfun
+nmap <F8> :call HideJsonShit()<CR>
+
 fun! ScrollOtherWindow(dir)
 	if a:dir == "down"
 		let move = "\<C-D>"
