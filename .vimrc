@@ -43,6 +43,12 @@ endif
 
 "}}}1
 
+
+"Let's play with this a bit and see how i like it....
+autocmd BufEnter    * if expand("%") != "" | lcd %:p:h | endif
+autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
+autocmd BufWinLeave * if expand("%") != "" | mkview! | endif
+
 runtime macros/matchit.vim "matchit ships with vim now
 runtime ftplugin/man.vim  "Gives :Man command
 
@@ -257,7 +263,6 @@ endif " has("autocmd")
 
 map <F9> call HideAll()
 
-autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 fun! ScrollOtherWindow(dir)
 	if a:dir == "down"
