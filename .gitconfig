@@ -37,8 +37,11 @@
 	st = status
 	sno = show --name-only
 	stfu = status --untracked=no
-	pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
+	#pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
 	who = shortlog -s
+  sd  = stash show -p
+	sl  = stash list
+
 [color]
 	ui = auto
 

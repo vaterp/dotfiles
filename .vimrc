@@ -20,6 +20,7 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autowrite   " Auto write files on buffer moves & makes
 set number "Turn on line numbering by default
+set relativenumber "Turn on relative numbering
 set hidden "Let me move around if buffers aren't saved
 set shortmess=a
 set cmdheight=1
@@ -263,6 +264,14 @@ endif " has("autocmd")
 
 map <F9> call HideAll()
 
+
+fun! HideJsonShit()
+				g/GEO_SCOPE/normal! zf%
+				g/NMS/normal! zf%
+				g/SERVICE/normal! zf%
+				g/TRAFFIC_FILTER/normal! zf%
+endfun
+nmap <F8> :call HideJsonShit()<CR>
 
 fun! ScrollOtherWindow(dir)
 	if a:dir == "down"
