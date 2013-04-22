@@ -260,6 +260,10 @@ map <F9> call HideAll()
 
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
+fun! HideAllJsonShit()
+				g/: {/normal! zf%
+				g/: \[/normal! zf%
+endfun
 fun! HideJsonShit()
 				g/GEO_SCOPE/normal! zf%
 				g/NMS/normal! zf%
@@ -267,6 +271,7 @@ fun! HideJsonShit()
 				g/TRAFFIC_FILTER/normal! zf%
 endfun
 nmap <F8> :call HideJsonShit()<CR>
+nmap <S-F8> :call HideAllJsonShit()<CR>
 
 fun! ScrollOtherWindow(dir)
 	if a:dir == "down"
