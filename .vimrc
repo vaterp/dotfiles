@@ -20,6 +20,7 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autowrite   " Auto write files on buffer moves & makes
 set number "Turn on line numbering by default
+set relativenumber "Turn on relative numbering
 set hidden "Let me move around if buffers aren't saved
 set shortmess=a
 set cmdheight=1
@@ -42,6 +43,12 @@ if &t_Co > 2
 endif
 
 "}}}1
+
+
+"Let's play with this a bit and see how i like it....
+autocmd BufEnter    * if expand("%") != "" | lcd %:p:h | endif
+autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
+autocmd BufWinLeave * if expand("%") != "" | mkview! | endif
 
 runtime macros/matchit.vim "matchit ships with vim now
 runtime ftplugin/man.vim  "Gives :Man command
@@ -257,12 +264,12 @@ endif " has("autocmd")
 
 map <F9> call HideAll()
 
-autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 
 fun! HideJsonShit()
 				g/GEO_SCOPE/normal! zf%
 				g/NMS/normal! zf%
 				g/SERVICE/normal! zf%
+				g/TRAFFIC_FILTER/normal! zf%
 endfun
 nmap <F8> :call HideJsonShit()<CR>
 
