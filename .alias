@@ -125,7 +125,7 @@ alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 export na=~/pioneer/PP_NA
 export tpa=~/pioneer/PP_TPA
 export da=~/pioneer/PP_DA
-export lib=~/pioneer/PCS_Lib/group_qos
+export lib=~/pioneer/PCS_Lib
 export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
 export tu=~/pioneer/Test_Utils
 
