@@ -20,7 +20,9 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autowrite   " Auto write files on buffer moves & makes
 set number "Turn on line numbering by default
+if version > 702
 set relativenumber "Turn on relative numbering
+endif
 set hidden "Let me move around if buffers aren't saved
 set shortmess=a
 set cmdheight=1

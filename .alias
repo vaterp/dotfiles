@@ -1,3 +1,6 @@
+alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make localdev'
+
+
 alias rs=revset
 alias Ack=ack
 alias ccm='cvs commit -m "CR 28247: '
@@ -128,6 +131,7 @@ export da=~/pioneer/PP_DA
 export lib=~/pioneer/PCS_Lib
 export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
 export tu=~/pioneer/Test_Utils
+export p=~/pioneer
 
 alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
 alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
