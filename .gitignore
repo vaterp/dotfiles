@@ -3,3 +3,6 @@
 *.swp
 .netrwhist
 tags
+.vim/view
+.vim/NERD_comments.vim
+
