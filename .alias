@@ -1,4 +1,4 @@
-alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make localdev'
+alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
 
 
 alias rs=revset
