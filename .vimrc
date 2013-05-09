@@ -342,7 +342,7 @@ cab man Man
 
 "I actually want tag in same place, use Cwg} to preview it.
 "nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
-
+nnoremap <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "StatusLine settings
 set laststatus=2 "Always show
