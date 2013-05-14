@@ -232,20 +232,27 @@ map ,0 :10b<CR
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
+augroup text_stuff
+	autocmd!
 
-	autocmd! bufwritepost .vimrc source ~/.vimrc
+	autocmd BufRead,BufNewFile *.txt set filetype=text 
+	autocmd BufRead,BufNewFile todo.txt set nobackup nowrap
+	autocmd BufRead,BufNewFile vimhelp.txt set nobackup nowrap
+	autocmd BufRead,BufNewFile putty*   set filetype=text
+	autocmd BufRead,BufNewFile typescript*   set filetype=text
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal tw=78
+
 	"Figure out how to set this only for certain types of files, it screws up
 	"some auto buffers with unmodifiable error messages
-	"autocmd FileType text silent %s///ge
+	autocmd FileType text if &modifiable | silent %s///ge | endif
 
 
-	autocmd BufRead,BufNewFile todo.txt set nobackup filetype=txt nowrap
-	autocmd BufRead,BufNewFile vimhelp.txt set nobackup filetype=txt nowrap
-	autocmd BufRead,BufNewFile putty*   set filetype=text
-	autocmd BufRead,BufNewFile typescript*   set filetype=text
+
+augroup END
+
+	autocmd! bufwritepost .vimrc source ~/.vimrc
 
 
 	"Automatically open compiler output window across bottom of vim, if errors.
