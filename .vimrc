@@ -48,12 +48,18 @@ endif
 
 
 "Let's play with this a bit and see how i like it....
-autocmd BufEnter    * if expand("%") != "" | lcd %:p:h | endif
+autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
 autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
-autocmd BufWinLeave * if expand("%") != "" | mkview! | endif
+autocmd BufWinLeave * if expand("%") != "" | silent mkview! | endif
 
 runtime macros/matchit.vim "matchit ships with vim now
 runtime ftplugin/man.vim  "Gives :Man command
+
+"Fugitive setup {{{1
+autocmd BufReadPost fugitive://* set bufhidden=delete  "Stop million buffers when running through hash
+
+"}}}1
+
 
 "Diff setup {{{1
 set diffopt=filler,iwhite,vertical
@@ -349,7 +355,10 @@ set laststatus=2 "Always show
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%F%m%r%h%w\%=[L:\%l\ C:\%c\ A:\%b\ H:\x%B\ P:\%p%%]
-set statusline=%F\ %m\ %r%h%w\%=\%n\ [\%l,\%c\ \%p%%]
+
+
+set statusline=%F\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
+"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
  
 fun! HideMe(window)
 	let ecmd = ""
