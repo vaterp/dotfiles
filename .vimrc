@@ -29,6 +29,7 @@ set cmdheight=1
 set title
 set nowrap "I seem to be preferring this recently
 set tabstop=2
+set shiftwidth=2
 set scrolloff=1 "I really like this with [m & ]m
 set foldopen+=jump
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
