@@ -365,8 +365,10 @@ set laststatus=2 "Always show
 "set statusline=%n:%F%m%r%h%w\%=[L:\%l\ C:\%c\ A:\%b\ H:\x%B\ P:\%p%%]
 
 
-set statusline=%F\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
-"set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+set statusline=%F\ %y\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
+
+"set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+
  
 fun! HideMe(window)
 	let ecmd = ""
