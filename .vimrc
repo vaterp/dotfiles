@@ -435,6 +435,7 @@ fun! DoSearchRouter()
  SearchBuffers uprtrASR1k(config-.*)#
 endfun
 let @a='/h2xh'
+let @t='TRACE("%s: %d\n",__PRETTY_FUNCTION__,__LINE__);'
 
 "Some git help
 "map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
