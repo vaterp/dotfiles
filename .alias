@@ -128,6 +128,15 @@ alias ss='screen -c .screenpioneer'
 sip() {
  ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
 }
+
+#Show iDirectOldSchool bin builds
+lid() {
+ find . -type f -name sada  -ls | cut -d' ' -f3,11-
+ find . -type f -name sana  -ls | cut -d' ' -f3,11-
+ find . -type f -name sarouter  -ls | cut -d' ' -f3,11-
+ find . -type f -name sarmt  -ls | cut -d' ' -f3,11-
+}
+
 #The alias doesnt have proper quoting...
 #alias sip2='print -lr ip -o -4 addr  | awk \'{print $2 "  "  $4}\' | grep -v 127.0.0.1'
 
