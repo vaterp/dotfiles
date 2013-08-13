@@ -1,6 +1,3 @@
-alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
-
-
 alias rs=revset
 alias Ack=ack
 alias ccm='cvs commit -m "CR 28247: '
@@ -83,7 +80,9 @@ alias tlc='plt transmit_line_card 12'
 alias rlc='plt receive_line_card 14'
 alias mdm='plt m267 10'
 
+#
 #Git helpers
+#
 alias gst='git status -uno'
 
 #until() {
@@ -102,7 +101,9 @@ alias gst='git status -uno'
 	#git hist $1~..HEAD
 #}
 
+#
 #zsh aliases only:
+#
 if [ "$SHELL" = "/bin/zsh" ]; then
 	
 alias -g L='| less'
@@ -121,31 +122,34 @@ alias -s log=vim
 fi
 
 alias tls='tmux list-session'
-
 alias ss='screen -c .screenpioneer'
 
-#See IpAddress on interfaces
-sip() {
+#
+#Admin Helpers
+#
+sip() { #See IpAddress on interfaces
  ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
 }
+#The alias doesnt have proper quoting...
+#alias sip2='print -lr ip -o -4 addr  | awk \'{print $2 "  "  $4}\' | grep -v 127.0.0.1'
 
-#Show iDirectOldSchool bin builds
-lid() {
+#
+#OldSchool iDirect stuff...
+#
+lid() { #Show iDirectOldSchool bin builds
  find . -type f -name sada  -ls | cut -d' ' -f3,11-
  find . -type f -name sana  -ls | cut -d' ' -f3,11-
  find . -type f -name sarouter  -ls | cut -d' ' -f3,11-
  find . -type f -name sarmt  -ls | cut -d' ' -f3,11-
 }
 
-#The alias doesnt have proper quoting...
-#alias sip2='print -lr ip -o -4 addr  | awk \'{print $2 "  "  $4}\' | grep -v 127.0.0.1'
 
 
-#Root Sudo aliases:
-alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
-alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
+
+#
 #Some Pioneer environments
+#
 export na=~/pioneer/PP_NA
 export tpa=~/pioneer/PP_TPA
 export da=~/pioneer/PP_DA
@@ -153,7 +157,12 @@ export lib=~/pioneer/PCS_Lib
 export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
 export tu=~/pioneer/Test_Utils
 export p=~/pioneer
-
 alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
 alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
+alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
 
+#
+#Root Sudo aliases:
+#
+alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
+alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'

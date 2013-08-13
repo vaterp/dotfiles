@@ -28,6 +28,7 @@ function revset
 	export eid=~bsnyder/work/$REV/eserver/iDirect
 	export eh=$eid/hpb
 	export ep=$eh/lib/protocol
+	export em=$eid/realtime/Projects/Mac
 
   if [[ -n $2 ]]
 	then
@@ -42,6 +43,7 @@ function revset
 		export id=$eid
 		export h=$eh
 		export p=$ep
+		export m=$em
 		#export lwip=$eid/third_party/lwip/contrib/ports/unix/proj/minimal
 		#export dcl=$eid/third_party/dcl/dc_root
 		export pkg=$eh/script/pkg_scripts
