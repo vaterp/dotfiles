@@ -24,6 +24,7 @@ function revset
 	export xid=~bsnyder/work/$REV/phoenix/iDirect
 	export xh=$xid/hpb
 	export xp=$xh/lib/protocol
+	export xm=$xid/realtime/Projects/Mac
 
 	export eid=~bsnyder/work/$REV/eserver/iDirect
 	export eh=$eid/hpb
@@ -36,6 +37,7 @@ function revset
 		export id=$xid
 		export h=$xh
 		export p=$xp
+		export m=$xm
 		#export lwip=$xid/third_party/lwip/contrib/ports/unix/proj/minimal
 		#export dcl=$xid/third_party/dcl/dc_root
 	else
@@ -58,7 +60,7 @@ function revset
 }
 
 
-revset 3.1.0.99
+revset 3.1.50.0
 
 #Pioneer Dev Setup
 CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
