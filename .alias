@@ -148,18 +148,18 @@ lid() { #Show iDirectOldSchool bin builds
 
 
 #
-#Some Pioneer environments
+#Some Pioneer environments (On hold, not on project right now)
 #
-export na=~/pioneer/PP_NA
-export tpa=~/pioneer/PP_TPA
-export da=~/pioneer/PP_DA
-export lib=~/pioneer/PCS_Lib
-export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
-export tu=~/pioneer/Test_Utils
-export p=~/pioneer
-alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
-alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
-alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
+#export na=~/pioneer/PP_NA
+#export tpa=~/pioneer/PP_TPA
+#export da=~/pioneer/PP_DA
+#export lib=~/pioneer/PCS_Lib
+#export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
+#export tu=~/pioneer/Test_Utils
+#export p=~/pioneer
+#alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
+#alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
+#alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
 
 #
 #Root Sudo aliases:
