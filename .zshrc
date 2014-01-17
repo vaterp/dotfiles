@@ -205,6 +205,15 @@ function av
 	ack -H --nocolor --nogroup $1 | vi -
 }
 
+function 2d
+{
+	printf "%d\n" 0x$1
+}
+function 2h
+{
+	printf "%x\n" $1
+}
+
 source ~/.alias
 
 cd
