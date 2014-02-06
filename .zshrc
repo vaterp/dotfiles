@@ -1,6 +1,18 @@
 #rhub is my desktop so I might want to set that up differently
 HST=`/bin/hostname`
 
+#History options
+export HISTSIZE=2000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+HISTFILE=~/.history
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_VERIFY
+
+
 #Bindkey setup
 
 bindkey -v
