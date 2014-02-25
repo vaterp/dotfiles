@@ -62,6 +62,7 @@ alias m689='lt m689 02' #m2='telnet lant 10002'
 alias m658='lt m658 03' #m3='telnet lant 10003'
 alias m514='lt m514 04' #m4='telnet lant 10004'
 alias m703='lt m703 05' #m5='telnet lant 10005'
+alias m4415='lt x7.4415 20' #X7
 alias l27062='lt l27062 07' #l1='telnet lant 10007'
 alias l26979='lt l26979 08' #l2='telnet lant 10008'
 alias l17677='lt l17677 09' #l3='telnet lant 10009'
