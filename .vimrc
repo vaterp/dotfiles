@@ -14,6 +14,7 @@ set wildmode=longest:list,full "Make VIM behave like a show-all-if-ambigous is s
 set showcmd "Show in status bar, in progress commands
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
+set path=**   " For find command
 set backup		" keep a backup file
 set background=dark
 set history=50		" keep 50 lines of command line history
@@ -71,6 +72,38 @@ set diffexpr=""
 let g:netrw_preview = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 30
+
+" Toggle Vexplore with Ctrl-E
+function! ToggleVExplorer()
+	if exists("t:expl_buf_num")
+		let expl_win_num = bufwinnr(t:expl_buf_num)
+		if expl_win_num != -1
+			let cur_win_nr = winnr()
+			exec expl_win_num . 'wincmd w'
+			close
+			exec cur_win_nr . 'wincmd w'
+			unlet t:expl_buf_num
+		else
+			unlet t:expl_buf_num
+		endif
+	else
+		exec '1wincmd w'
+		Vexplore
+		let t:expl_buf_num = bufnr("%")
+	endif
+endfunction
+map <silent> <C-E> :call ToggleVExplorer()<CR>
+
+" Hit enter in the file browser to open the selected
+" file with :vsplit to the right of the browser.
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+
+" Default to tree mode
+let g:netrw_liststyle=3
+
+" Change directory to the current buffer when opening files.
+" set autochdir
 "}}}1
 
 "C Stuff (Commented out) {{{1
