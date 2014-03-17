@@ -45,8 +45,5 @@
 [color]
 	ui = auto
 
-
-
-#git merge-base develop feat/qos_reload : To find the newest common ancestor of two 'things'
 [push]
 	default = simple
