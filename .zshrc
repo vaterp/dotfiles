@@ -29,53 +29,7 @@ precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 
 #Bash Shell Setup
 FIGNORE='~:.o:.d:.a:CVS'
-function revset
-{
-	export REV=$1
 
-	export xid=~bsnyder/work/$REV/phoenix/iDirect
-	export xh=$xid/hpb
-	export xp=$xh/lib/protocol
-	export xm=$xid/realtime/Projects/Mac
-
-	export eid=~bsnyder/work/$REV/eserver/iDirect
-	export eh=$eid/hpb
-	export ep=$eh/lib/protocol
-	export em=$eid/realtime/Projects/Mac
-
-  if [[ -n $2 ]]
-	then
-		export TARGET_ID=phoenix
-		export id=$xid
-		export h=$xh
-		export p=$xp
-		export m=$xm
-		#export lwip=$xid/third_party/lwip/contrib/ports/unix/proj/minimal
-		#export dcl=$xid/third_party/dcl/dc_root
-	else
-		unset TARGET_ID
-		export id=$eid
-		export h=$eh
-		export p=$ep
-		export m=$em
-		#export lwip=$eid/third_party/lwip/contrib/ports/unix/proj/minimal
-		#export dcl=$eid/third_party/dcl/dc_root
-		export pkg=$eh/script/pkg_scripts
-	fi
-
-	#export dg=$dcl/jobs/gnu
-	#CDPATH=.:~:$h:$p:$id:$id/shared/stack:$dcl
-	CDPATH=.:~:$h:$p:$id:$id/shared/stack
-	if [[ -d $id ]]; then
-		cd $id
-	fi
-}
-
-
-revset 3.1.50.0
-
-#Pioneer Dev Setup
-CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
 
 export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
 

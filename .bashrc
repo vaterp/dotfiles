@@ -2,6 +2,9 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+export SHELL=bash
+
+
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
@@ -16,7 +19,6 @@ shopt -s histappend
 shopt -s histverify
 
 shopt -s autocd
-CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -115,11 +117,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-
 #bsnyder stuff
 if [ -f ~/.alias ]; then
 	 . ~/.alias
 fi
 unset MAILCHECK
-alias ifc="ifconfig | grep inet | grep 172.20"
 shopt -u mailwarn

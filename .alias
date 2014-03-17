@@ -1,3 +1,16 @@
+#
+#This file has config used by both bash and zshrc
+#
+
+#Shared environment setting controls
+export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
+FIGNORE='~:.o:.d:.a:CVS'
+
+
+
+#
+#Aliases
+#
 alias rs=revset
 alias Ack=ack
 alias ccm='cvs commit -m "CR 28247: '
@@ -40,7 +53,6 @@ alias j=jobs
 alias c=clear
 alias pd=perldoc
 alias clm="cvs log -w bsnyder"
-
 
 alias s=screen
 alias stc='screen -t console telnet 127.0.0.1 13255'
@@ -148,23 +160,89 @@ lid() { #Show iDirectOldSchool bin builds
 
 
 
-
-#
-#Some Pioneer environments
-#
-export na=~/pioneer/PP_NA
-export tpa=~/pioneer/PP_TPA
-export da=~/pioneer/PP_DA
-export lib=~/pioneer/PCS_Lib
-export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
-export tu=~/pioneer/Test_Utils
-export p=~/pioneer
-alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
-alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
-alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
-
 #
 #Root Sudo aliases:
 #
 alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
+
+
+
+#
+#Some shared functions for bash/zsh
+#
+function revset
+{
+	export REV=$1
+
+		export xid=~bsnyder/work/$REV/phoenix/iDirect
+		export xh=$xid/hpb
+		export xp=$xh/lib/protocol
+		export xm=$xid/realtime/Projects/Mac
+
+		export eid=~bsnyder/work/$REV/eserver/iDirect
+		export eh=$eid/hpb
+		export ep=$eh/lib/protocol
+		export em=$eid/realtime/Projects/Mac
+
+		if [[ -n $2 ]]
+			then
+				export TARGET_ID=phoenix
+				export id=$xid
+				export h=$xh
+				export p=$xp
+				export m=$xm
+#export lwip=$xid/third_party/lwip/contrib/ports/unix/proj/minimal
+#export dcl=$xid/third_party/dcl/dc_root
+		else
+			unset TARGET_ID
+				export id=$eid
+				export h=$eh
+				export p=$ep
+				export m=$em
+#export lwip=$eid/third_party/lwip/contrib/ports/unix/proj/minimal
+#export dcl=$eid/third_party/dcl/dc_root
+				export pkg=$eh/script/pkg_scripts
+				fi
+
+#export dg=$dcl/jobs/gnu
+#CDPATH=.:~:$h:$p:$id:$id/shared/stack:$dcl
+				CDPATH=.:~:$h:$p:$id:$id/shared/stack
+				if [[ -d $id ]]; then
+					cd $id
+						fi
+}
+revset 3.1.50.0
+
+function cleanup
+{
+ echo "Removing all doa~ and binary Files"
+ find . -type f -name '*.d' | xargs -r rm
+ find . -type f -name '*.o' | xargs -r rm
+ find . -type f -name '*~' | xargs -r rm
+ find . -type f -name '*.a' | xargs -r rm
+ find . -type f -name 'na'  | xargs -r rm
+ find . -type f -name 'sarouter' | xargs -r rm
+ find . -type f -name 'sarmt' | xargs -r rm
+ find . -type f -name 'sada' | xargs -r rm
+ find . -type f -name 'falcon' | xargs -r rm
+ find . -type f -name 'sana' | xargs -r rm
+}
+
+
+#
+#Some Pioneer environments
+#
+
+#export na=~/pioneer/PP_NA
+#export tpa=~/pioneer/PP_TPA
+#export da=~/pioneer/PP_DA
+#export lib=~/pioneer/PCS_Lib
+#export dfoe=~/pioneer/OTA_Libs/protocol/dfoe
+#export tu=~/pioneer/Test_Utils
+#export p=~/pioneer
+#alias jd="~/pioneer/Test_Utils/optgen/jsondiff.sh"
+#alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
+#alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
+#CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
+
