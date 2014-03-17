@@ -50,8 +50,8 @@ endif
 
 "Let's play with this a bit and see how i like it....
 autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
-autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
-autocmd BufWinLeave * if expand("%") != "" | silent mkview! | endif
+"autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
+"autocmd BufWinLeave * if expand("%") != "" | silent mkview! | endif
 
 runtime macros/matchit.vim "matchit ships with vim now
 runtime ftplugin/man.vim  "Gives :Man command
