@@ -32,7 +32,6 @@ set nowrap "I seem to be preferring this recently
 set tabstop=2
 set shiftwidth=2
 set scrolloff=1 "I really like this with [m & ]m
-set foldopen+=jump
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 augroup CursorLine
 	au!
@@ -45,6 +44,13 @@ filetype plugin indent on
 if &t_Co > 2
   syntax on
 endif
+
+"}}}1
+
+"Global Fold settings {{{1
+set foldopen+=jump
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"l")<CR>
+vnoremap <Space> zf
 
 "}}}1
 
