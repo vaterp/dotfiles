@@ -348,8 +348,8 @@ set wildignore=*.o,*~,*.a,*.d
 
 "Compile shortcuts...
 nmap <F2> :ccl <CR>
-nmap <F3> :cp <CR>
-nmap <F4> :cn <CR>
+nmap <F3> :cp <CR> :normal zv <CR>
+nmap <F4> :cn <CR> :normal zv <CR>
 
 nmap <F5> :ls<cr>:b! #<space>
 nmap <S-F5> :ls!<cr>:b!<space> 
