@@ -1,2 +1,5 @@
 TAB: menu-complete
 set show-all-if-ambiguous on
+$if Bash
+	 Space: magic-space
+$endif
