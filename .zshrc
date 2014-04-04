@@ -27,12 +27,6 @@ zle -N zle-history-line-set
 #Set Terminal Title
 precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 
-#Bash Shell Setup
-FIGNORE='~:.o:.d:.a:CVS'
-
-
-export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
-
 #Unix Utils Setup
 export PAGER=less
 export LESS="-IRMnX"
@@ -45,10 +39,6 @@ export CVS_RSH=ssh
 #Current Helpers....
 ulimit -c unlimited
 
-
-
-
-#Unix Shortcuts...
 
 
 #ZSH Specific Stuff...
@@ -74,26 +64,6 @@ setopt cdable_vars
 setopt autocd 
 setopt autopushd 
 setopt pushdignoredups
-
-hostnames=(terp bsnyder01)
-compctl -k hostnames ping telnet ncftp ftp host nslookup rlogin ssh scp
-function cmprs { cd ~/work ; reply=(`ls -d *(/)`); }
-compctl -K cmprs revset
-
-function cleanup
-{
- echo "Removing all doa~ and binary Files"
- find . -type f -name '*.d' | xargs -r rm
- find . -type f -name '*.o' | xargs -r rm
- find . -type f -name '*~' | xargs -r rm
- find . -type f -name '*.a' | xargs -r rm
- find . -type f -name 'na'  | xargs -r rm
- find . -type f -name 'sarouter' | xargs -r rm
- find . -type f -name 'sarmt' | xargs -r rm
- find . -type f -name 'sada' | xargs -r rm
- find . -type f -name 'falcon' | xargs -r rm
- find . -type f -name 'sana' | xargs -r rm
-}
 
 function hiline
 {

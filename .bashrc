@@ -9,7 +9,7 @@ export SHELL=bash
 
 # History Settings
 export HISTCONTROL="ignoreboth"   #Don't put duplicate lines or lines starting with space in history
-export HISTIGNORE="exit"
+export HISTIGNORE="exit:history"
 shopt -s histappend  #append to history file, don't overwrite it
 shopt -s histverify #Allow for verification with a substituted history expansion
 HISTSIZE=1000

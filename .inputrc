@@ -2,6 +2,9 @@ $include /etc/inputrc
 
 TAB: menu-complete
 set show-all-if-ambiguous on
+set colored-stats on
+set match-hidden-files off
+
 $if Bash
 	 Space: magic-space
 $endif
