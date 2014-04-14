@@ -63,6 +63,9 @@ autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
 runtime macros/matchit.vim "matchit ships with vim now
 runtime ftplugin/man.vim  "Gives :Man command
 
+
+
+
 "Fugitive setup {{{1
 autocmd BufReadPost fugitive://* set bufhidden=delete  "Stop million buffers when running through hash
 
@@ -221,6 +224,8 @@ nnoremap <silent> <CR> :nohlsearch<CR>/<BS><CR>
 nnoremap <F1> :SearchReset<CR>
 "imap <F1> <ESC>:set hlsearch!<CR>a
 "noremap % v%
+
+nnoremap <expr> dd match(getline('.'),'^$*$') == -1 ? 'dd':'"_dd'
 
 "I Just like this as an example {{{2
 "if has("unix")
