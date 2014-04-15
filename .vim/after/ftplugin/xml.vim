@@ -11,5 +11,5 @@ set colorcolumn=80
 
 set encoding=utf-8
 set list
-set listchars=eol:$,tab:|-
+set listchars=eol:$,tab:>-
 
