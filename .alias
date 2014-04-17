@@ -40,7 +40,14 @@ alias fw='find . -type f -print0 | xargs -0 grep -w '
 alias lh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep -n"
 alias lc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep -n"
 alias lhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep -n"
-#alias fhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
+#alias lhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
+alias lf="find . -type f -print0 | xargs -0 grep -n"
+
+function lg { 
+grep -Ir --exclude="*~" "$1" *
+#grep -Ir --exclude="*~" --exclude-dir=.git --exclude-dir=CVS "$1" *
+}
+
 
 alias more='less'
 alias l='less'
