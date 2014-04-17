@@ -15,7 +15,7 @@ setopt HIST_VERIFY
 
 #Bindkey setup
 
-bindkey -v
+#bindkey -v
 
 bindkey "" history-incremental-search-backward
 
