@@ -12,14 +12,16 @@ setopt SHARE_HISTORY
 setopt HIST_IGNORE_DUPS
 setopt HIST_VERIFY
 
+#Let me put a '#' at the front of a cmd to treat put in history as a comment
+setopt interactivecomments
+
 
 #Bindkey setup
-
 #bindkey -v
 
 bindkey "" history-incremental-search-backward
-
 bindkey "^Xf" insert-files ##C-x-f
+bindkey -M emacs '\e#' pound-insert
 
 zle-history-line-set() {zle -K vicmd;}
 zle -N zle-history-line-set
