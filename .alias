@@ -152,6 +152,8 @@ alias ss='screen -c .screenpioneer'
 sip() { #See IpAddress on interfaces
  ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
 }
+alias webshare='python -m SimpleHTTPServer 8080'
+
 #The alias doesnt have proper quoting...
 #alias sip2='print -lr ip -o -4 addr  | awk \'{print $2 "  "  $4}\' | grep -v 127.0.0.1'
 
@@ -253,4 +255,3 @@ function cleanup
 #alias jf="~/pioneer/Test_Utils/optgen/jsonfmt.sh"
 #alias pbuild='make cleanall ; make localincs ; make ; make fatlib; make locallibs'
 #CDPATH=$CDPATH:~/pioneer:~/pioneer/PCS_Lib
-

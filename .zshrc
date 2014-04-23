@@ -19,6 +19,8 @@ setopt interactivecomments
 #Bindkey setup
 #bindkey -v
 
+bindkey -e
+
 bindkey "" history-incremental-search-backward
 bindkey "^Xf" insert-files ##C-x-f
 bindkey -M emacs '\e#' pound-insert
