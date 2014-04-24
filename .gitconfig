@@ -3,8 +3,12 @@
 	email = bsnyder@idirect.net
 [core]
 	editor = vim
+#editor = vim -pc ':normal gg'
+#whitespace = trailing-space,space-before-tab
+	
 	pager  = less -eiFRX	
-	excludesfile = /home/bsnyder/.gitignore
+	excludesfile = ~/.gitignore
+
 [merge]
 	tool = vimdiff
 

@@ -16,17 +16,23 @@ setopt HIST_VERIFY
 setopt interactivecomments
 
 
+export EDITOR=vim
+
 #Bindkey setup
 #bindkey -v
+#zle-history-line-set() {zle -K vicmd;}
+#zle -N zle-history-line-set
 
 bindkey -e
 
+#Make some things more bash like to keep my brain centered.
 bindkey "" history-incremental-search-backward
 bindkey "^Xf" insert-files ##C-x-f
 bindkey -M emacs '\e#' pound-insert
+autoload -z edit-command-line
+zle -N edit-command-line
+bindkey "^X^E" edit-command-line
 
-zle-history-line-set() {zle -K vicmd;}
-zle -N zle-history-line-set
 
 #Set Terminal Title
 precmd () {print -Pn "\e]0;%n@%m: %~\a"}

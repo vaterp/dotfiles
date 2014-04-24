@@ -146,17 +146,6 @@ highlight Search ctermfg=red ctermbg=white
 
 " Switch syntax highlighting on, when the terminal has colors Also switch on
 " highlighting the last used search pattern.
-if has("gui_running")
-"  highlight Type      ctermfg=green
-"  highlight Statement ctermfg=1
-"  highlight 
-  hi Search guibg=LightBlue
-	set background=light
-	set guioptions-=T "get rid of toolbar
-	set guioptions-=m "get rid of menu
-endif
-
-
 " }}}1
 
 " Don't use Ex mode, use Q for formatting
@@ -551,3 +540,18 @@ autocmd BufNewFile,BufRead *.json set filetype=json
 	autocmd BufRead,BufNewFile *.vis source %
 "endif
 "}}}1
+
+
+"GUI Mode {{{1
+if has("gui_running")
+	"  highlight Type      ctermfg=green
+	"  highlight Statement ctermfg=1
+	"  highlight 
+	hi Search guibg=LightBlue
+	set background=light
+	set guioptions-=T "get rid of toolbar
+	set guioptions-=m "get rid of menu
+endif
+"}}}1
+
+
