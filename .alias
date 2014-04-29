@@ -7,6 +7,8 @@ export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
 FIGNORE='~:.o:.d:.a:CVS'
 
 
+#Get GITHub
+alias 'getgithub'='git clone https://github.com/vaterp/dotfiles.git'
 
 #
 #Aliases
