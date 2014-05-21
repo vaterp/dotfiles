@@ -51,6 +51,9 @@
 'g:ctrlp_user_command'	ctrlp.txt	/*'g:ctrlp_user_command'*
 'g:ctrlp_working_path_mode'	ctrlp.txt	/*'g:ctrlp_working_path_mode'*
 'g:loaded_ctrlp'	ctrlp.txt	/*'g:loaded_ctrlp'*
+,b	camelcasemotion.txt	/*,b*
+,e	camelcasemotion.txt	/*,e*
+,w	camelcasemotion.txt	/*,w*
 :Ack	ack.txt	/*:Ack*
 :AckAdd	ack.txt	/*:AckAdd*
 :CtrlP	ctrlp.txt	/*:CtrlP*
@@ -239,6 +242,16 @@ ResetCtrlP	ctrlp.txt	/*ResetCtrlP*
 ack	ack.txt	/*ack*
 ack-author	ack.txt	/*ack-author*
 ack.txt	ack.txt	/*ack.txt*
+camelcasemotion-configuration	camelcasemotion.txt	/*camelcasemotion-configuration*
+camelcasemotion-dependencies	camelcasemotion.txt	/*camelcasemotion-dependencies*
+camelcasemotion-description	camelcasemotion.txt	/*camelcasemotion-description*
+camelcasemotion-history	camelcasemotion.txt	/*camelcasemotion-history*
+camelcasemotion-installation	camelcasemotion.txt	/*camelcasemotion-installation*
+camelcasemotion-known-problems	camelcasemotion.txt	/*camelcasemotion-known-problems*
+camelcasemotion-todo	camelcasemotion.txt	/*camelcasemotion-todo*
+camelcasemotion-usage	camelcasemotion.txt	/*camelcasemotion-usage*
+camelcasemotion.txt	camelcasemotion.txt	/*camelcasemotion.txt*
+camelcasemotion.vim	camelcasemotion.txt	/*camelcasemotion.vim*
 cob	unimpaired.txt	/*cob*
 coc	unimpaired.txt	/*coc*
 cod	unimpaired.txt	/*cod*
