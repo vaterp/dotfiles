@@ -203,6 +203,8 @@ vnoremap # y?\V<C-R>=substitute(escape(@@,"?\\"),"\n","\\\\n","ge")<CR><CR>
 
 "Normal Mode Mapping {{{1
 
+nnoremap gp `[v`]
+
 nnoremap <A-a> <C-a>
 nnoremap <A-x> <C-x>
 

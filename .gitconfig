@@ -15,7 +15,7 @@
 [alias]
 	#pom = push origin master
 	pgm = push github master
-	b = branch -v
+	b = branch -vv
 	ba = branch -avv
 	ci = commit
 	co = checkout
@@ -27,6 +27,8 @@
 	fp = format-patch
 	histg = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	--graph 
   hist  = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
+	ls = log --oneline --decorate -10
+	ll = "!git hist --numstat"
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
