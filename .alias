@@ -169,7 +169,7 @@ lid() { #Show iDirectOldSchool bin builds
  find . -type f -name sarmt  -ls | cut -d' ' -f3,11-
 }
 
-
+alias cvsb='cvs status hpb/sarmt/sarmt.cpp | grep Sticky'
 
 
 #
