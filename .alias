@@ -50,6 +50,22 @@ grep -Ir --exclude="*~" "$1" *
 #grep -Ir --exclude="*~" --exclude-dir=.git --exclude-dir=CVS "$1" *
 }
 
+function ruleEdit {
+	if [[ -z $1 ]]
+		then
+		echo "Arg1 = id to add ; Arg2 set to l2os32 group"
+	return
+	fi
+
+	GROUP="l2os"
+	if [[ -n $2 ]]
+	then
+	GROUP="l2os32"
+	fi
+	#echo "ruleEdit -a $1 -g $GROUP"
+	ssh cvs "ruleEdit -a $1 -g $GROUP"
+}
+
 
 alias more='less'
 alias l='less'
