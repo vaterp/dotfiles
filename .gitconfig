@@ -12,6 +12,8 @@
 [merge]
 	tool = vimdiff
 
+[log]
+  date=relative
 [alias]
 	#pom = push origin master
 	pgm = push github master
@@ -25,10 +27,17 @@
 	dcs = diff --cached --stat
 	dno = diff --name-only
 	fp = format-patch
-	histg = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	--graph 
+
+	histg = log --graph --decorate --oneline --all
   hist  = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
-	ls = log --oneline --decorate -10
+
+  h = log --pretty=format:'%h %Cblue%cd%Creset %ae %Cgreen%s%Creset' -10
+  hg= log --pretty=format:'%h %Cblue%cd%Creset %ae %Cgreen%s%Creset' -10 --graph
+	
+	lg = log --graph --oneline --decorate --since='7 days ago'
+	ls = log --oneline --decorate --since='7 days ago'
 	ll = "!git hist --numstat"
+
 	k = !gitk &
 	ka = !gitk --all &
 	lc = log ORIG_HEAD.. --stat --no-merges
