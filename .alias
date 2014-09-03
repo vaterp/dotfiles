@@ -240,7 +240,7 @@ function revset
 					cd $id
 						fi
 }
-revset 3.1.50.0
+revset trunk
 
 function cleanup
 {
