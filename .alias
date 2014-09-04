@@ -207,11 +207,13 @@ function revset
 		export xh=$xid/hpb
 		export xp=$xh/lib/protocol
 		export xm=$xid/realtime/Projects/Mac
+    export xs=$xm/Sabine
 
 		export eid=~bsnyder/work/$REV/eserver/iDirect
 		export eh=$eid/hpb
 		export ep=$eh/lib/protocol
 		export em=$eid/realtime/Projects/Mac
+    export es=$em/Sabine
 
 		if [[ -n $2 ]]
 			then
@@ -220,6 +222,7 @@ function revset
 				export h=$xh
 				export p=$xp
 				export m=$xm
+				export s=$xs
 #export lwip=$xid/third_party/lwip/contrib/ports/unix/proj/minimal
 #export dcl=$xid/third_party/dcl/dc_root
 		else
@@ -228,6 +231,7 @@ function revset
 				export h=$eh
 				export p=$ep
 				export m=$em
+				export s=$es
 #export lwip=$eid/third_party/lwip/contrib/ports/unix/proj/minimal
 #export dcl=$eid/third_party/dcl/dc_root
 				export pkg=$eh/script/pkg_scripts
@@ -240,7 +244,7 @@ function revset
 					cd $id
 						fi
 }
-revset trunk
+revset soc
 
 function cleanup
 {
