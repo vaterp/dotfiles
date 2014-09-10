@@ -1,3 +1,6 @@
+mv ~/.bashrc ~/.bashrc-original
+mv ~/.inputrc ~/.inputrc-original
+
 ln -s dotfiles/.profile
 ln -s dotfiles/.inputrc
 ln -s dotfiles/.gitconfig
