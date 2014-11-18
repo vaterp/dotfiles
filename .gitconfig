@@ -34,8 +34,8 @@
   h = log --pretty=format:'%h %Cblue%cd%Creset %ae %Cgreen%s%Creset' -10
   hg= log --pretty=format:'%h %Cblue%cd%Creset %ae %Cgreen%s%Creset' -10 --graph
 	
-	lg = log --graph --oneline --decorate 
-	ls = log --oneline --decorate 
+	lg = log --graph --oneline --decorate -10
+	ls = log --oneline --decorate -10
 	ll = "!git hist --numstat"
 
 	k = !gitk &
