@@ -244,7 +244,7 @@ function revset
 					cd $id
 						fi
 }
-revset soc
+revset trunk
 
 function cleanup
 {
