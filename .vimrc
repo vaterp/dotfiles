@@ -10,7 +10,6 @@ set nocompatible     "This must be first
 set autoread         "Reload a file automatically when changed from outside
 set mouse=a          "Let me use the mouse in xterms
 "Make VIM behave like show-all-if-ambiguous is set like .inputrc
-set wildmode=longest:list,full "Make VIM behave like a show-all-if-ambigous is set like in .inputrc
 set showcmd "Show in status bar, in progress commands
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
@@ -48,6 +47,7 @@ endif
 
 set wildmenu
 set wildmode=longest:full,full
+"set wildmode=longest:list,full "Make VIM behave like a show-all-if-ambigous is set like in .inputrc
 
 "}}}1
 
