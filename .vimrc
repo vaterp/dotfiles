@@ -45,6 +45,10 @@ if &t_Co > 2
   syntax on
 endif
 
+
+set wildmenu
+set wildmode=longest:full,full
+
 "}}}1
 
 "Global Fold settings {{{1
