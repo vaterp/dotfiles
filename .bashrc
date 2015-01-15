@@ -2,10 +2,25 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-export SHELL=bash
+#export SHELL=bash
+
+#I used to do this... but i think following is better
+# If not running interactively, don't do anything
+#[ -z "$PS1" ] && return
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+DISTRO=unknown
+
+if [ -f /etc/debian_version ]; then
+	DISTRO=deb
+elif [ -f /etc/redhat-release ]; then
+	DISTRO=red
+fi
 
 # History Settings
 export HISTCONTROL="ignoreboth"   #Don't put duplicate lines or lines starting with space in history
@@ -112,19 +127,19 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
+  fi
 fi
-
-#Not sure why on fedora, but this is where it puts it.
-if [ -f /etc/profile.d/bash_completion.sh ]; then
-	. /etc/profile.d/bash_completion.sh
-fi
-
 
 #bsnyder stuff
 if [ -f ~/.alias ]; then
 	 . ~/.alias
 fi
+cd
+
 unset MAILCHECK
 shopt -u mailwarn
