@@ -122,30 +122,6 @@ if [ `hostname` != "researchPP1" ]; then
 
 fi
 
-
-#
-#Lantronix helpers
-#
-
-lt() 
-{ 
-	print -Pn "\e]0; $1 \a"
-	telnet lant 100"$2"
-}
-
-#st () {print -Pn "\e]0; $1 \a"}
-plt()
-{
-	print -Pn "\e]0; $1 \a"
-	telnet plant 100"$2"
-}
-
-
-
-#
-#end LANTRONIX helpers
-#
-
 function av
 {
 	ack -H --nocolor --nogroup $1 | vi -

@@ -261,6 +261,29 @@ function cleanup
  find . -type f -name 'sana' | xargs -r rm
 }
 
+#
+#Lantronix helpers
+#
+lt() 
+{ 
+	print -Pn "\e]0; $1 \a"
+	telnet lant 100"$2"
+}
+
+#st () {print -Pn "\e]0; $1 \a"}
+plt()
+{
+	print -Pn "\e]0; $1 \a"
+	telnet plant 100"$2"
+}
+#
+#end LANTRONIX helpers
+#
+
+
+
+
+
 
 #
 #Some Pioneer environments
