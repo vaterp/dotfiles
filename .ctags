@@ -1,0 +1,16 @@
+--extra=+fq
+-R
+--exclude=shared/tools/*
+--exclude=Makefile
+--exclude=*/dump_socket/*
+--exclude=*/saa/*
+--exclude=hpb/drivers/*
+--exclude=*/enc/*
+--exclude=*/broadcast*
+--exclude=*/aggronator/*
+--exclude=*/network/*
+--exclude=*/sar/*
+--exclude=hpb/drivers/*
+--exclude=hpb/tools/*
+--exclude=hpb/test/*
+--exclude=hpb/script/*
