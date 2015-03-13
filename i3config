@@ -35,10 +35,10 @@ bindsym $mod+d exec dmenu_run
   #  alt-tab to cycle through windows
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift_Tab focus left
-  #  home row too, skip focus left, cause of horiz split
+  #  home row too
 bindsym $mod+j focus down
 bindsym $mod+k focus up
-#bindsym $mod+h focus left
+bindsym $mod+h focus left
 bindsym $mod+l focus right
   # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -56,7 +56,7 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+h split h
+bindsym $mod+g split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
