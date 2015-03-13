@@ -176,14 +176,16 @@ bindsym $mod+KP_7 move absolute position 0 0
 #bindsym $mod+KP_3 move absolute position -0 -0
 
 
-mode "System Menu --> (L)ogout (R)estart re(c)onfig"{
+mode "System Menu --> (l)ock (R)estart re(c)onfig (E)xit"{
  bindsym c  reload ; mode "default"
  bindsym R  restart ; mode "default"
- bindsym L  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'" ; mode "default"
+ bindsym E  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'" ; mode "default"
  bindsym Return mode "default"
  bindsym Escape mode "default"
+ bindsym l exec i3lock -c 111111 ; mode "default"
+
  }
- bindsym $mod+BackSpace mode "System Menu --> (L)ogout (R)estart re(c)onfig"
+ bindsym $mod+BackSpace mode "System Menu --> (l)ock (R)estart re(c)onfig (E)xit"
 
 #mode "focused" {
 
@@ -257,8 +259,6 @@ bindsym XF86Launch9 [con_mark="mark59"] focus
 #bindsym XF86Send
 #bindsym XF86Save
 #bindsym Print
-#Lock screen
-bindsym $mod+control+l exec i3lock -c 111111
 
 #Scratchpad stuff
 bindsym shift+F12 move scratchpad
