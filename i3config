@@ -1,9 +1,6 @@
-# Should you change your keyboard layout some time, delete
-# this file and re-run i3-config-wizard(1).
-
-# i3 config file (v4)
-#
+# Should you change your keyboard layout some time, delete this file and re-run i3-config-wizard(1).
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
+# XPROP and XEV are useful tools to help find control codes
 
 set $mod Mod4
 
@@ -30,39 +27,36 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
 # bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
+#
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
+#
+  #  alt-tab to cycle through windows
+bindsym Mod1+Tab focus right
+bindsym Mod1+Shift_Tab focus left
+  #  home row too
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+h focus left
+bindsym $mod+l focus right
+  # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
-
-# alternatively, you can use the cursor keys:
+  # move focused window
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+l move right
+  # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# split in horizontal orientation
-bindsym $mod+h split h
-
-# split in vertical orientation
+bindsym $mod+g split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -81,6 +75,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
+bindsym $mod+shift+a focus child
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -108,13 +103,6 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-
-# reload the configuration file
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -175,14 +163,6 @@ workspace_auto_back_and_forth yes
 bindsym $mod+z workspace back_and_forth
 
 
-#
-#focus stuff
-#
-
-#alt-tab to cycle through windows
-bindsym Mod1+Tab focus right
-bindsym Mod1+Shift_Tab focus left
-
 #Win-PGUP/DOWN to cycle through workspaces
 bindsym $mod+Prior workspace prev
 bindsym $mod+Next workspace next
@@ -194,6 +174,16 @@ bindsym $mod+KP_5 move absolute position center
 bindsym $mod+KP_7 move absolute position 0 0
 #bindsym $mod+KP_9 move absolute position -0 0
 #bindsym $mod+KP_3 move absolute position -0 -0
+
+
+mode "System Menu --> (L)ogout (R)estart re(c)onfig"{
+ bindsym c  reload ; mode "default"
+ bindsym R  restart ; mode "default"
+ bindsym L  exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'" ; mode "default"
+ bindsym Return mode "default"
+ bindsym Escape mode "default"
+ }
+ bindsym $mod+BackSpace mode "System Menu --> (L)ogout (R)estart re(c)onfig"
 
 #mode "focused" {
 
@@ -234,6 +224,9 @@ bindsym XF86HomePage exec "nautilus --no-desktop"
 bindsym XF86Calculator exec gnome-calculator
 bindsym XF86Search exec /usr/bin/xdg-open "http://www.google.com" ; [class="(?i)firefox"] focus;
 
+bindsym Print exec gnome-screenshot -i
+bindsym $mod+shift+Print exec gnome-screenshot -i
+
 #bindsym XF86Mail exec /usr/bin/xdg-email
 bindsym shift+XF86Launch5 mark mark55
 bindsym shift+XF86Launch6 mark mark56
@@ -267,13 +260,17 @@ bindsym XF86Launch9 [con_mark="mark59"] focus
 #Lock screen
 bindsym $mod+control+l exec i3lock -c 111111
 
-#Mouse button configs I want to use
+#Scratchpad stuff
+bindsym shift+F12 move scratchpad
+bindsym F12 scratchpad show
 
 
 #custom window settings
 for_window [title="Event Tester"] floating enable
-for_window [class="xcalc"] floating enable
-for_window [title="Calculator|xclock"] floating enable
+for_window [class="Nautilus"] floating enable
+for_window [class="XCalc"] floating enable
+for_window [class="XClock"] floating enable
+for_window [class="Eog"] floating enable
 
 
 #Startup Apps
