@@ -154,7 +154,8 @@ bar {
 
 #Application binds I use often
 bindsym F1 [class="Firefox"] focus
-bindsym $mod+F1 exec --no-startup-id firefox
+bindsym F2 exec --no-startup-id firefox
+bindsym F3 exec dmenu_run
 
 bindsym $mod+KP_Equal exec --no-startup-id gnome-terminal -e "ssh pp1"
 bindsym $mod+KP_parenleft exec --no-startup-id gnome-terminal -e "ssh nms"
@@ -185,7 +186,8 @@ mode "System Menu --> (l)ock (R)estart re(c)onfig (E)xit"{
  bindsym l exec i3lock -c 111111 ; mode "default"
 
  }
- bindsym $mod+BackSpace mode "System Menu --> (l)ock (R)estart re(c)onfig (E)xit"
+ bindsym $mod+BackSpace exec i3lock -c 111111
+ bindsym Control+Mod1+Delete mode "System Menu --> (l)ock (R)estart re(c)onfig (E)xit"
 
 #mode "focused" {
 
@@ -247,7 +249,6 @@ bindsym XF86Launch9 [con_mark="mark59"] focus
 #bindsym XF86AudioRaiseVolume
 #bindsym XF86AudioPlay
 #bindsym XF86Favourites [class="(?i)firefox"] focus;
-# FLock keys
 #bindsym Help
 #bindsym Undo
 #bindsym Redo
@@ -274,6 +275,6 @@ for_window [class="Eog"] floating enable
 
 
 #Startup Apps
-exec --no-startup-id i3-msg 'exec /usr/bin/xpad'
+exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/xpad --hide'
 exec --no-startup-id i3-msg 'workspace 1; exec gvim -S ~/Desktop/dotfiles.vim ; exec gnome-terminal'
 exec --no-startup-id unclutter
