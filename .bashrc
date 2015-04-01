@@ -29,7 +29,7 @@ shopt -s histappend  #append to history file, don't overwrite it
 shopt -s histverify #Allow for verification with a substituted history expansion
 HISTSIZE=1000
 HISTFILESIZE=2000
-PROMPT_COMMAND='history -a;history -c; history -r'
+PROMPT_COMMAND='history -a;'
 
 shopt -s autocd
 
