@@ -19,8 +19,9 @@ font pango:DejaVu Sans Mono 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# start a horizontal or vertical terminal
+bindsym $mod+Return split horizontal ; exec i3-sensible-terminal
+bindsym $mod+shift+Return split vertical ; exec i3-sensible-terminal 
 
 # kill focused window
 bindsym $mod+q kill
@@ -32,31 +33,35 @@ bindsym $mod+d exec dmenu_run
 #
 # change focus
 #
-  #  alt-tab to cycle through windows
+
+#  alt-tab to cycle through windows
 bindsym Mod1+Tab focus right
 bindsym Mod1+Shift_Tab focus left
-  #  home row too
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+h focus left
-bindsym $mod+l focus right
-  # alternatively, you can use the cursor keys:
+# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
-  # move focused window
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+l move right
-  # alternatively, you can use the cursor keys:
+# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-bindsym $mod+g split h
+  #  home row too  (I dont use these enough to take up the keys, id rather have H for horiz split)
+      #bindsym $mod+j focus down
+   		#bindsym $mod+k focus up
+   		#bindsym $mod+h focus left
+   		#bindsym $mod+l focus right
+	# move focused window
+			#bindsym $mod+Shift+j move down
+			#bindsym $mod+Shift+k move up
+			#bindsym $mod+Shift+h move left
+			#bindsym $mod+Shift+l move right
+
+
+
+bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
@@ -162,7 +167,7 @@ bindsym $mod+KP_parenleft exec --no-startup-id gnome-terminal -e "ssh nms"
 
 workspace_auto_back_and_forth yes
 bindsym $mod+z workspace back_and_forth
-
+bindsym $mod+shift+z move container to workspace back_and_forth ; workspace back_and_forth
 
 #Win-PGUP/DOWN to cycle through workspaces
 bindsym $mod+Prior workspace prev
