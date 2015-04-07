@@ -7,7 +7,9 @@ set menu-complete-display-prefix on
 set colored-stats on
 set match-hidden-files off
 #set completion-ignore-case on
+#set expand-tilde on
 
+"\e3": insert-comment
 "\C-[[A": history-search-backward
 "\C-[[B": history-search-forward
 "\C-x\C-a": shell-expand-line
