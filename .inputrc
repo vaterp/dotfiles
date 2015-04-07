@@ -3,14 +3,17 @@ $include /etc/inputrc
 TAB: menu-complete
 set show-all-if-ambiguous on
 set show-all-if-unmodified on
+set menu-complete-display-prefix on
 set colored-stats on
 set match-hidden-files off
 #set completion-ignore-case on
 
 "\C-[[A": history-search-backward
 "\C-[[B": history-search-forward
-
-"\M-o": "\C-p\C-a\M-f "
+"\C-x\C-a": shell-expand-line
+"\C-g": shell-expand-line
+"\eo": "\C-p\C-a\ef"
+"\C-o": "\C-p\C-a\ef "
 $if Bash
 	 Space: magic-space
 $endif
