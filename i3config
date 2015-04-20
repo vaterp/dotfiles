@@ -28,7 +28,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
 
 #
 # change focus
@@ -158,9 +158,9 @@ bar {
 #
 
 #Application binds I use often
-bindsym F1 [class="Firefox"] focus
-bindsym F2 exec --no-startup-id firefox
-bindsym F3 exec dmenu_run
+#bindsym F2 [class="Firefox"] focus
+#bindsym F3 exec --no-startup-id firefox
+#bindsym F1 exec dmenu_run
 
 bindsym $mod+KP_Equal exec --no-startup-id gnome-terminal -e "ssh pp1"
 bindsym $mod+KP_parenleft exec --no-startup-id gnome-terminal -e "ssh nms"
@@ -247,13 +247,13 @@ bindsym XF86Launch6 [con_mark="mark56"] focus
 bindsym XF86Launch7 [con_mark="mark57"] focus
 bindsym XF86Launch8 [con_mark="mark58"] focus
 bindsym XF86Launch9 [con_mark="mark59"] focus
+bindsym XF86Favorites [class="(?i)firefox"] focus;
 
 #
 #bindsym XF86AudioMute
 #bindsym XF86AudioLowerVolume
 #bindsym XF86AudioRaiseVolume
 #bindsym XF86AudioPlay
-#bindsym XF86Favourites [class="(?i)firefox"] focus;
 #bindsym Help
 #bindsym Undo
 #bindsym Redo
