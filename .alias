@@ -124,11 +124,12 @@ alias rlc='plt receive_line_card 14'
 alias mdm='plt m267 10'
 
 #Football Devices
+alias falt="alt | grep M-"
 alias sw='lt FB-Switch 14'
-alias m1x='lt M-1-X7     26'
-alias m1s='lt M-1-SBC    5'
-alias m2x='lt M-2-X7     9'
-alias m2s='lt M-2-SBC    10'
+alias m1x='lt M-1-X7 26'
+alias m1s='lt M-1-SBC 05'
+alias m2x='lt M-2-X7 09'
+alias m2s='lt M-2-SBC 10'
 
 #
 #Git helpers
