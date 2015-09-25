@@ -13,6 +13,7 @@ alias 'getgithub'='git clone https://github.com/vaterp/dotfiles.git'
 #
 #Aliases
 #
+alias hu='history -n'  #Merge history from other shells
 alias rs=revset
 alias Ack=ack
 alias ccm='cvs commit -m "CR 28247: '
@@ -95,6 +96,8 @@ alias script='script -f'
 alias lsh='find . -type f -perm +100  | grep -v test | grep -v tools | grep -v dvbs2 | grep -v script | grep -v drivers | grep -v cougar | grep -v falcon | grep -v puma | grep -v ".sh$" '
 alias alt="clear;alias | grep -v grep | grep -w lt | sort -nk3 | grep lt"
 alias palt="alt | grep plt"
+
+
 alias m516='lt m516 01' #m1='lt m516 01'
 alias m689='lt m689 02' #m2='telnet lant 10002'
 alias m658='lt m658 03' #m3='telnet lant 10003'
@@ -119,6 +122,13 @@ alias 2911='lt 2911 30'
 alias tlc='plt transmit_line_card 12'
 alias rlc='plt receive_line_card 14'
 alias mdm='plt m267 10'
+
+#Football Devices
+alias sw='lt FB-Switch 14'
+alias m1x='lt M-1-X7     26'
+alias m1s='lt M-1-SBC    5'
+alias m2x='lt M-2-X7     9'
+alias m2s='lt M-2-SBC    10'
 
 #
 #Git helpers
@@ -266,14 +276,16 @@ function cleanup
 #
 lt() 
 { 
-	print -Pn "\e]0; $1 \a"
+#	print -Pn "\e]0; $1 \a"  #This is for ZSH TITLE
+	echo -ne "\033]0; $1 \007"
 	telnet lant 100"$2"
 }
 
 #st () {print -Pn "\e]0; $1 \a"}
 plt()
 {
-	print -Pn "\e]0; $1 \a"
+#	print -Pn "\e]0; $1 \a"  #This is for ZSH TITLE
+	echo -ne "\033]0; $1 \007"
 	telnet plant 100"$2"
 }
 #
