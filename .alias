@@ -296,9 +296,14 @@ plt()
 #
 
 
-
-
-
+#
+#Only show the top level directories in a tar file
+#
+toptar ()
+{
+#  tar -tf $1 | grep -o '^[^/]\+' | uniq
+   tar --exclude='*/*' -tf $1
+}
 
 #
 #Some Pioneer environments
