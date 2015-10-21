@@ -285,5 +285,5 @@ for_window [class="Eog"] floating enable
 
 #Startup Apps
 exec --no-startup-id i3-msg 'workspace 1; exec /usr/bin/xpad --hide'
-exec --no-startup-id i3-msg 'workspace 1; exec gvim -S ~/Desktop/dotfiles.vim ; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 9; exec gvim -S ~/Desktop/dotfiles.vim ; exec gnome-terminal'
 exec --no-startup-id unclutter
