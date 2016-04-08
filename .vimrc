@@ -526,7 +526,7 @@ let g:ctrlp_by_filename = 1 "Use search by filename by default
 
 "}}}1
 
-autocmd BufNewFile,BufRead *.opt set filetype=json
+"autocmd BufNewFile,BufRead *.opt set filetype=json
 autocmd BufNewFile,BufRead *.json set filetype=json
 "autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
 
