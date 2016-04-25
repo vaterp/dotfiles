@@ -380,7 +380,7 @@ imap <C-s> <C-o><C-s>
 autocmd FileType ahk                        let b:comment_leader = ';'
 autocmd FileType vim                        let b:comment_leader = '"'
 autocmd FileType c,cpp,java                 let b:comment_leader = '// '
-autocmd FileType sh,make,perl,gdb,conf      let b:comment_leader = '# '
+autocmd FileType sh,make,perl,gdb,conf,python      let b:comment_leader = '# '
 noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
