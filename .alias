@@ -205,7 +205,7 @@ alias cvsb='cvs status hpb/sarmt/sarmt.cpp | grep Sticky'
 #
 #Root Sudo aliases:
 #
-alias tcpdump='sudo /usr/sbin/tcpdump -lnip4p1'
+alias tcpdump='sudo /usr/sbin/tcpdump -lnieth0'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
 
