@@ -87,7 +87,17 @@ end
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ 1, 2, 3, 4, 5, 6, 7, 8, 9 }, s, layouts[2])
+		--tags[s] = awful.tag({1,2,3,4,5,6,7,8,9},s,layouts[2])
+    tags[s] = awful.tag({ 1, 2, "3:work", 4, 5, 6, 7, 8, 9 }, s,
+		                    { awful.layout.suit.tile,
+												  awful.layout.suit.magnifier,
+													awful.layout.suit.fair,
+													awful.layout.suit.tile,
+													awful.layout.suit.tile,
+												  awful.layout.suit.tile,
+													awful.layout.suit.tile,
+													awful.layout.suit.tile,
+													awful.layout.suit.tile} )
 end
 -- }}}
 
@@ -388,6 +398,8 @@ awful.rules.rules = {
     { rule = { class = "MPlayer" },
       properties = { floating = true } },
     { rule = { class = "pinentry" },
+      properties = { floating = true } },
+    { rule = { name = "Event Tester" },
       properties = { floating = true } },
     { rule = { class = "gimp" },
       properties = { floating = true } },
