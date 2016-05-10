@@ -61,15 +61,15 @@ local layouts =
 {
     awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    --awful.layout.suit.tile.left,
+    --awful.layout.suit.tile.bottom,
+    --awful.layout.suit.tile.top,
     awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
+    --awful.layout.suit.fair.horizontal,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
+    --awful.layout.suit.max.fullscreen,
     awful.layout.suit.magnifier
 }
 -- }}}
@@ -88,7 +88,7 @@ tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
 		--tags[s] = awful.tag({1,2,3,4,5,6,7,8,9},s,layouts[2])
-    tags[s] = awful.tag({ 1, 2, "3:work", 4, 5, 6, 7, 8, 9 }, s,
+    tags[s] = awful.tag({ 1, 2, "3:cpe1", "4:cpe2", 5, 6, 7, 8, 9 }, s,
 		                    { awful.layout.suit.tile,
 												  awful.layout.suit.magnifier,
 													awful.layout.suit.fair,
@@ -284,8 +284,8 @@ end),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
-    --awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
-    --awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
+    awful.key({ modkey,           }, "=",     function () awful.tag.incnmaster( 1)      end),
+    awful.key({ modkey,           }, "-",     function () awful.tag.incnmaster(-1)      end),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
     awful.key({ modkey,           }, "space", function () awful.layout.inc(layouts,  1) end),
