@@ -1,6 +1,7 @@
 [user]
 	name = Brian Snyder
 	email = bsnyder@idirect.net
+
 [core]
 	editor = vim
 #editor = vim -pc ':normal gg'
