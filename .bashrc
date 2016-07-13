@@ -2,12 +2,6 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-#export SHELL=bash
-
-#I used to do this... but i think following is better
-# If not running interactively, don't do anything
-#[ -z "$PS1" ] && return
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -57,7 +51,7 @@ fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
-    xterm-color) color_prompt=yes;;
+    xterm-color|*-256color) color_prompt=yes;;
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
