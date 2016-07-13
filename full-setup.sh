@@ -1,4 +1,3 @@
-mv ~/.bashrc ~/.bashrc-original
 mv ~/.inputrc ~/.inputrc-original
 
 ln -s dotfiles/.profile
@@ -7,8 +6,7 @@ ln -s dotfiles/.gitconfig
 ln -s dotfiles/.zshrc
 ln -s dotfiles/.vimrc
 ln -s dotfiles/.screenrc
-ln -s dotfiles/.alias
-ln -s dotfiles/.bashrc
+ln -s dotfiles/.bash_aliases
 ln -s dotfiles/.gitignore
 ln -s dotfiles/.screenpioneer
 ln -s dotfiles/.screenresearch

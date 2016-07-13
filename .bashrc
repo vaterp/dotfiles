@@ -1,3 +1,5 @@
+#I DONT USE THIS ANYMORE, NOW I USE .BASH_ALIASES FOR BETTER OOB INTEGRATION
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples

@@ -1,9 +1,51 @@
-#I DONT USE THIS ANYMORE, NOW I USE .BASH_ALIASES FOR BETTER OOB INTEGRATION
+
+DISTRO=unknown
+if [ -f /etc/debian_version ]; then
+	DISTRO=deb
+elif [ -f /etc/redhat-release ]; then
+	DISTRO=red
+fi
+
+# History Settings
+export HISTIGNORE="exit:history"
+shopt -s histverify #Allow for verification with a substituted history expansion
+HISTSIZE=1000
+HISTFILESIZE=1000
+PROMPT_COMMAND='history -a;'
+
+shopt -s autocd
+
+#Completion controls
+#set completion-ignore-case on
+#set completion-prefix-display-length 4
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
 
 
-#
-#This file has config used by both bash and zshrc
-#
+#This is ugly... set this is .bashrc also
+if [ `whoami` = "root" ]; then
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1 "(%s)") \! >'
+else
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1 "(%s)") \! >'
+fi
+
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
+
+EDITOR=vi
+
+unset MAILCHECK
+shopt -u mailwarn
+
+
 
 #Shared environment setting controls
 export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
@@ -81,8 +123,6 @@ alias du='du -hsc'
 alias df='df -h'
 alias j=jobs
 alias c=clear
-alias pd=perldoc
-alias clm="cvs log -w bsnyder"
 
 alias s=screen
 alias stc='screen -t console telnet 127.0.0.1 13255'
@@ -160,25 +200,9 @@ alias gst='git status -uno'
 #
 #zsh aliases only:
 #
-if [ "$SHELL" = "/bin/zsh" ]; then
-	
-alias -g L='| less'
-alias -g G='|grep --color'
-alias -g GI='|grep -i --color'
-alias -g T='|tail'
-alias -g H='|head'
-alias -g N='&>/dev/null&'
-alias -g ME='--author=Snyder'
 
-alias -s cpp=vim
-alias -s h=vim
-alias -s txt=vim
-alias -s log=vim
-
-fi
-
+#TMUX stuff
 alias tls='tmux list-session'
-alias ss='screen -c .screenpioneer'
 
 #
 #Admin Helpers
@@ -202,8 +226,6 @@ lid() { #Show iDirectOldSchool bin builds
  find . -type f -name sarmt  -ls | cut -d' ' -f3,11-
 }
 
-alias cvsb='cvs status hpb/sarmt/sarmt.cpp | grep Sticky'
-
 
 #
 #Root Sudo aliases:
@@ -213,55 +235,6 @@ alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
 
 
-#
-#Some shared functions for bash/zsh
-#
-#function revset
-#{
-#export REV=$1
-
-#		export xid=~bsnyder/work/$REV/phoenix/iDirect
-#		export xh=$xid/hpb
-#		export xp=$xh/lib/protocol
-#		export xm=$xid/realtime/Projects/Mac
-#    export xs=$xm/Sabine
-#
-#		export eid=~bsnyder/work/$REV/eserver/iDirect
-#		export eh=$eid/hpb
-#		export ep=$eh/lib/protocol
-#		export em=$eid/realtime/Projects/Mac
-#    export es=$em/Sabine
-#
-#		if [[ -n $2 ]]
-#			then
-#				export TARGET_ID=phoenix
-#				export id=$xid
-#				export h=$xh
-#				export p=$xp
-#				export m=$xm
-#				export s=$xs
-##export lwip=$xid/third_party/lwip/contrib/ports/unix/proj/minimal
-##export dcl=$xid/third_party/dcl/dc_root
-#		else
-#			unset TARGET_ID
-#				export id=$eid
-#				export h=$eh
-#				export p=$ep
-#				export m=$em
-#				export s=$es
-##export lwip=$eid/third_party/lwip/contrib/ports/unix/proj/minimal
-##export dcl=$eid/third_party/dcl/dc_root
-#				export pkg=$eh/script/pkg_scripts
-#				fi
-#
-##export dg=$dcl/jobs/gnu
-##CDPATH=.:~:$h:$p:$id:$id/shared/stack:$dcl
-#				CDPATH=.:~:$h:$p:$id:$id/shared/stack
-#				if [[ -d $id ]]; then
-#					cd $id
-#						fi
-#}
-#revset trunk
 CDPATH=.:~:~/work:~/work/idsapps
 
 v=~/work/idsapps/vagrant/mips
