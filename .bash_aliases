@@ -26,7 +26,7 @@ shopt -s globstar
 
 #This is ugly... set this is .bashrc also
 if [ `whoami` = "root" ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1 "(%s)") \! >'
+	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] \! >'
 else
 	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1 "(%s)") \! >'
 fi
@@ -117,8 +117,8 @@ alias more='less'
 alias l='less'
 alias pp="pstree -ph"
 alias psa="ps -fu bsnyder | grep -v '\(xterm\|screen\|SCREEN\|multi-gnome\|zsh\|ps -fu\|vi\)'"
-alias ll='ls -hrtl --color=tty'
-alias ls='ls -hF --color=tty'
+alias ll='ls -hrtl '
+alias ls='ls -hF '
 alias du='du -hsc'
 alias df='df -h'
 alias j=jobs
