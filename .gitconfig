@@ -1,6 +1,6 @@
 [user]
 	name = Brian Snyder
-	email = bsnyder@idirect.net
+	email = bsnyder@oneweb.net
 
 [core]
 	editor = vim
@@ -16,8 +16,6 @@
 [log]
   date=relative
 [alias]
-	#pom = push origin master
-	pgm = push github master
 	b = branch -vv
 	ba = branch -avv
 	ci = commit
@@ -53,7 +51,6 @@
 	st = status
 	sno = show --name-only
 	stfu = status --untracked=no
-	#pullsrb = !git stash save && git pull --rebase && git stash pop && echo 'Success!'
 	who = shortlog -s
   sd  = stash show -p
 	sl  = stash list
