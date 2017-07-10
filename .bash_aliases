@@ -14,7 +14,8 @@ alias gi='grep -i'
 alias gl='grep -l'
 alias od='od -t x'
 
-alias vi='vim -O'
+alias vi='/Applications/MacVim.app/Contents/bin/vim -o'
+alias vim='/Applications/MacVim.app/Contents/bin/vim'
 
 alias writeable='find . -type f -perm -u+w'
 alias exe='find . -type f -perm -u+x'
