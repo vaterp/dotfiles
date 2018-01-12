@@ -125,4 +125,5 @@ CDPATH=.:~:~/work
 #ipfw helpers
 alias ipl='ipfw pipe list | grep burst'
 alias ifl='ipfw -a list'
+alias ipw='while true; do ipl | grep 003; echo;echo; ifl | grep 00201; sleep 5; clear; done'
 
