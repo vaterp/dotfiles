@@ -14,6 +14,8 @@ alias gi='grep -i'
 alias gl='grep -l'
 alias od='od -t x'
 
+alias finder="open -a Finder ."
+
 alias vi='/Applications/MacVim.app/Contents/bin/vim -o'
 alias vim='/Applications/MacVim.app/Contents/bin/vim'
 
