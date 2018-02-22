@@ -30,8 +30,8 @@
 	histg = log --graph --decorate --oneline --all
   hist  = log --pretty=format:'%h %C(red bold)%ad%Creset | %s %C(green)%d %C(bold blue)[%an]%Creset' --date=short	
 
-  h = log --pretty=format:'%h %Cblue%cd%Creset %ae %Cgreen%s%Creset' -10
-  hg= log --pretty=format:'%h %Cblue%cd%Creset %ae %Cgreen%s%Creset' -10 --graph
+  h = log --pretty=format:'%h %C(red bold)%cd%Creset %ae %Cgreen%s%Creset %Cblue%d' -10
+  hg= log --pretty=format:'%h %C(red bold)%cd%Creset %ae %Cgreen%s%Creset %Cblue%d' -10 --graph
 	
 	lg = log --graph --oneline --decorate -10
 	ls = log --oneline --decorate -10
