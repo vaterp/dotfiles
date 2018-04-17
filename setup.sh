@@ -16,7 +16,7 @@ ln -s dotfiles/.vim/
 #UBU ONLY, just cut and paste the following:
 #
 
-#sudo apt install git vim htop vim-gnome tmux  mc  dconf-editor
+#sudo apt install git vim gvim-gtk htop tmux  mc  dconf-editor
 #sudo apt install fbreader iftop netstat
 
 #GNOME:
@@ -26,3 +26,19 @@ ln -s dotfiles/.vim/
 #gsettings set org.gnome.desktop.wm.preferences focus-mode 'mouse'
 
 
+# Notes on machine setup....
+
+#git clone https://github.com/vaterp/bin.git
+#git clone -b [freebsd|osx|develop] https://github.com/vaterp/dotfiles.git
+#git clone https://github.com/vaterp/help.git
+#dotfiles/linky.sh
+
+
+
+#Notes on VM that can help
+#(Too startup with window size hints, must run vmware-user)
+#/usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr --blockFd 3
+#sudo /etc/init.d/vmware-tools status
+#sudo /etc/init.d/vmware-tools restart
+#sleep 3
+#/usr/bin/vmware-user
