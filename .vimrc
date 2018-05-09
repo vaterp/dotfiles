@@ -13,19 +13,19 @@ set mouse=a          "Let me use the mouse in xterms
 set showcmd "Show in status bar, in progress commands
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
-set path=**   " For find command
+"set path=**   " For find command  - dont think i use this anymore
 set backup		" keep a backup file
 set background=dark
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autowrite   " Auto write files on buffer moves & makes
 set number "Turn on line numbering by default
-if version > 702
-set relativenumber "Turn on relative numbering
-endif
+"if version > 702
+"set relativenumber "Turn on relative numbering
+"endif
 set hidden "Let me move around if buffers aren't saved
 set shortmess=a
-set cmdheight=1
+"set cmdheight=1  "This seems to be the VIM default now, so dont need.
 set title
 set nowrap "I seem to be preferring this recently
 set tabstop=2
@@ -65,7 +65,8 @@ autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
 "autocmd BufWinLeave * if expand("%") != "" | silent mkview! | endif
 
 runtime macros/matchit.vim "matchit ships with vim now
-runtime ftplugin/man.vim  "Gives :Man command
+"runtime ftplugin/man.vim  "Gives :Man command
+"cab man Man
 
 
 
@@ -147,20 +148,6 @@ highlight Search ctermfg=red ctermbg=white
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
-
-
-" ShowMarks Setup {{{1
-"
-"let showmarks_enable = 0
-""let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^<>[]{}()\""
-let showmarks_include = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.'`^"
-let g:showmarks_ignore_type = "hqrmp"
-let g:showmarks_ignore_name = "ctrlp.txt"
-"
-"let showmarks_textlower = "\t:"
-"let showmarks_textupper = "\t:"
-"let showmarks_textother = "\t:"
-" }}} 1
 
 "Visual Mode Configuration {{{1
 "
@@ -281,8 +268,6 @@ augroup text_stuff
 	"some auto buffers with unmodifiable error messages
 	autocmd FileType text if &modifiable | silent %s///ge | endif
 
-
-
 augroup END
 
 	autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -384,8 +369,6 @@ autocmd FileType sh,make,perl,gdb,conf,python      let b:comment_leader = '# '
 noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
-cab man Man
-
 "I actually want tag in same place, use Cwg} to preview it.
 "nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
 nnoremap <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
@@ -395,12 +378,8 @@ set laststatus=2 "Always show
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%F%m%r%h%w\%=[L:\%l\ C:\%c\ A:\%b\ H:\x%B\ P:\%p%%]
-
-
 set statusline=%F\ %y\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
-
 "set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
-
  
 fun! HideMe(window)
 	let ecmd = ""
@@ -457,64 +436,6 @@ function! s:RunShellCommand(cmdline)
 	1
 endfunction
 
-
-
-"Multiple Search helpers
-"Help cleaning up routr files
-fun! DoSearchRouter()
- SearchBuffers uprtrASR1k#
- SearchBuffers uprtrASR1k(config)#
- SearchBuffers uprtrASR1k(config-.*)#
-endfun
-let @a='/h2xh'
-let @t='TRACE("%s: %d\n",__PRETTY_FUNCTION__,__LINE__);'
-
-"Some git help
-"map <silent> <f7> :call GITLOG_ToggleWindows()<CR>
-
-"DCL STUFF {{{1
-"autocmd BufReadPost ipstrc.* call DoIpsCleanup()
-"autocmd BufRead,BufNewFile *.drw  set nowrap
-"autocmd BufRead,BufNewFile *.dmp  set nowrap
-"autocmd BufRead,BufNewFile *.log  set nowrap
-"
-"fun! DoIpsCleanup()
-"	let currbufname = bufname("")
-"	if(match(currbufname, "ipstrc.dmp") > -1)
-"		echo "Doing dmp file reduction"
-"		g/ips_hdr/d
-"		g/\.\.\.\./d
-"		g/Timestamp/d
-"		g/Correlator/d
-"		g/timer/d
-"		g/Buffer addr    :/d
-"		g/Queue ID       :/d
-"		g/Sending process:/d
-"		g/Process type   :/d
-"		g/Location index :/d
-"		g/Rcving process :/d
-"		g/pkt_hdr\.data/d
-"		g/appl_sock_handle/d
-"		g/stub_sock_handle/d
-"		g/return_pid/d
-"		g/return_qid/d
-"		g/msg_flags/d
-"		g/end_of_data/d
-"	endif
-"	if (match(currbufname,"ipstrc.drw") > -1)
-"		echo "Doing drw file reduction"
-"		g/NBASE_ROOT/d
-"		v/\$/d
-"		g/timer/d
-"		g/-----/d
-"		g/NBB_POSTED_BUFFER/d
-"		g/ATG_SCK_DATA/d
-"		g/AMB_GET/d
-"	endif
-"endfun
-"End DCL Stuff}}}1
-
-
 "CTRLP Configuration {{{1
 "Not sure I want this right now, just moved ctrlp.vim into regular structure
 "set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -525,12 +446,6 @@ let @t='TRACE("%s: %d\n",__PRETTY_FUNCTION__,__LINE__);'
 let g:ctrlp_by_filename = 1 "Use search by filename by default
 
 "}}}1
-
-"autocmd BufNewFile,BufRead *.opt set filetype=json
-autocmd BufNewFile,BufRead *.json set filetype=json
-"autocmd BufNewFile,BufRead *.json set filetype=json syntax=javascript
-
-
 
 "SessionOptions {{{1
 "if has ("gui_win32")
