@@ -10,7 +10,6 @@ set nocompatible     "This must be first
 set autoread         "Reload a file automatically when changed from outside
 set mouse=a          "Let me use the mouse in xterms
 "Make VIM behave like show-all-if-ambiguous is set like .inputrc
-set showcmd "Show in status bar, in progress commands
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
 "set path=**   " For find command  - dont think i use this anymore
@@ -19,44 +18,62 @@ set background=dark
 set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set autowrite   " Auto write files on buffer moves & makes
-set number "Turn on line numbering by default
-"if version > 702
-"set relativenumber "Turn on relative numbering
-"endif
 set hidden "Let me move around if buffers aren't saved
 set shortmess=a
 "set cmdheight=1  "This seems to be the VIM default now, so dont need.
 set title
 set nowrap "I seem to be preferring this recently
-set tabstop=2
 set shiftwidth=2
 set scrolloff=1 "I really like this with [m & ]m
+
+
+"Tab setup default for all filemodes
+set tabstop=2 "Number of visual spaces per TAB in a file I read
+set softtabstop=2 "Number of spaces in TAB when editing
+set expandtab     "Tab is now a shortcut to a bunch adding 2 spaces
+
+"UI Config
+set showmatch             "Show matching brackets
+set showcmd               "Show in status bar, in progress commands
+set number                "Turn on line numbering by default
+function! ToggleNumber()
+  if (&relativenumber == 1)
+    set norelativenumber
+    set number
+  else
+    set relativenumber
+  endif
+endfunc
+"set relativenumber "Turn on relative numbering
+syntax on
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 augroup CursorLine
 	au!
 	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 	au WinLeave * setlocal nocursorline
 augroup END
+"set cursorline           " Underline current line for easy cursor spotting 
 
-filetype plugin indent on
-
-if &t_Co > 2
-  syntax on
-endif
-
-
-set wildmenu
+filetype  indent on      "Load filetype specific indent files
+set wildmenu             "Visual autocomplete for command menu
 set wildmode=longest:full,full
 "set wildmode=longest:list,full "Make VIM behave like a show-all-if-ambigous is set like in .inputrc
 
 "}}}1
 
-"Global Fold settings {{{1
-set foldopen+=jump
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"l")<CR>
-vnoremap <Space> zf
+"Global Fold settings {{{1{{{
+"set foldopen+=jump
+"nnoremap <silent> <Space> @=(foldlevel('.')?'za':"l")<CR>
+"vnoremap <Space> zf
 
-"}}}1
+set foldenable   "enable folding
+set foldlevelstart=10  "open most folds by default
+set foldnestmax=10     "10 nested fold max
+set foldmethod=indent  "fold based on indent level
+"space open/closes a fold
+nnoremap <space> za    
+
+"}}}1}}}
 
 
 "Let's play with this a bit and see how i like it....
@@ -118,9 +135,7 @@ map <silent> <C-E> :call ToggleVExplorer()<CR>
 "of files
 "C indention stuff... See help 'cinoptions-values'
 "set smartindent
-"set tabstop=2
 "set shiftwidth=2
-"set softtabstop=2
 "set cino+=(0             "Align paramater lists after newline under '('
 "set cino+=l1 "Indent switch/case lines better 
 "set cino+=N-s "Don't indent for namespaces
@@ -133,7 +148,6 @@ map <silent> <C-E> :call ToggleVExplorer()<CR>
 set gdefault         "Behave like /g is always set on substitute commands
 set incsearch	     "do incremental searching
 set hlsearch         "Highlight search results
-set showmatch        "Show matching brackets
 set matchtime=3
 set ignorecase       "Case insestive searching by default
 set smartcase        "If capital letter in search then be case sensitive
