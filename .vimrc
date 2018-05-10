@@ -12,7 +12,7 @@ set mouse=a          "Let me use the mouse in xterms
 "Make VIM behave like show-all-if-ambiguous is set like .inputrc
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
-"set path=**   " For find command  - dont think i use this anymore
+set path=.,,,**   " For find command  - dont think i use this anymore
 set backup		" keep a backup file
 set background=dark
 set history=50		" keep 50 lines of command line history
@@ -241,13 +241,6 @@ nnoremap <silent>,n :bn<CR>
 nnoremap <silent>,H :call HideMe("PREV")<CR>
 nnoremap <silent>,h :call HideMe("NEXT")<CR>
 "map ,b :buffers<CR>
-nnoremap <silent>,b :CtrlPBuffer<CR>
-"nnoremap <silent>T :CtrlPBufTag<CR>
-"nnoremap <silent>t :CtrlPTag<CR>
-nnoremap <silent>,e :CtrlPCurWD<CR>
-nnoremap <silent>,m :CtrlPMRU<CR>
-"nnoremap <silent>m :CtrlPMixed<CR>
-"nnoremap <silent>l :CtrlPLine<CR>
 map ,# :e#<CR>
 map ,1 :1b<CR>
 map ,2 :2b<CR>
@@ -449,17 +442,6 @@ function! s:RunShellCommand(cmdline)
 	silent execute '$read !'. expanded_cmdline
 	1
 endfunction
-
-"CTRLP Configuration {{{1
-"Not sure I want this right now, just moved ctrlp.vim into regular structure
-"set runtimepath^=~/.vim/bundle/ctrlp.vim
-
-"Can use wildignore to set files it will ignore and/or ctrlp_custom_ignore to
-"add to it for just ctrlp scope
-
-let g:ctrlp_by_filename = 1 "Use search by filename by default
-
-"}}}1
 
 "SessionOptions {{{1
 "if has ("gui_win32")
