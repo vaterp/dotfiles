@@ -469,7 +469,6 @@ let g:ctrlp_by_filename = 1 "Use search by filename by default
 "endif
 "}}}1
 
-
 "GUI Mode {{{1
 if has("gui_running")
 	"  highlight Type      ctermfg=green

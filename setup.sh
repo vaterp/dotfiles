@@ -20,10 +20,12 @@ ln -s dotfiles/.vim/
 #sudo apt install fbreader iftop netstat
 
 #GNOME:
-
 #gsettings set org.gnome.desktop.wm.preferences raise-on-click false
 #gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 #gsettings set org.gnome.desktop.wm.preferences focus-mode 'mouse'
+
+#dconf dump /org/gnome/ > gnome-backup.txt
+#dconf load /org/gnome/ < gnome-backup.txt
 
 
 # Notes on machine setup....
