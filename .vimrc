@@ -47,17 +47,16 @@ endfunc
 "set relativenumber "Turn on relative numbering
 syntax on
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
+"set cursorline           " Underline current line for easy cursor spotting 
 augroup CursorLine
 	au!
 	au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 	au WinLeave * setlocal nocursorline
 augroup END
-"set cursorline           " Underline current line for easy cursor spotting 
 
 filetype  indent on      "Load filetype specific indent files
 set wildmenu             "Visual autocomplete for command menu
 set wildmode=longest:full,full
-"set wildmode=longest:list,full "Make VIM behave like a show-all-if-ambigous is set like in .inputrc
 
 "}}}1
 
@@ -100,10 +99,14 @@ set diffexpr=""
 "}}}1
 
 "NETRW Settings {{{1
+let g:netrw_banner = 0          "disable banner
 let g:netrw_browse_split=0
 let g:netrw_preview = 1
 let g:netrw_liststyle = 3
 let g:netrw_winsize = 30
+"browse_split =4 open in prior window, netrw_altv=1 open splits to right
+"list_hide=netrw_gitignore#Hide() , list_hide.=',\.....'
+
 
 " Toggle Vexplore with Ctrl-E
 function! ToggleVExplorer()
