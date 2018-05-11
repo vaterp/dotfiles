@@ -260,7 +260,6 @@ map ,0 :10b<CR
 "}}}1
 
 " Only do this part when compiled with support for autocommands.
-if has("autocmd")
 
 augroup text_stuff
 	autocmd!
@@ -277,27 +276,17 @@ augroup text_stuff
 	"Figure out how to set this only for certain types of files, it screws up
 	"some auto buffers with unmodifiable error messages
 	autocmd FileType text if &modifiable | silent %s///ge | endif
-
 augroup END
 
-	autocmd! bufwritepost .vimrc source ~/.vimrc
+"Automatically open compiler output window across bottom of vim, if errors.
+autocmd QuickFixCmdPost * botright cwindow 5
 
+" When editing a file, always jump to the last known cursor position.
+autocmd BufReadPost *
+      \ if line("'\"") > 0 && line("'\"") <= line("$") |
+      \   exe "normal g`\"" |
+      \ endif
 
-	"Automatically open compiler output window across bottom of vim, if errors.
-	autocmd QuickFixCmdPost * botright cwindow 5
-
-
-
-  " When editing a file, always jump to the last known cursor position.
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-endif " has("autocmd")
-
-
- 
 "func! HideAll()
 	"syn region myFold start="{" end="}" transparent fold
 	"syn sync fromstart
@@ -355,14 +344,12 @@ set tags=tags;/home/bsnyder/work
 "set scrolloff=99999      
 
 "Quick Access File Helpers
-nmap ,x :source ~/.vimrc<CR>
 nmap ,v :e ~/.vimrc<CR>
-nmap ,z :e ~/.zshrc<CR>
-nmap ,a :e ~/.alias<CR>
+autocmd! bufwritepost .vimrc source ~/.vimrc
+
+nmap ,a :e ~/.bash_aliases<CR>
 nmap ,g :e ~/.gitconfig<CR>
 nmap ,d :e ~/dotfiles<CR>
-
-
 
 nnoremap p p=`]
 map <silent> <C-s> :if expand ("%") == ""<CR>: browse confirm w<CR>:else<CR>:confirm w<CR>:endif<CR>
