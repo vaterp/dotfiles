@@ -13,7 +13,7 @@ set match-hidden-files off
 "\C-[[A": history-search-backward
 "\C-[[B": history-search-forward
 "\C-x\C-a": shell-expand-line
-"\C-g": shell-expand-line
+"\C-g": glob-expand-word
 "\eo": "\C-p\C-a\ef"
 "\C-o": "\C-p\C-a\ef "
 $if Bash
