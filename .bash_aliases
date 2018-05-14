@@ -1,73 +1,8 @@
-
-DISTRO=unknown
-if [ -f /etc/debian_version ]; then
-	DISTRO=deb
-elif [ -f /etc/redhat-release ]; then
-	DISTRO=red
-fi
-
-# History Settings
-export HISTIGNORE="exit:history"
-shopt -s histverify #Allow for verification with a substituted history expansion
-HISTSIZE=1000
-HISTFILESIZE=1000
-PROMPT_COMMAND='history -a;'
-
-shopt -s autocd
-
-#Completion controls
-#set completion-ignore-case on
-#set completion-prefix-display-length 4
-
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-shopt -s globstar
-
-
-#This is ugly... set this is .bashrc also
-if [ `whoami` = "root" ]; then
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1 "(%s)") \! >'
-else
-	PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\h\[\033[00m\]\[\033[01;34m\] \w\[\033[00m\] $(__git_ps1 "(%s)") \! >'
-fi
-
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
-
-
-EDITOR=vi
-
-unset MAILCHECK
-shopt -u mailwarn
-
-
-
-#Shared environment setting controls
-export PATH=~/bin:$PATH:/sbin:/usr/X11R6/bin
-FIGNORE='~:.o:.d:.a:CVS'
-
-
-#Get GITHub
-alias 'getgithub'='git clone https://github.com/vaterp/dotfiles.git'
-
 #
 #Aliases
 #
 alias hu='history -n'  #Merge history from other shells
-#alias rs=revset
-alias Ack=ack
-alias ccm='cvs commit -m "CR 28247: '
-alias gsr='gdb /usr/sbin/idirect/sarouter'
 alias iptv='sudo iptables -vnL INPUT'
-alias psh='pstree -ap `pgrep samnc`'
-alias syshup='sudo kill -HUP `cat /var/run/syslogd.pid`'
-alias gsr='gdb /usr/sbin/idirect/sarouter'
-alias pt="pstree -ap `pgrep samnc`"
 alias sc='cu -l /dev/ttyS0 -s 9600'
 alias d='diff'
 alias diff='diff -w --side-by-side --suppress-common-lines'
@@ -97,7 +32,6 @@ grep -Ir --exclude="*~" "$1" *
 alias more='less'
 alias l='less'
 alias pp="pstree -ph"
-alias psa="ps -fu bsnyder | grep -v '\(xterm\|screen\|SCREEN\|multi-gnome\|zsh\|ps -fu\|vi\)'"
 alias ll='ls -hrtl --color=tty'
 alias ls='ls -hF --color=tty'
 alias du='du -hsc'
