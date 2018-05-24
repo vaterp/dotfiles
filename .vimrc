@@ -54,7 +54,7 @@ augroup CursorLine
 	au WinLeave * setlocal nocursorline
 augroup END
 
-filetype  indent on      "Load filetype specific indent files
+filetype  plugin indent on      "Load filetype specific indent files and ftplugin settings
 set wildmenu             "Visual autocomplete for command menu
 set wildmode=longest:full,full
 

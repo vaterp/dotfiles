@@ -29,12 +29,13 @@ ln -s dotfiles/.vim/
 
 
 # Notes on machine setup....
-
 #git clone https://github.com/vaterp/bin.git
 #git clone -b [freebsd|osx|develop] https://github.com/vaterp/dotfiles.git
 #git clone https://github.com/vaterp/help.git
 #dotfiles/linky.sh
 
+#To setup SUDOER with no PASSWD
+#USERNAME ALL=(ALL) NOPASSWD:ALL
 
 
 #Notes on VM that can help
