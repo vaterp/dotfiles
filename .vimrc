@@ -271,7 +271,7 @@ augroup text_stuff
 	autocmd BufRead,BufNewFile typescript*   set filetype=text
 
   " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal tw=78
+  autocmd FileType text setlocal textwidth=78
 
 	"Figure out how to set this only for certain types of files, it screws up
 	"some auto buffers with unmodifiable error messages
