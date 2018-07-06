@@ -1,4 +1,29 @@
 #
+#Things that are probably already in .bashrc by default
+#
+#export HISTCONTROL="ignoreboth"   #Don't put duplicate lines or lines starting with space in history
+#shopt -s histappend  #append to history file, don't overwrite it
+#HISTSIZE=1000
+#HISTFILESIZE=1000
+#shopt -u mailwarn
+
+#these were in my own .bashrc but not sysdefaults
+export HISTIGNORE="exit:history"
+shopt -s histverify #Allow for verification with a substituted history expansion
+PROMPT_COMMAND='history -a;'
+
+shopt -s autocd
+export CDPATH=~:work
+FIGNORE='~:.o:.d:.a:CVS'
+
+shopt -s globstar #Pattern "**" matches pathnaem expansion
+unset MAILCHECK
+EDITOR=vi
+
+
+
+
+#
 #Aliases
 #
 alias hu='history -n'  #Merge history from other shells
