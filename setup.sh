@@ -29,10 +29,6 @@ ln -s dotfiles/.vim/
 #git clone https://github.com/vaterp/bin.git
 #git clone -b [freebsd|osx|develop] https://github.com/vaterp/dotfiles.git
 #git clone https://github.com/vaterp/help.git
-#dotfiles/linky.sh
-
-#To setup SUDOER with no PASSWD
-#USERNAME ALL=(ALL) NOPASSWD:ALL
 
 ####If not VM but main desktop, want to setup .xmodmap and call it from .profile
 #mv ~/.profile ~/.profile-original 2>/dev/null
