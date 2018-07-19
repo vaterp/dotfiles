@@ -5,6 +5,16 @@ if ! [ $(id -u) = 0 ]; then
    exit 1
 fi
 
+#apt install open-vm-tools git vim openssh-server htop
+
+#If Desktop
+#apt install open-vm-tools-desktop xrdp
+#vim-gtk3 wireshark
+
+
+#sudo apt install git vim gvim-gtk htop tmux  mc  dconf-editor
+#sudo apt install fbreader iftop netstat
+
 echo "bsnyder ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 cat <<EOT >>/etc/hosts
 192.168.22.43  ine

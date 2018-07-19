@@ -13,8 +13,6 @@ ln -s dotfiles/.vim/
 #UBU ONLY, just cut and paste the following:
 #
 
-#sudo apt install git vim gvim-gtk htop tmux  mc  dconf-editor
-#sudo apt install fbreader iftop netstat
 
 ####GNOME:
 #gsettings set org.gnome.desktop.wm.preferences raise-on-click false
@@ -35,10 +33,3 @@ ln -s dotfiles/.vim/
 #ln -s dotfiles/.profile
 #ln -s dotfiles/.xmodmap
 
-####Notes on VM that can help
-#(Too startup with window size hints, must run vmware-user)
-#/usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr --blockFd 3
-#sudo /etc/init.d/vmware-tools status
-#sudo /etc/init.d/vmware-tools restart
-#sleep 3
-#/usr/bin/vmware-user
