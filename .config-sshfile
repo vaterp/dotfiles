@@ -1,0 +1,11 @@
+Host ine
+  User itrinegy
+Host tm1
+  HostName 192.168.22.40
+  User bsnyder
+Host tm2
+  HostName 192.168.22.42
+  ForwardX11 yes
+  User bsnyder
+Host owss
+  ForwardX11 yes
