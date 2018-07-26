@@ -53,6 +53,10 @@ function showGits {
   find . -name '.git' -type d
 }
 
+function highlight {
+  grep -E "^|.*$1.*"
+}
+
 alias more='less'
 alias l='less'
 alias pp="pstree -ph"
