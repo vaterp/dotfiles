@@ -49,9 +49,8 @@ alias lhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 
 #alias lhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
 alias lf="find . -type f -print0 | xargs -0 grep -n"
 
-function lg { 
-grep -Ir --exclude="*~" "$1" *
-#grep -Ir --exclude="*~" --exclude-dir=.git --exclude-dir=CVS "$1" *
+function showGits {
+  find . -name '.git' -type d
 }
 
 alias more='less'
@@ -63,8 +62,6 @@ alias du='du -hsc'
 alias df='df -h'
 alias j=jobs
 alias c=clear
-
-
 
 #
 #Git helpers
@@ -86,10 +83,8 @@ alias p='python3'
 #
 #Root Sudo aliases:
 #
-alias tcpdump='sudo /usr/sbin/tcpdump -lnieth0'
+alias tcpdump='sudo /usr/sbin/tcpdump -ln'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
-
-
 
 
 #
