@@ -1,7 +1,7 @@
 #
 #Things that are probably already in .bashrc by default
 #
-#export HISTCONTROL="ignoreboth"   #Don't put duplicate lines or lines starting with space in history
+export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines starting with space in history
 #shopt -s histappend  #append to history file, don't overwrite it
 #HISTSIZE=1000
 #HISTFILESIZE=1000
@@ -83,6 +83,12 @@ sip() { #See IpAddress on interfaces
 }
 alias webshare='python -m SimpleHTTPServer 8080'
 alias p='python3'
+repeat() {
+  for ((n=0;n<$1;n++))
+  do 
+    eval ${*:2}
+    done
+  }
 
 #
 #Root Sudo aliases:
