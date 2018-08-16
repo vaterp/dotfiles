@@ -20,9 +20,6 @@ shopt -s globstar #Pattern "**" matches pathnaem expansion
 unset MAILCHECK
 EDITOR=vi
 
-
-
-
 #
 #Aliases
 #
@@ -46,12 +43,7 @@ alias fw='find . -type f -print0 | xargs -0 grep -w '
 alias lh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep -n"
 alias lc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep -n"
 alias lhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep -n"
-#alias lhc="find . -type f -print0  \( -name '*.h*' -o -name '*.c*' \) | xargs -0 grep"
 alias lf="find . -type f -print0 | xargs -0 grep -n"
-
-function showGits {
-  find . -name '.git' -type d
-}
 
 function highlight {
   grep -E "^|.*$1.*"
@@ -71,6 +63,11 @@ alias c=clear
 #Git helpers
 #
 alias gst='git status -uno'
+alias gsh='git status -sb ; git hist -3'
+function showGits {
+  find . -name '.git' -type d
+}
+
 
 #TMUX stuff
 alias tls='tmux list-session'
