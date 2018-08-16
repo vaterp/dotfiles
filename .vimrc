@@ -32,6 +32,7 @@ set tabstop=2 "Number of visual spaces per TAB in a file I read
 set softtabstop=2 "Number of spaces in TAB when editing
 set expandtab     "Tab is now a shortcut to a bunch adding 2 spaces
 
+
 "UI Config
 set showmatch             "Show matching brackets
 set showcmd               "Show in status bar, in progress commands
@@ -83,7 +84,10 @@ runtime macros/matchit.vim "matchit ships with vim now
 "runtime ftplugin/man.vim  "Gives :Man command
 "cab man Man
 
-
+if has ('nvim')
+	set background=light
+  tnoremap <Esc> <C-\><C-n>
+endif
 
 
 "Fugitive setup {{{1
