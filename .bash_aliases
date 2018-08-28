@@ -62,12 +62,11 @@ alias c=clear
 #
 #Git helpers
 #
-alias gst='git status -uno'
 alias gsh='git status -sb ; git hist -3'
+alias gshu='git status -sbuno ; git hist -3'
 function showGits {
   find . -name '.git' -type d
 }
-
 
 #TMUX stuff
 alias tls='tmux list-session'
