@@ -67,6 +67,15 @@ alias gshu='git status -sbuno ; git hist -3'
 function showGits {
   find . -name '.git' -type d
 }
+function checkGits {
+  find . -name '.git' -type d | while read line; do
+     echo "Checking: $line"
+     pushd `dirname $line` > /dev/null
+     gsh
+     echo "========================================================================"
+     popd > /dev/null
+   done
+}
 
 #TMUX stuff
 alias tls='tmux list-session'
