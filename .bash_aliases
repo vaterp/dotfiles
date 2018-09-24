@@ -23,6 +23,7 @@ EDITOR=vi
 #
 #Aliases
 #
+alias tls='tmux list-session'
 alias hu='history -n'  #Merge history from other shells
 alias iptv='sudo iptables -vnL INPUT'
 alias sc='cu -l /dev/ttyS0 -s 9600'
@@ -49,7 +50,6 @@ function highlight {
   grep -E "^|.*$1.*"
 }
 
-alias more='less'
 alias l='less'
 alias pp="pstree -ph"
 alias ll='ls -hrtl --color=tty'
@@ -77,18 +77,17 @@ function checkGits {
    done
 }
 
-#TMUX stuff
-alias tls='tmux list-session'
-
 #
 #Admin Helpers
 #
-sip() { #See IpAddress on interfaces
+function sip() { #See IpAddress on interfaces
  ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
 }
+
 alias webshare='python -m SimpleHTTPServer 8080'
 alias p='python3'
-repeat() {
+
+function repeat() {
   for ((n=0;n<$1;n++))
   do 
     eval ${*:2}
@@ -101,13 +100,8 @@ repeat() {
 alias tcpdump='sudo /usr/sbin/tcpdump -ln'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
-
-#
-#Only show the top level directories in a tar file
-#
-toptar ()
-{
-#  tar -tf $1 | grep -o '^[^/]\+' | uniq
+function toptar ()
+{  # Only show top level directories in a tar file
    tar --exclude='*/*' -tf $1
 }
 
