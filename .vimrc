@@ -81,8 +81,6 @@ autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
 "autocmd BufWinLeave * if expand("%") != "" | silent mkview! | endif
 
 runtime macros/matchit.vim "matchit ships with vim now
-"runtime ftplugin/man.vim  "Gives :Man command
-"cab man Man
 
 if has ('nvim')
 	set background=light
@@ -134,20 +132,6 @@ map <silent> <C-E> :call ToggleVExplorer()<CR>
 
 " Change directory to the current buffer when opening files.
 " set autochdir
-"}}}1
-
-"C Stuff (Commented out) {{{1
-"I moved this to a cpp.vim ftplugin, but not sure if i want it for other types
-"of files
-"C indention stuff... See help 'cinoptions-values'
-"set smartindent
-"set shiftwidth=2
-"set cino+=(0             "Align paramater lists after newline under '('
-"set cino+=l1 "Indent switch/case lines better 
-"set cino+=N-s "Don't indent for namespaces
-""set cino+=e-1s  "No indent if '{' is not on its own line (Turns out i hate this)
-"set formatoptions-=r "Stop auto commenting on new lines
-"set formatoptions-=o "Stop auto commenting on Oo
 "}}}1
 
 " Search Settings {{{1
