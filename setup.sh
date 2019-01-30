@@ -13,15 +13,20 @@ ln -s dotfiles/.vim/
 #UBU ONLY, just cut and paste the following:
 #
 
-
-####GNOME:
+####GNOME settings (maybe work on some clones)
 #gsettings set org.gnome.desktop.wm.preferences raise-on-click false
 #gsettings set org.gnome.desktop.wm.preferences resize-with-right-button true
 #gsettings set org.gnome.desktop.wm.preferences focus-mode 'mouse'
+#gsettings set org.gnome.desktop.wm.preferences auto-raise false
+#gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier '<Alt>'
 
-#dconf dump /org/gnome/ > gnome-backup.txt
-#dconf load /org/gnome/ < gnome-backup.txt
-
+#Particular ubuntu apps I like to install on a desktop:
+#sudo apt install xubuntu-desktop
+#sudo apt install git
+#sudo apt install openssh-server
+#sudo apt install vim nvim vim-gnome
+#sudo apt install wireshark
+#sudo apt install htop
 
 #### Notes on machine setup....
 #git clone https://github.com/vaterp/bin.git
@@ -32,4 +37,3 @@ ln -s dotfiles/.vim/
 #mv ~/.profile ~/.profile-original 2>/dev/null
 #ln -s dotfiles/.profile
 #ln -s dotfiles/.xmodmap
-
