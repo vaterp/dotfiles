@@ -13,7 +13,7 @@ shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
 
 shopt -s autocd
-export CDPATH=~:work
+export CDPATH=~:~/work
 FIGNORE='~:.o:.d:.a:CVS'
 
 shopt -s globstar #Pattern "**" matches pathnaem expansion
