@@ -39,5 +39,5 @@ ln -s dotfiles/.vim/
 #ln -s dotfiles/.xmodmap
 
 #If desktop resolution not working, might want to run this command:
-#./open-vm-tools restart
+#service open-vm-tools restart
 
