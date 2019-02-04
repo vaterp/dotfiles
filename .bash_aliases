@@ -62,6 +62,7 @@ alias c=clear
 #
 #Git helpers
 #
+alias cls='clear;git ls'
 alias gsh='git status -sb ; git hist -3'
 alias gshu='git status -sbuno ; git hist -3'
 function showGits {
