@@ -71,6 +71,9 @@ function checkGits {
   find . -name '.git' -type d | while read line; do
      echo "Checking: $line"
      pushd `dirname $line` > /dev/null
+     if [ $# -eq 1 ]; then
+       git fetch
+     fi
      gsh
      echo "========================================================================"
      popd > /dev/null
