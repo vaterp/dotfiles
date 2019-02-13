@@ -37,3 +37,7 @@ ln -s dotfiles/.vim/
 #mv ~/.profile ~/.profile-original 2>/dev/null
 #ln -s dotfiles/.profile
 #ln -s dotfiles/.xmodmap
+
+#If desktop resolution not working, might want to run this command:
+#service open-vm-tools restart
+
