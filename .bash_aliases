@@ -40,11 +40,6 @@ alias fn='find . -name'
 alias f='find . -type f -print0 | xargs -0 grep'
 alias fw='find . -type f -print0 | xargs -0 grep -w '
 
-#changing these to 'l' instead of 'f' because fc is builtin.
-alias lh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep -n"
-alias lc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep -n"
-alias lhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep -n"
-alias lf="find . -type f -print0 | xargs -0 grep -n"
 
 function highlight {
   grep -E "^|.*$1.*"
@@ -81,35 +76,6 @@ function checkGits {
    done
 }
 
-#
-#Admin Helpers
-#
-function sip() { #See IpAddress on interfaces
- ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
-}
-
 alias webshare='python -m SimpleHTTPServer 8080'
 alias p='python3'
 
-function repeat() {
-  for ((n=0;n<$1;n++))
-  do 
-    eval ${*:2}
-    done
-  }
-
-#
-#Root Sudo aliases:
-#
-alias tcpdump='sudo /usr/sbin/tcpdump -ln'
-alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
-
-function toptar ()
-{  # Only show top level directories in a tar file
-   tar --exclude='*/*' -tf $1
-}
-
-#ipfw helpers
-alias ipl='ipfw pipe list | grep burst'
-alias ifl='ipfw -a list'
-alias ipw='while true; do clear; ipl | grep 003; echo;echo; ifl | grep 00200; sleep 5;  done'
