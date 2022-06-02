@@ -1,2 +1,0 @@
-LargeFile.vba: call delete('/home/bsnyder/.vim/plugin/LargeFile.vim')|call delete('/home/bsnyder/.vim/doc/LargeFile.txt')
-AnsiEsc.vba: call delete('/home/bsnyder/.vim/plugin/AnsiEscPlugin.vim')|call delete('/home/bsnyder/.vim/autoload/AnsiEsc.vim')|call delete('/home/bsnyder/.vim/plugin/cecutil.vim')|call delete('/home/bsnyder/.vim/doc/AnsiEsc.txt')

@@ -1,7 +1,0 @@
-:redir ! > x.txt
-:CMD
-:redir END
-
-
-:scriptnames
-:verbose set variable
