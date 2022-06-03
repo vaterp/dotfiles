@@ -1,4 +1,3 @@
-"Initiliazation settings {{{1
 set nocompatible     "This must be first
 set autoread         "Reload a file automatically when changed from outside
 set mouse=a          "Let me use the mouse in xterms
@@ -134,17 +133,6 @@ nnoremap <F1> :SearchReset<CR>
 "imap <F1> <ESC>:set hlsearch!<CR>a
 "noremap % v%
 
-nnoremap <expr> dd match(getline('.'),'^$*$') == -1 ? 'dd':'"_dd'
-
-"I Just like this as an example {{{2
-"if has("unix")
-	"map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
-	"nnoremap ,se :e scp://user@host//pathtofile<C-f>Fu<C-c>
-	"nnoremap ,se :e scp://userAThost//pathtofile<C-f>Fu
-"else
-	"map ,e :e <C-R>=expand("%:p:h") . "\\" <CR>
-"endif
-"}}}2
 
 nnoremap <C-w>+ <C-w><Bar><C-w>_
 
@@ -171,54 +159,12 @@ augroup text_stuff
 	autocmd FileType text if &modifiable | silent %s///ge | endif
 augroup END
 
-"Automatically open compiler output window across bottom of vim, if errors.
-autocmd QuickFixCmdPost * botright cwindow 5
 
 " When editing a file, always jump to the last known cursor position.
 autocmd BufReadPost *
       \ if line("'\"") > 0 && line("'\"") <= line("$") |
       \   exe "normal g`\"" |
       \ endif
-
-"func! HideAll()
-	"syn region myFold start="{" end="}" transparent fold
-	"syn sync fromstart
-	"set foldnestmax=2
-	"set foldmethod=syntax
-"endfunc
-
-map <F9> call HideAll()
-
-
-fun! HideAllJsonShit()
-				g/: {/normal! zf%
-				g/: \[/normal! zf%
-endfun
-fun! HideJsonShit()
-				g/GEO_SCOPE/normal! zf%
-				g/NMS/normal! zf%
-				g/SERVICE/normal! zf%
-				g/TRAFFIC_FILTER/normal! zf%
-endfun
-nmap <F8> :call HideJsonShit()<CR>
-nmap <S-F8> :call HideAllJsonShit()<CR>
-
-fun! ScrollOtherWindow(dir)
-	if a:dir == "down"
-		let move = "\<C-D>"
-	elseif a:dir == "up"
-		let move = "\<C-U>"
-	endif
-	exec "normal \<C-W>p" . move . "\<C-W>p"
-endfun 
-nmap <silent> <M-Down> :call ScrollOtherWindow("down")<CR>
-nmap <silent> <M-Up> :call ScrollOtherWindow("up")<CR>
-autocmd FileType make setlocal noexpandtab
-"For C code set iskeyword to -
-"
-
-
-
 
 set wildignore=*.o,*~,*.a,*.d
 
@@ -245,10 +191,6 @@ autocmd FileType sh,make,perl,gdb,conf,python      let b:comment_leader = '# '
 noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
 
-"I actually want tag in same place, use Cwg} to preview it.
-"nnoremap <C-]> <Esc>:exe "ptjump " . expand("<cword>")<Esc>
-nnoremap <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-
 "StatusLine settings
 set laststatus=2 "Always show
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
@@ -256,44 +198,19 @@ set laststatus=2 "Always show
 "set statusline=%n:%F%m%r%h%w\%=[L:\%l\ C:\%c\ A:\%b\ H:\x%B\ P:\%p%%]
 set statusline=%F\ %y\ %m\ %r%h%w\ [\%l,\%c\ \%p%%]
 "set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
- 
-fun! HideMe(window)
-	let ecmd = ""
-	if a:window == "PREV"
-     if bufnr("#") == -1
-		    let ecmd = "e #"
-	   endif
- endif
- if ecmd == ""
-	 let ecmd = "bNext"
- endif
-	exec ecmd
-	exec "bwipeout". " #"
-endfun
 
 cab vtag vertical stag
 
 
-" New Stuff since rhub was made
-
-"SessionOptions {{{1
-"if has ("gui_win32")
-	set sessionoptions+=resize  " Allow sessions to capture full window size on gvim
-	autocmd BufRead,BufNewFile *.vim source %
-	autocmd BufRead,BufNewFile *.vis source %
-"endif
-"}}}1
-
-"GUI Mode {{{1
+"GUI Mode 
 if has("gui_running")
 	"  highlight Type      ctermfg=green
 	"  highlight Statement ctermfg=1
-	"  highlight 
+	"  highlight
 	hi Search guibg=LightBlue
 	set background=light
 	set guioptions-=T "get rid of toolbar
 	set guioptions-=m "get rid of menu
 endif
-"}}}1
 
 
