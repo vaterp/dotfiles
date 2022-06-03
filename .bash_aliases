@@ -25,14 +25,11 @@ EDITOR=vi
 #
 alias tls='tmux list-session'
 alias hu='history -n'  #Merge history from other shells
-alias iptv='sudo iptables -vnL INPUT'
-alias sc='cu -l /dev/ttyS0 -s 9600'
 alias d='diff'
 alias diff='diff -w --side-by-side --suppress-common-lines'
 alias g='grep'
 alias gi='grep -i'
 alias gl='grep -l'
-alias od='od -t x'
 alias vi='vim -O'
 alias writeable='find . -type f -perm -u+w'
 alias exe='find . -type f -perm -u+x'
