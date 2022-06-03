@@ -1,14 +1,8 @@
-" vim: set foldenable foldmethod=marker foldlevel=0:
-
-"Todo {{{1
-"Fix all the folding stuff
-"Using: github.com/naruyan/nar/blobl/master/.vimrc as a template
-"}}}1
-
 "Initiliazation settings {{{1
 set nocompatible     "This must be first
 set autoread         "Reload a file automatically when changed from outside
 set mouse=a          "Let me use the mouse in xterms
+
 "Make VIM behave like show-all-if-ambiguous is set like .inputrc
 set backspace=indent,eol,start		" allow backspacing over everything in insert mode
 set autoindent			" always set autoindenting on
@@ -20,7 +14,6 @@ set ruler		" show the cursor position all the time
 set autowrite   " Auto write files on buffer moves & makes
 set hidden "Let me move around if buffers aren't saved
 set shortmess=a
-"set cmdheight=1  "This seems to be the VIM default now, so dont need.
 set title
 set nowrap "I seem to be preferring this recently
 set shiftwidth=2
@@ -37,15 +30,6 @@ set expandtab     "Tab is now a shortcut to a bunch adding 2 spaces
 set showmatch             "Show matching brackets
 set showcmd               "Show in status bar, in progress commands
 set number                "Turn on line numbering by default
-function! ToggleNumber()
-  if (&relativenumber == 1)
-    set norelativenumber
-    set number
-  else
-    set relativenumber
-  endif
-endfunc
-"set relativenumber "Turn on relative numbering
 syntax on
 "hi CursorLine   cterm=NONE ctermbg=darkred ctermfg=white guibg=darkred guifg=white
 "set cursorline           " Underline current line for easy cursor spotting 
@@ -56,42 +40,14 @@ augroup CursorLine
 augroup END
 
 filetype  plugin indent on      "Load filetype specific indent files and ftplugin settings
-set wildmenu             "Visual autocomplete for command menu
-set wildmode=longest:full,full
-
-"}}}1
-
-"Global Fold settings {{{1{{{
-"set foldopen+=jump
-"nnoremap <silent> <Space> @=(foldlevel('.')?'za':"l")<CR>
-"vnoremap <Space> zf
-
-set foldenable   "enable folding
-set foldlevelstart=10  "open most folds by default
-set foldnestmax=10     "10 nested fold max
-set foldmethod=indent  "fold based on indent level
-"nnoremap <space> za    "space open/closes a fold
-
-"}}}1}}}
 
 
 "Let's play with this a bit and see how i like it....
-autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
+"autocmd BufEnter   * if expand('%:p') !~ '://'  | silent lcd %:p:h | endif
 "autocmd BufWinEnter * if expand("%") != "" | silent loadview | endif
 "autocmd BufWinLeave * if expand("%") != "" | silent mkview! | endif
 
-runtime macros/matchit.vim "matchit ships with vim now
-
-if has ('nvim')
-	set background=light
-  tnoremap <Esc> <C-\><C-n>
-endif
-
-
-"Fugitive setup {{{1
-autocmd BufReadPost fugitive://* set bufhidden=delete  "Stop million buffers when running through hash
-
-"}}}1
+"runtime macros/matchit.vim "matchit ships with vim now
 
 
 "Diff setup {{{1
@@ -108,35 +64,9 @@ let g:netrw_winsize = 30
 "browse_split =4 open in prior window, netrw_altv=1 open splits to right
 "list_hide=netrw_gitignore#Hide() , list_hide.=',\.....'
 
-
-" Toggle Vexplore with Ctrl-E
-function! ToggleVExplorer()
-	if exists("t:expl_buf_num")
-		let expl_win_num = bufwinnr(t:expl_buf_num)
-		if expl_win_num != -1
-			let cur_win_nr = winnr()
-			exec expl_win_num . 'wincmd w'
-			close
-			exec cur_win_nr . 'wincmd w'
-			unlet t:expl_buf_num
-		else
-			unlet t:expl_buf_num
-		endif
-	else
-		exec '1wincmd w'
-		Vexplore
-		let t:expl_buf_num = bufnr("%")
-	endif
-endfunction
-map <silent> <C-E> :call ToggleVExplorer()<CR>
-
-" Change directory to the current buffer when opening files.
-" set autochdir
-"}}}1
-
 " Search Settings {{{1
 set gdefault         "Behave like /g is always set on substitute commands
-set incsearch	     "do incremental searching
+set incsearch        "do incremental searching
 set hlsearch         "Highlight search results
 set matchtime=3
 set ignorecase       "Case insestive searching by default
@@ -219,30 +149,6 @@ nnoremap <expr> dd match(getline('.'),'^$*$') == -1 ? 'dd':'"_dd'
 nnoremap <C-w>+ <C-w><Bar><C-w>_
 
 
-"Buffer Navigation: {{{2
-" ":e <filename>" to make a buffer with that file in it (duh)
-" ",s" and ",f" for back and forth on the buffer list
-" " ",b" for a list of what's in each buffer
-" " ",1", ",2", .. ",9", ",0" to go straight to that numbered buffer (0 = 10)
-" " ",g" to toggle between two buffers (my most used probably)
-nnoremap ,se :e scp://userAThost//pathtofile<C-f>Fu
-nnoremap <silent>,p :bN<CR>
-nnoremap <silent>,n :bn<CR>
-nnoremap <silent>,H :call HideMe("PREV")<CR>
-nnoremap <silent>,h :call HideMe("NEXT")<CR>
-"map ,b :buffers<CR>
-map ,# :e#<CR>
-map ,1 :1b<CR>
-map ,2 :2b<CR>
-map ,3 :3b<CR>
-map ,4 :4b<CR>
-map ,5 :5b<CR>
-map ,6 :6b<CR>
-map ,7 :7b<CR>
-map ,8 :8b<CR>
-map ,9 :9b<CR>
-map ,0 :10b<CR
-"}}}2
 
 "}}}1
 
@@ -316,20 +222,6 @@ autocmd FileType make setlocal noexpandtab
 
 set wildignore=*.o,*~,*.a,*.d
 
-"Compile shortcuts...
-nmap <F2> :ccl <CR>
-nmap <F3> :cp <CR> :normal zv <CR>
-nmap <F4> :cn <CR> :normal zv <CR>
-
-nmap <F5> :ls<cr>:b! #<space>
-nmap <S-F5> :ls!<cr>:b!<space> 
-
-
-set tags=tags;/home/bsnyder/work
-"set tags=$id/tags
-" Nice way of auto centering the current line as i move around.
-"set scrolloff=99999      
-
 "Quick Access File Helpers
 nmap ,v :e ~/.vimrc<CR>
 autocmd! bufwritepost .vimrc source ~/.vimrc
@@ -362,7 +254,7 @@ set laststatus=2 "Always show
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%F%m%r%h%w\%=[L:\%l\ C:\%c\ A:\%b\ H:\x%B\ P:\%p%%]
-set statusline=%F\ %y\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
+set statusline=%F\ %y\ %m\ %r%h%w\ [\%l,\%c\ \%p%%]
 "set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
  
 fun! HideMe(window)
@@ -382,43 +274,7 @@ endfun
 cab vtag vertical stag
 
 
-fun! ShowFuncName() 
-	let lnum = line(".") 
-	let col = col(".") 
-	echohl ModeMsg 
-	echo getline(search("^[^ \t#/]\\{2}.*[^:]\s*$", 'bW')) 
-	echohl None 
-	call search("\\%" . lnum . "l" . "\\%" . col . "c") 
-endfun 
-map ,f :call ShowFuncName() <CR> 
-
-
 " New Stuff since rhub was made
-
-command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)
-function! s:RunShellCommand(cmdline)
-	let isfirst = 1
-	let words = []
-	for word in split(a:cmdline)
-		if isfirst
-			let isfirst = 0  " don't change first word (shell command)
-		else
-			if word[0] =~ '\v[%#<]'
-				let word = expand(word)
-			endif
-			let word = shellescape(word, 1)
-		endif
-		call add(words, word)
-	endfor
-	let expanded_cmdline = join(words)
-	botright new
-	setlocal buftype=nofile bufhidden=wipe nobuflisted noswapfile nowrap
-	call setline(1, 'You entered:  ' . a:cmdline)
-	call setline(2, 'Expanded to:  ' . expanded_cmdline)
-	call append(line('$'), substitute(getline(2), '.', '=', 'g'))
-	silent execute '$read !'. expanded_cmdline
-	1
-endfunction
 
 "SessionOptions {{{1
 "if has ("gui_win32")
