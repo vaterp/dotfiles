@@ -12,11 +12,17 @@ export HISTIGNORE="exit:history"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
 
-shopt -s autocd
-export CDPATH=~:~/work
-FIGNORE='~:.o:.d:.a:CVS'
+if [[ "$OSTYPE" != "darwin23" ]]; then #This doesnt work on MAC bash default version
+  shopt -s autocd
+  export CDPATH=~:~/work
+  FIGNORE='~:.o:.d:.a:CVS'
+  shopt -s globstar #Pattern "**" matches pathnaem expansion
+else #I'm a MAC!
+  PS1='\u@:\w $'
+  alias dtf='cd ~/dotfiles'
+  alias te='open -a TextEdit'
+fi
 
-shopt -s globstar #Pattern "**" matches pathnaem expansion
 unset MAILCHECK
 EDITOR=vi
 
