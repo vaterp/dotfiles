@@ -23,6 +23,17 @@ else #I'm a MAC!
   alias te='open -a TextEdit'
 fi
 
+#unameOut="$(uname -s)"
+#case "${unameOut}" in
+#    Linux*)     machine=Linux;;
+#    Darwin*)    machine=Mac;;
+#    CYGWIN*)    machine=Cygwin;;
+#    MINGW*)     machine=MinGw;;
+#    MSYS_NT*)   machine=Git;;
+#    *)          machine="UNKNOWN:${unameOut}"
+#esac
+#echo ${machine}
+
 unset MAILCHECK
 EDITOR=vi
 
