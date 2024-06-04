@@ -10,3 +10,5 @@ cat | awk '/^Neigh/,EOF' | python3 /Users/bssnyder/dotfiles/process.py > output.
 #echo "**********"
 #tail output.txt
 open -a TextEdit output.txt
+sleep 3
+rm output.txt
