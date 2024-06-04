@@ -6,14 +6,14 @@ export HISTSIZE=2000
 export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
-HISTFILE=~/.history
+HISTFILE=~/.zshhistory
 setopt APPEND_HISTORY
 setopt SHARE_HISTORY
-setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt INC_APPEND_HISTORY
+setopt EXTENDED_HISTORY
 setopt HIST_VERIFY
-
-#Let me put a '#' at the front of a cmd to treat put in history as a comment
-setopt interactivecomments
+setopt interactivecomments #Put a '#' at fron of cmd to push comment into history
 
 
 export EDITOR=vim
@@ -41,18 +41,12 @@ precmd () {print -Pn "\e]0;%n@%m: %~\a"}
 export PAGER=less
 export LESS="-IRMnX"
 
-#CVS Setup....
-#export CVSROOT=unxcvs:/devel/netmodem/cvs/repos
-export CVSROOT=cvs.eng.idirect.net:/repos/netmodem
-export CVS_RSH=ssh
-
 #Current Helpers....
-ulimit -c unlimited
+#ulimit -c unlimited
 
 
 
 #ZSH Specific Stuff...
-
 
 if [ `whoami` = "root" ]; then
 PROMPT='%Broot@%m %~ %h #%b'

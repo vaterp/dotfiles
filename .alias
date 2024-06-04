@@ -17,8 +17,6 @@ alias 'getgithub'='git clone https://github.com/vaterp/dotfiles.git'
 #Aliases
 #
 alias hu='history -n'  #Merge history from other shells
-#alias rs=revset
-alias Ack=ack
 alias ccm='cvs commit -m "CR 28247: '
 alias gsr='gdb /usr/sbin/idirect/sarouter'
 alias iptv='sudo iptables -vnL INPUT'
@@ -53,23 +51,6 @@ function lg {
 grep -Ir --exclude="*~" "$1" *
 #grep -Ir --exclude="*~" --exclude-dir=.git --exclude-dir=CVS "$1" *
 }
-
-function ruleEdit {
-	if [[ -z $1 ]]
-		then
-		echo "Arg1 = id to add ; Arg2 set to l2os32 group"
-	return
-	fi
-
-	GROUP="l2os"
-	if [[ -n $2 ]]
-	then
-	GROUP="l2os32"
-	fi
-	#echo "ruleEdit -a $1 -g $GROUP"
-	ssh cvs "ruleEdit -a $1 -g $GROUP"
-}
-
 
 alias more='less'
 alias l='less'
@@ -191,19 +172,6 @@ alias p='python3'
 
 #The alias doesnt have proper quoting...
 #alias sip2='print -lr ip -o -4 addr  | awk \'{print $2 "  "  $4}\' | grep -v 127.0.0.1'
-
-#
-#OldSchool iDirect stuff...
-#
-lid() { #Show iDirectOldSchool bin builds
- find . -type f -name sada  -ls | cut -d' ' -f3,11-
- find . -type f -name sana  -ls | cut -d' ' -f3,11-
- find . -type f -name sarouter  -ls | cut -d' ' -f3,11-
- find . -type f -name sarmt  -ls | cut -d' ' -f3,11-
-}
-
-alias cvsb='cvs status hpb/sarmt/sarmt.cpp | grep Sticky'
-
 
 #
 #Root Sudo aliases:
