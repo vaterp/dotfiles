@@ -70,6 +70,7 @@ function highlight {
 alias l='less'
 alias pp="pstree -ph"
 alias lla='ls -hartl --color=tty'
+alias cla="clear; ls -hartl --color=tty"
 alias ll='ls -hrtl --color=tty'
 alias ls='ls -hF --color=tty'
 alias du='du -hsc'
