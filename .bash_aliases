@@ -14,8 +14,8 @@ PROMPT_COMMAND='history -a;'
 
 if [[ "$OSTYPE" != "darwin23" ]]; then #This doesnt work on MAC bash default version
   shopt -s autocd
-  export CDPATH=~:~/work
-  FIGNORE='~:.o:.d:.a:CVS'
+  export CDPATH=.:~:~/work
+  FIGNORE='~:.o:.d:.a:'
   shopt -s globstar #Pattern "**" matches pathnaem expansion
 else #I'm a MAC!
   PS1='\u@:\w $'
@@ -69,10 +69,14 @@ function highlight {
 
 alias l='less'
 alias pp="pstree -ph"
+
+#LS aliases
 alias lla='ls -hartl --color=tty'
-alias cla="clear; ls -hartl --color=tty"
 alias ll='ls -hrtl --color=tty'
 alias ls='ls -hF --color=tty'
+alias cl="clear; ll"
+alias cla="clear; lla"
+
 alias du='du -hsc'
 alias df='df -h'
 alias j=jobs
