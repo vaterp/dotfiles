@@ -21,6 +21,7 @@ else #I'm a MAC!
   PS1='\u@:\w $'
   alias dtf='cd ~/dotfiles'
   alias te='open -a TextEdit'
+  alias ls='ls -G' #This shows color for MAC, but not integrated correctly
 fi
 
 #unameOut="$(uname -s)"
