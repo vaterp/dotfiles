@@ -75,7 +75,8 @@ alias pp="pstree -ph"
 alias lla='ls -hartl --color=tty'
 alias ll='ls -hrtl --color=tty'
 alias ls='ls -hF --color=tty'
-alias cl="clear; ll"
+alias cl="clear; ls"
+alias cll="clear; ll"
 alias cla="clear; lla"
 
 alias du='du -hsc'
