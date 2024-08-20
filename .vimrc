@@ -1,4 +1,4 @@
-" vim: set foldenable foldmethod=marker foldlevel=0:
+" vim: set nofoldenable foldmethod=marker foldlevel=0:
 
 "Todo {{{1
 "Fix all the folding stuff
@@ -66,7 +66,7 @@ set wildmode=longest:full,full
 "nnoremap <silent> <Space> @=(foldlevel('.')?'za':"l")<CR>
 "vnoremap <Space> zf
 
-set foldenable   "enable folding
+set nofoldenable   "enable folding
 set foldlevelstart=10  "open most folds by default
 set foldnestmax=10     "10 nested fold max
 set foldmethod=indent  "fold based on indent level
