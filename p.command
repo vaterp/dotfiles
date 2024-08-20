@@ -1,5 +1,5 @@
 #!/bin/bash
-cd Desktop
+cd ~/Desktop
 rm output.txt 2>/dev/null
 
 echo "Paste data:"
