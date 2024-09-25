@@ -12,7 +12,7 @@ export HISTIGNORE="exit:history"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
 
-if [[ "$OSTYPE" != "darwin23" ]]; then #This doesnt work on MAC bash default version
+if [[ "$OSTYPE" != "darwin24" ]]; then #This doesnt work on MAC bash default version
   shopt -s autocd
   export CDPATH=.:~:~/work
   FIGNORE='~:.o:.d:.a:'
