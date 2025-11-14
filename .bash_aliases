@@ -138,3 +138,49 @@ function toptar ()
 alias ipl='ipfw pipe list | grep burst'
 alias ifl='ipfw -a list'
 alias ipw='while true; do clear; ipl | grep 003; echo;echo; ifl | grep 00200; sleep 5;  done'
+
+
+
+#Google Cloud Helpers
+# Google Cloud helpers
+alias wdc='watch docker container ls -all'
+
+alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
+alias dil="docker image ls"
+alias gal="gcloud auth list"
+alias gas="gcloud asset search-all-resources --scope=projects/${GOOGLE_CLOUD_PROJECT}"
+
+export ORGID=271978499843   #This is the bssnyderargolis org id
+#gcloud config set compute/zone us-central1-a > /dev/null
+#echo "Default zone set to us-central1-a"
+alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
+
+alias k='kubectl'
+alias kp='kubectl get pods -owide'
+alias kra='kubectl run -l app=alpineconsolesandbox --image=alpine --rm -i -t --restart=Never alpine-sandbox' #Run a temp pod 
+alias kru='kubectl run -l app=ubuconsolesandbox --image=ubuntu --rm -i -t --restart=Never ubu-sandbox' #Run a temp pod 
+
+kall () {
+	echo "Pods" ; k get pods -owide ; echo
+	echo "Deployments" ; k get deployments; echo
+	echo "Nodes" ; k get nodes; echo
+	echo "SVC" ; k get svc; echo
+}
+
+ke () {
+	pod=${1:-$PN}
+	kubectl exec -ti $pod bash
+}
+kl () {
+	pod=${1:-$PN}
+	kubectl logs $pod
+}
+
+h() {
+	alias | grep kubectl
+	type ke
+	type kl
+	type kall
+}
+
+echo 'dumpasset is the alias for asset export to BQ'
