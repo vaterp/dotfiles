@@ -142,7 +142,6 @@ alias ipw='while true; do clear; ipl | grep 003; echo;echo; ifl | grep 00200; sl
 
 
 #Google Cloud Helpers
-# Google Cloud helpers
 alias wdc='watch docker container ls -all'
 
 alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
