@@ -59,16 +59,16 @@ alias f='find . -type f -print0 | xargs -0 grep'
 alias fw='find . -type f -print0 | xargs -0 grep -w '
 
 #changing these to 'l' instead of 'f' because fc is builtin.
-alias lh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep -n"
-alias lc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep -n"
-alias lhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep -n"
-alias lf="find . -type f -print0 | xargs -0 grep -n"
+#alias lh="find . -regextype posix-egrep -regex '.*\.[h](pp)?' -type f -print0 | xargs -0 grep -n"
+#alias lc="find .  -regextype posix-egrep -regex '.*\.[c](pp)?' -type f -print0 | xargs -0 grep -n"
+#alias lhc="find . -regextype posix-egrep -regex '.*\.[ch](pp)?' -type f -print0 | xargs -0 grep -n"
+#alias lf="find . -type f -print0 | xargs -0 grep -n"
 
 function highlight {
   grep -E "^|.*$1.*"
 }
 
-alias l='less'
+alias l='ls -A'
 alias pp="pstree -ph"
 
 #LS aliases
