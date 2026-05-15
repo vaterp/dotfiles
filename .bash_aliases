@@ -12,7 +12,8 @@ export HISTIGNORE="exit:history"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
 
-echo "I'm running on $OSTYPE"
+HOST=$(uname -n)
+echo "I'm running on $HOST /  $OSTYPE"
 if [[ "$OSTYPE" != "darwin25" ]]; then #This doesnt work on MAC bash default version
   shopt -s autocd
   export CDPATH=.:~:~/work
@@ -110,12 +111,12 @@ function checkGits {
 #Python Helpers
 #
 alias sv="source .venv/bin/activate"
-alias webshare='python -m SimpleHTTPServer 8080'
+alias webshare='python3 -m SimpleHTTPServer 8080'
 alias p='python3'
 
 function repeat() {
   for ((n=0;n<$1;n++))
-  do 
+  do
     eval ${*:2}
     done
   }
@@ -144,16 +145,25 @@ alias iptv='sudo iptables -vnL INPUT'
 #
 #Google Cloud Helpers
 #
-alias wdc='watch docker container ls -all'
 alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
-alias dil="docker image ls"
 alias gal="gcloud auth list"
 alias gas="gcloud asset search-all-resources --scope=projects/${GOOGLE_CLOUD_PROJECT}"
-
 export ORGID=271978499843   #This is the bssnyderargolis org id
 #gcloud config set compute/zone us-central1-a > /dev/null
 #echo "Default zone set to us-central1-a"
 alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
+#echo 'dumpasset is the alias for asset export to BQ'
+
+
+
+#
+#Container Helpers
+#
+
+if [[ "$HOST" != "goterps.c.googlers.com" ]]; then #Not avail on cloudtop
+
+alias wdc='watch docker container ls -all'
+alias dil="docker image ls"
 
 alias k='kubectl'
 alias kp='kubectl get pods -owide'
@@ -161,26 +171,25 @@ alias kra='kubectl run -l app=alpineconsolesandbox --image=alpine --rm -i -t --r
 alias kru='kubectl run -l app=ubuconsolesandbox --image=ubuntu --rm -i -t --restart=Never ubu-sandbox' #Run a temp pod 
 
 kall () {
-	echo "Pods" ; k get pods -owide ; echo
-	echo "Deployments" ; k get deployments; echo
-	echo "Nodes" ; k get nodes; echo
-	echo "SVC" ; k get svc; echo
+  echo "Pods" ; k get pods -owide ; echo
+  echo "Deployments" ; k get deployments; echo
+  echo "Nodes" ; k get nodes; echo
+  echo "SVC" ; k get svc; echo
 }
 
 ke () {
-	pod=${1:-$PN}
-	kubectl exec -ti $pod bash
+  pod=${1:-$PN}
+  kubectl exec -ti $pod bash
 }
 kl () {
-	pod=${1:-$PN}
-	kubectl logs $pod
+  pod=${1:-$PN}
+  kubectl logs $pod
 }
 
 h() {
-	alias | grep kubectl
-	type ke
-	type kl
-	type kall
+  alias | grep kubectl
+  type ke
+  type kl
+  type kall
 }
-
-#echo 'dumpasset is the alias for asset export to BQ'
+fi #End of goterps check
