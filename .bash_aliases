@@ -114,22 +114,24 @@ alias sv="source .venv/bin/activate"
 alias webshare='python3 -m SimpleHTTPServer 8080'
 alias p='python3'
 
-function repeat() {
-  for ((n=0;n<$1;n++))
-  do
-    eval ${*:2}
-    done
-  }
-
 #
 #Root Sudo aliases:
 #
 alias tcpdump='sudo /usr/sbin/tcpdump -ln'
 alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
+#
+#Some Function helpers
+#
 function toptar ()
 {  # Only show top level directories in a tar file
    tar --exclude='*/*' -tf $1
+}
+function repeat() {
+  for ((n=0;n<$1;n++))
+  do
+    eval ${*:2}
+    done
 }
 
 #Linux ipfw helpers
