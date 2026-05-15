@@ -109,7 +109,7 @@ function checkGits {
 #
 #Python Helpers
 #
-alias sv="source $HOME/.local/bin/env"
+alias sv="source .venv/bin/activate"
 alias webshare='python -m SimpleHTTPServer 8080'
 alias p='python3'
 
