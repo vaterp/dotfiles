@@ -195,3 +195,7 @@ h() {
   type kall
 }
 fi #End of goterps check
+
+if [[ "$HOST" == "penguin" ]]; then #this is my chrome desktop
+ m=/mnt/chromeos
+fi
