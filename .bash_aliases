@@ -12,6 +12,7 @@ export HISTIGNORE="exit:history"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
 
+echo "I'm running on $OSTYPE"
 if [[ "$OSTYPE" != "darwin25" ]]; then #This doesnt work on MAC bash default version
   shopt -s autocd
   export CDPATH=.:~:~/work
@@ -43,7 +44,6 @@ EDITOR=vi
 #
 alias tls='tmux list-session'
 alias hu='history -n'  #Merge history from other shells
-alias iptv='sudo iptables -vnL INPUT'
 alias sc='cu -l /dev/ttyS0 -s 9600'
 alias d='diff'
 alias diff='diff -w --side-by-side --suppress-common-lines'
@@ -107,12 +107,9 @@ function checkGits {
 }
 
 #
-#Admin Helpers
+#Python Helpers
 #
-function sip() { #See IpAddress on interfaces
- ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
-}
-
+alias sv="source $HOME/.local/bin/env"
 alias webshare='python -m SimpleHTTPServer 8080'
 alias p='python3'
 
@@ -134,16 +131,20 @@ function toptar ()
    tar --exclude='*/*' -tf $1
 }
 
-#ipfw helpers
+#Linux ipfw helpers
 alias ipl='ipfw pipe list | grep burst'
 alias ifl='ipfw -a list'
 alias ipw='while true; do clear; ipl | grep 003; echo;echo; ifl | grep 00200; sleep 5;  done'
+function sip() { #See IpAddress on interfaces
+ ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
+}
+alias iptv='sudo iptables -vnL INPUT'
 
 
-
+#
 #Google Cloud Helpers
+#
 alias wdc='watch docker container ls -all'
-
 alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
 alias dil="docker image ls"
 alias gal="gcloud auth list"
@@ -182,4 +183,4 @@ h() {
 	type kall
 }
 
-echo 'dumpasset is the alias for asset export to BQ'
+#echo 'dumpasset is the alias for asset export to BQ'
