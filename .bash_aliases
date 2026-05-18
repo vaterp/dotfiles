@@ -73,7 +73,7 @@ alias l='ls -A'
 alias pp="pstree -ph"
 
 #LS aliases
-alias lla='ls -hartl --color=tty'
+alias lla='ls -hArtl --color=tty'
 alias ll='ls -hrtl --color=tty'
 alias ls='ls -hF --color=tty'
 alias cl="clear; ls"
