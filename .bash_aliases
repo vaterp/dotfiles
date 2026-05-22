@@ -8,7 +8,7 @@ export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines 
 #shopt -u mailwarn
 
 #these were in my own .bashrc but not sysdefaults
-export HISTIGNORE="exit:history"
+export HISTIGNORE="exit:history:ls:l:clear:cls"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
 
