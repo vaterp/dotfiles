@@ -18,6 +18,7 @@ if [[ "$OSTYPE" != "darwin25" ]]; then #This doesnt work on MAC bash default ver
   shopt -s autocd
   export CDPATH=.:~:~/work
   FIGNORE='~:.o:.d:.a:'
+  export BAT_THEME="ansi"
   shopt -s globstar #Pattern "**" matches pathnaem expansion
 else #I'm a MAC!
   PS1='\u@:\w $'
@@ -69,13 +70,14 @@ function highlight {
   grep -E "^|.*$1.*"
 }
 
-alias l='ls -A'
 alias pp="pstree -ph"
 
 #LS aliases
-alias lla='ls -hArtl --color=tty'
-alias ll='ls -hrtl --color=tty'
-alias ls='ls -hF --color=tty'
+alias l='ls'
+alias la='ls -A'
+alias lla='ls -hArtl --color=auto'
+alias ll='ls -hrtl --color=auto'
+alias ls='ls -hF --color=auto'
 alias cl="clear; ls"
 alias cll="clear; ll"
 alias cla="clear; lla"
