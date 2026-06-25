@@ -19,7 +19,7 @@ if [[ "$OSTYPE" != "darwin25" ]]; then #This doesnt work on MAC bash default ver
   export CDPATH=.:~:~/work
   FIGNORE='~:.o:.d:.a:'
   export BAT_THEME="ansi"
-  alias cat='bat'
+  alias cat='bat --paging=never'
   shopt -s globstar #Pattern "**" matches pathnaem expansion
 else #I'm a MAC!
   PS1='\u@:\w $'
