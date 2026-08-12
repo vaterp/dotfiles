@@ -19,6 +19,9 @@ if [[ "$OSTYPE" != "darwin25" ]]; then #This doesnt work on MAC bash default ver
   export CDPATH=.:~:~/work
   FIGNORE='~:.o:.d:.a:'
   export BAT_THEME="ansi"
+  #export BAT_THEME="auto"
+  #export BAT_THEME="TwoDark"
+  #export BAT_THEME="GitHub"
   alias cat='bat --paging=never'
   shopt -s globstar #Pattern "**" matches pathnaem expansion
 else #I'm a MAC!
@@ -153,6 +156,7 @@ alias iptv='sudo iptables -vnL INPUT'
 alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
 alias gal="gcloud auth list"
 alias gas="gcloud asset search-all-resources --scope=projects/${GOOGLE_CLOUD_PROJECT}"
+alias gcl="gcloud config list"
 export ORGID=271978499843   #This is the bssnyderargolis org id
 #gcloud config set compute/zone us-central1-a > /dev/null
 #echo "Default zone set to us-central1-a"
