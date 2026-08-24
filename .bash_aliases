@@ -11,6 +11,7 @@ export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines 
 export HISTIGNORE="exit:history:ls:l:clear:cls"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
+# (Too slow) PROMPT_COMMAND='history -a;proj=$(gcloud config get-value core/project 2>/dev/null)'
 
 HOST=$(uname -n)
 echo "I'm running on $HOST /  $OSTYPE"
