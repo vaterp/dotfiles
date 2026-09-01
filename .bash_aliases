@@ -122,12 +122,6 @@ alias webshare='python3 -m SimpleHTTPServer 8080'
 alias p='python3'
 
 #
-#Root Sudo aliases:
-#
-alias tcpdump='sudo /usr/sbin/tcpdump -ln'
-alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
-
-#
 #Some Function helpers
 #
 function toptar ()
@@ -141,14 +135,18 @@ function repeat() {
     done
 }
 
-#Linux ipfw helpers
-alias ipl='ipfw pipe list | grep burst'
-alias ifl='ipfw -a list'
-alias ipw='while true; do clear; ipl | grep 003; echo;echo; ifl | grep 00200; sleep 5;  done'
-function sip() { #See IpAddress on interfaces
- ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
-}
-alias iptv='sudo iptables -vnL INPUT'
+#
+#Linux ipfw helpers (networking stuff, don't need these now)
+#
+#alias ipl='ipfw pipe list | grep burst'
+#alias ifl='ipfw -a list'
+#alias ipw='while true; do clear; ipl | grep 003; echo;echo; ifl | grep 00200; sleep 5;  done'
+#function sip() { #See IpAddress on interfaces
+ #ip -o -4 addr  | awk '{print $2 "  "  $4}' | grep -v 127.0.0.1
+#}
+#alias iptv='sudo iptables -vnL INPUT'
+#alias tcpdump='sudo /usr/sbin/tcpdump -ln'
+#alias tftpd='sudo   /sbin/in.tftpd --foreground -vvvv -p -c -s /tmp/tftpboot'
 
 
 #
