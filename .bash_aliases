@@ -11,37 +11,27 @@ export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines 
 export HISTIGNORE="exit:history:ls:l:clear:cls"
 shopt -s histverify #Allow for verification with a substituted history expansion
 PROMPT_COMMAND='history -a;'
-# (Too slow) PROMPT_COMMAND='history -a;proj=$(gcloud config get-value core/project 2>/dev/null)'
 
 HOST=$(uname -n)
-echo "I'm running on $HOST /  $OSTYPE"
-if [[ "$OSTYPE" != "darwin25" ]]; then #This doesnt work on MAC bash default version
-  shopt -s autocd
-  export CDPATH=.:~:~/work
-  FIGNORE='~:.o:.d:.a:'
-  export BAT_THEME="ansi"
-  #export BAT_THEME="auto"
-  #export BAT_THEME="TwoDark"
-  #export BAT_THEME="GitHub"
-  alias cat='bat --paging=never'
-  shopt -s globstar #Pattern "**" matches pathnaem expansion
-else #I'm a MAC!
-  PS1='\u@:\w $'
-  alias dtf='cd ~/dotfiles'
-  alias te='open -a TextEdit'
-  alias ls='ls -G' #This shows color for MAC, but not integrated correctly
-fi
+echo "I'm running on $HOST /  $OSTYPE / $BASH_VERSION"
 
-#unameOut="$(uname -s)"
-#case "${unameOut}" in
-#    Linux*)     machine=Linux;;
-#    Darwin*)    machine=Mac;;
-#    CYGWIN*)    machine=Cygwin;;
-#    MINGW*)     machine=MinGw;;
-#    MSYS_NT*)   machine=Git;;
-#    *)          machine="UNKNOWN:${unameOut}"
-#esac
-#echo ${machine}
+#Default bash on mac doesnt support below, but just install homebrew
+shopt -s autocd
+export CDPATH=.:~:~/work
+FIGNORE='~:.o:.d:.a:'
+export BAT_THEME="ansi"
+#export BAT_THEME="auto"
+#export BAT_THEME="TwoDark"
+#export BAT_THEME="GitHub"
+alias cat='bat --paging=never'
+shopt -s globstar #Pattern "**" matches pathnaem expansion
+
+#Only for MAC
+if [[ $(uname -s) == "Darwin" ]]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+  PS1='\u@\h:\w $'
+  alias te='open -a TextEdit'
+fi
 
 unset MAILCHECK
 EDITOR=vi
@@ -152,14 +142,14 @@ function repeat() {
 #
 #Google Cloud Helpers
 #
-alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
-alias gal="gcloud auth list"
-alias gas="gcloud asset search-all-resources --scope=projects/${GOOGLE_CLOUD_PROJECT}"
-alias gcl="gcloud config list"
-export ORGID=271978499843   #This is the bssnyderargolis org id
+#alias dumpasset="gcloud config set project bssnyderargolis1;gcloud asset export --organization=271978499843 --bigquery-table=projects/bssnyderargolis1/datasets/asset_inventory/tables/asset_table_`date +"%b%d_%Y"`"
+#alias gal="gcloud auth list"
+#alias gas="gcloud asset search-all-resources --scope=projects/${GOOGLE_CLOUD_PROJECT}"
+#alias gcl="gcloud config list"
+#export ORGID=271978499843   #This is the bssnyderargolis org id
 #gcloud config set compute/zone us-central1-a > /dev/null
 #echo "Default zone set to us-central1-a"
-alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
+#alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -H "Content-Type: application/json"'
 #echo 'dumpasset is the alias for asset export to BQ'
 
 
@@ -167,16 +157,13 @@ alias gcurl='curl -H "Authorization: Bearer $(gcloud auth print-access-token)" -
 #
 #Container Helpers
 #
-
-if [[ "$HOST" != "goterps.c.googlers.com" ]]; then #Not avail on cloudtop
-
 alias wdc='watch docker container ls -all'
 alias dil="docker image ls"
 
 alias k='kubectl'
 alias kp='kubectl get pods -owide'
-alias kra='kubectl run -l app=alpineconsolesandbox --image=alpine --rm -i -t --restart=Never alpine-sandbox' #Run a temp pod 
-alias kru='kubectl run -l app=ubuconsolesandbox --image=ubuntu --rm -i -t --restart=Never ubu-sandbox' #Run a temp pod 
+alias kra='kubectl run -l app=alpineconsolesandbox --image=alpine --rm -i -t --restart=Never alpine-sandbox' #Run a temp pod
+alias kru='kubectl run -l app=ubuconsolesandbox --image=ubuntu --rm -i -t --restart=Never ubu-sandbox' #Run a temp pod
 
 kall () {
   echo "Pods" ; k get pods -owide ; echo
@@ -200,7 +187,6 @@ h() {
   type kl
   type kall
 }
-fi #End of goterps check
 
 if [[ "$HOST" == "penguin" ]]; then #this is my chrome desktop
  m=/mnt/chromeos
