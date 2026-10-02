@@ -2,12 +2,19 @@
 
 #Setup my main files
 ln -s dotfiles/.inputrc
-ln -s dotfiles/.tmux.conf 
+ln -s dotfiles/.tmux.conf
 ln -s dotfiles/.gitconfig
 ln -s dotfiles/.gitignore
-ln -s dotfiles/.bash_aliases
 ln -s dotfiles/.vimrc
 ln -s dotfiles/.vim/
+
+#Only for MAC
+if [[ $(uname -s) == "Darwin" ]]; then
+  ln -s dotfiles/.bash_aliases .bashrc
+  ln -s dotfiles/.bash_aliases .bash_profile
+else
+    ln -s dotfiles/.bash_aliases
+fi
 
 #
 #UBU ONLY, just cut and paste the following:
@@ -40,4 +47,3 @@ ln -s dotfiles/.vim/
 
 #If desktop resolution not working, might want to run this command:
 #service open-vm-tools restart
-
