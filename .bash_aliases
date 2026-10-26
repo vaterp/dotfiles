@@ -187,7 +187,3 @@ h() {
   type kl
   type kall
 }
-
-if [[ "$HOST" == "penguin" ]]; then #this is my chrome desktop
- m=/mnt/chromeos
-fi
