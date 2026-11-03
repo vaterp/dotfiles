@@ -1,6 +1,6 @@
 #This is because of work account is separate git setup, so i set the user/email in local repo config
-[includeIf "gitdir:~/dotfiles/"]
-  path = ~/dotfiles/.personal.git
+#[includeIf "gitdir:~/dotfiles/"]
+# path = ~/dotfiles/.personal.git
 #[user]
 #  name = Brian Snyder
 # email = brian.snyder@gmail.com
