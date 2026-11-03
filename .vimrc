@@ -89,7 +89,7 @@ endif
 
 
 "Fugitive setup {{{1
-autocmd BufReadPost fugitive://* set bufhidden=delete  "Stop million buffers when running through hash
+"autocmd BufReadPost fugitive://* set bufhidden=delete  "Stop million buffers when running through hash
 
 "}}}1
 
@@ -362,7 +362,8 @@ set laststatus=2 "Always show
 "set statusline=%<\ %n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%f\ %m%r%y%=%-35. (line: \ %1\ of \ %L,\ col:\ %c%V\ (%P)%)
 "set statusline=%n:%F%m%r%h%w\%=[L:\%l\ C:\%c\ A:\%b\ H:\x%B\ P:\%p%%]
-set statusline=%F\ %y\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
+set statusline=%F\ %y\ %m\ %r%h%w\ [\%l,\%c\ \%p%%]
+"set statusline=%F\ %y\ %m\ %r%h%w\ %{fugitive#statusline()}%=\%n\ [\%l,\%c\ \%p%%]
 "set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
  
 fun! HideMe(window)

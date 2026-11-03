@@ -28,7 +28,7 @@ shopt -s globstar #Pattern "**" matches pathnaem expansion
 
 #Only for MAC
 if [[ $(uname -s) == "Darwin" ]]; then
-  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/Users/brian.snyder/.local/bin:/opt/homebrew/bin:$PATH"
   PS1='\u@\h:\w $'
   alias te='open -a TextEdit'
 fi

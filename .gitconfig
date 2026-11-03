@@ -1,12 +1,10 @@
-[user]
-	name = Brian Snyder
-	email = brian.snyder@gmail.com
+[includeIf "gitdir:~/dotfiles/"]
+  path = ~/dotfiles/.personal.git
 
 [core]
 	editor = vim
 #editor = vim -pc ':normal gg'
 #whitespace = trailing-space,space-before-tab
-	
 	pager  = less -eiFRX	
 	excludesfile = ~/.gitignore
 
