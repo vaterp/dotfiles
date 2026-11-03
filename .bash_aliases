@@ -5,6 +5,9 @@ echo "I'm running on $HOST /  $OSTYPE / $BASH_VERSION"
 #Bash Setup
 #
 bind Space:magic-space #Expand History Commands with space
+bind "\C-g":glob-expand-word #Expand any '*'s inline
+bind "\C-f":shell-expand-line #Expand Line, aliases, etc.
+
 export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines starting with space in history
 export HISTIGNORE="exit:history:ls:l:clear:cls"
 #HISTSIZE=1000
