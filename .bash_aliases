@@ -4,9 +4,16 @@ echo "I'm running on $HOST /  $OSTYPE / $BASH_VERSION"
 #
 #Bash Setup
 #
+
+#Readline (could be in .inputrc)
 bind Space:magic-space #Expand History Commands with space
 bind "\C-g":glob-expand-word #Expand any '*'s inline
 bind "\C-f":shell-expand-line #Expand Line, aliases, etc.
+#bind "\C-i":complete
+bind "set menu-complete-display-prefix on"
+bind "set show-all-if-ambiguous on"
+bind "set show-all-if-unmodified on"
+bind '"\t":menu-complete'
 
 export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines starting with space in history
 export HISTIGNORE="exit:history:ls:l:clear:cls"
@@ -22,7 +29,7 @@ shopt -s histverify #Allow for verification with a substituted history expansion
 shopt -s autocd
 shopt -s globstar #Pattern "**" matches pathnaem expansion
 
-export CDPATH=.:~:~/work
+#export CDPATH=.:~:~/work
 FIGNORE='~:.o:.d:.a:'
 export BAT_THEME="ansi"
 
@@ -117,3 +124,12 @@ function highlight {
 #
 alias wdc='watch docker container ls -all'
 alias dil="docker image ls"
+
+
+#
+# DataDog Helpers
+#
+
+dd="/opt/datadog-agent"                   #datadogdirectory (on mac at least)
+dc="/opt/datadog-agent/etc/datadog.yaml"  #The configuration file
+dl="/opt/datadog-agent/logs"              #Datadog log directory
