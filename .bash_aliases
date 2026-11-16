@@ -13,6 +13,7 @@ bind "\C-f":shell-expand-line #Expand Line, aliases, etc.
 bind "set menu-complete-display-prefix on"
 bind "set show-all-if-ambiguous on"
 bind "set show-all-if-unmodified on"
+bind "set match-hidden-files off"  #I really like this with cdpath
 bind '"\t":menu-complete'
 
 export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines starting with space in history
@@ -29,7 +30,7 @@ shopt -s histverify #Allow for verification with a substituted history expansion
 shopt -s autocd
 shopt -s globstar #Pattern "**" matches pathnaem expansion
 
-#export CDPATH=.:~:~/work
+export CDPATH=.:~:
 FIGNORE='~:.o:.d:.a:'
 export BAT_THEME="ansi"
 
