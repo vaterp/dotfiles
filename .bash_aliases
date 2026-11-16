@@ -44,6 +44,7 @@ fi
 #
 #General Aliases
 #
+alias dpg='declare -p | grep " -- "' #Show all local vars in the shell
 alias cat='bat --paging=never'
 alias tls='tmux list-session'
 alias hu='history -n'  #Merge history from other shells
