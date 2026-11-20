@@ -49,7 +49,7 @@ alias cat='bat --paging=never'
 alias tls='tmux list-session'
 alias hu='history -n'  #Merge history from other shells
 alias sc='cu -l /dev/ttyS0 -s 9600'
-alias d='diff'
+#alias d='diff'
 alias diff='diff -w --side-by-side --suppress-common-lines'
 alias g='grep'
 alias gi='grep -i'
@@ -129,9 +129,18 @@ alias dil="docker image ls"
 
 
 #
-# DataDog Helpers
+# DataDog Setup
 #
 
-dd="/opt/datadog-agent"                   #datadogdirectory (on mac at least)
-dc="/opt/datadog-agent/etc/datadog.yaml"  #The configuration file
-dl="/opt/datadog-agent/logs"              #Datadog log directory
+if [[ $(uname -s) == "Darwin" ]]; then #For My MAC
+    d="/opt/datadog-agent"
+    alias se21='ssh ec2-1'
+    alias se22='ssh ec2-2'
+else #For Linux (AWS)
+    d="/etc/datadog-agent"
+    alias rdd='sudo systemctl restart datadog-agent'
+    alias dd='sudo datadog-agent'
+fi
+
+dc="$d/etc/datadog.yaml"  #The configuration file
+dl="$d/logs"              #Datadog log directory
