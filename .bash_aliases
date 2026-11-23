@@ -2,10 +2,8 @@ HOST=$(uname -n)
 echo "I'm running on $HOST /  $OSTYPE / $BASH_VERSION"
 
 #
-#Bash Setup
-#
-
 #Readline (could be in .inputrc)
+#
 bind Space:magic-space #Expand History Commands with space
 bind "\C-g":glob-expand-word #Expand any '*'s inline
 bind "\C-f":shell-expand-line #Expand Line, aliases, etc.
@@ -17,7 +15,7 @@ bind "set match-hidden-files off"  #I really like this with cdpath
 bind '"\t":menu-complete'
 
 export HISTCONTROL="ignoreboth:erasedups"   #Don't put duplicate lines or lines starting with space in history
-export HISTIGNORE="exit:history:ls:l:clear:cls"
+export HISTIGNORE="exit:history:ls:ll:pwd:l:clear:cls"
 #HISTSIZE=1000
 #HISTFILESIZE=1000
 #PROMPT_COMMAND+=( 'history -a') #write it right away
@@ -121,6 +119,7 @@ function repeat() {
 function highlight {
   grep -E "^|.*$1.*"
 }
+
 #
 #Docker Helpers
 #
