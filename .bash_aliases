@@ -135,6 +135,7 @@ if [[ $(uname -s) == "Darwin" ]]; then #For My MAC
     d="/opt/datadog-agent"
     alias se21='ssh ec2-1'
     alias se22='ssh ec2-2'
+    alias dd='datadog-agent' #I dont use dd app on mac anyway
 else #For Linux (AWS)
     d="/etc/datadog-agent"
     alias rdd='sudo systemctl restart datadog-agent'
